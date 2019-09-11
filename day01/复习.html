@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box">huy8</div>
+    <script>
+        /*
+        1、基本数据类型（值类型）
+            string、number、boolean、null、undefined
+        引用数据类型
+            {}、[]、function 、正则、Date
+        基本数据类型是值操作，引用数据类型是操作地址的
+        2、 typeof  Object.prototype.toString.call() = '[object 类型]'
+        typeof typeof 2 =>'string'
+
+        3、创建变量的方式
+            var let const function // class import
+            var 可以重复声明
+            let const 都是不可以重复声明的
+            const  声明的常量  变量对应的值不可变
+        4、parseFloat 从左向右看，只要碰到非数字就停，若首个字母是非数字就是NaN
+            NaN == NaN //false //自己跟自己都不相等
+            isNaN(xxx); //true ，代表xxx是NaN  计算过程：先用Number把xxx强制类型转换成数字类型，然后再判断
+
+            isNaN([]);//false
+            isNaN({});//true
+            isNaN(1);//false
+        5、for 循环中的
+            continue  结束本次循环，继续下次循环
+            break   结束整个循环，类似于函数的return
+        6、数组末尾添加项
+            ary.push(100);
+            ary.splice(n,m,x,y,z,....)//从索引n删除m个，用x,y,z,....替换删除的m项
+            ary.splice(ary.length-1,0,100)//在最后一项的后边添加100
+            ary[ary.length] = 100;
+        7、sort排序 返回值：改变后的原有数组
+
+        8、
+        字符串的所有方法都不改变原有字符串
+        9、replace的方法
+            time.replace('-','/').replace('-','/');
+            time.replace(/-/g,'-');
+        10、
+        14、
+            document.body  获取body元素
+            
+
+        16、数据类型比较
+            []==[] //引用数据类型之间比较的是地址
+            ![] == [] //  false ==[]  0==0 true
+            '123' ==[123]
+            1 == [1] 
+        17、定时器
+            var timer = setTimeout
+            var timer = setInterval
+            clearTimeout()
+            clearInterval
+
+        19、复制数组
+            ary.slice()
+            ary.slice(0)
+            ary.concat([])
+            for
+            forEach
+            map ary.map(a=>a)
+
+            map和forEach 不改变元素组，但是引用类型会改
+            var a = [{name:123},{name:234},{name:567}]
+            a.map(item=>item.name=999)
+
+        20、
+        a||b  前边成立给前边，前边不成立给后边
+        a&&b  前边成立给后边，前边不成立给前边
+         
+        */ 
+
+        function getType(a) {
+            var str = Object.prototype.toString.call(a); // 获取数据类型字符串
+            // 再从该字符串中截取我们要的字符串
+            var str2 = str.slice(8, str.length - 1); // 首字母都是大写 需要变成小写；
+            return str2.toLowerCase();
+        }
+        getType('') // 'string'
+        getType(1) // 'number'
+        getType([]) // 'array'
+
+        function myIsNaN(n){
+            var m = Number(n);
+            if(m+'' == 'NaN'){
+                return true;
+            }
+            return false;
+        }
+
+        function sum(){
+            //arguments实参集合
+            var total = 0;
+            for(var i = 0;i<arguments.length;i++){
+                var temp = arguments[i];
+                // if(!NaN(temp)){
+                //     total += temp*1;
+                // }
+                if(typeof temp === 'number'&& !isNaN(temp))
+                {   //必须数字，还不能是NaN
+                    total += temp;
+                }
+            }
+            return total;
+        }
+        var total = sum(10,20,'30','珠峰','40');
+        console.log(total);
+
+
+        //获取url上的参数
+        function queryURLParameter(url){
+            var str = url.split('?')[1];
+            var ary = str.split('#');
+            var hash =ary[1];
+            var str2 = ary[0];
+            var ary2 = str2.split('&');
+            var obj = {};
+            ary2.forEach(item => {
+                var ary3 = item.split('=');
+                obj[ary3[0]] = ary3[1];
+            });
+            obj.HASH = hash;
+            return obj;
+        }
+        let str = 'http://www.zhufengpeixun.com/stu/?name=zxt&age=28&sex=0#teacher';
+        let result = queryURLParameter(str);
+        console.log(result);
+
+
+        //验证码
+        //随机数  元素的操作
+        //现有一个字符串  大小写字母 和数字  62个字符；
+        //随机范围 0~61 把获取到的数字当做了 大字符串的索引
+
+        function getStr(){
+            var str = '0123456789jingbanufnb';
+            var s = '';
+            while(s.length<4){
+                let n = Math.round(Math.random()*str.length)
+                if(s.indexOf(str[n]) != -1){
+                    s += str[n] ;
+                }                      
+            }
+            return s;
+        }
+        box.onclick = function (){
+            this.innerHTML = getStr();
+        }
+        console.log(getStr());
+    </script>
+</body>
+
+</html>
