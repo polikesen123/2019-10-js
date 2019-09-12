@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        alert(a); //undefined
+        console.log("a" in window); //true
+        if (!("a" in window)) {
+            var a = 10;
+        }
+        alert(a); //undefined
+
+        console.log(fn); //undefined
+        if (9 == 8) {
+            function fn() {
+                alert(2);
+            }
+        }
+    </script>
+</body>
+
+</html>

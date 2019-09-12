@@ -40,20 +40,22 @@ console.log(n)
 
 
 //----------------------------------------------------
-alert(a);
-console.log("a" in window);
+// a fn
+alert(a);//undefined
+console.log("a" in window); //true
 if (!("a" in window)) {
     var a = 10;
 }
-alert(a);
+alert(a);//undefined
 
-console.log(fn);
+console.log(fn); //undefined
 if (9 == 8) {
     function fn() {
         alert(2);
     }
 }
 //    ---------------------------------
+//f g
 f = function () {
     return true
 };
@@ -61,7 +63,8 @@ g = function () {
     return false
 };
 (function () {
-    console.log(g);
+    //f g
+    console.log(g);//undefined
     if (g() && [] == ![]) {
         f = function f() {
             return false
@@ -72,12 +75,11 @@ g = function () {
         return true
     };
 })();
-alert(f());
-alert(g())
+alert(f());//false
+alert(g());//true
 
 // ==========================================
-var x = 5/6/7/8
-
+var x = 5 //6 7 8
 function fn() {
     return function (y) {
         console.log(y + (++x));
@@ -87,7 +89,7 @@ var f = fn(6);
 f(7);//13
 fn(8)(9);//16
 f(10);//18
-console.log(x);8
+console.log(x);//8
 
 //================================================
 var x = 0,//2 1
