@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var a = 1;
+        var obj = {
+            "name": "tom"
+        }
+
+        function fn() {
+            var a2 = a;//a2=1
+            obj2 = obj;
+            a2 = a;
+            obj2.name = "jack";
+        }
+        fn();
+        console.log(a);//1
+        console.log(obj);//{'name':'jack'};
+    </script>
+</body>
+
+</html>

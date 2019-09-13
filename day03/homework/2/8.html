@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // fullName  obj test
+        //
+        var fullName = 'language';
+        var obj = {
+            fullName: 'javascript',
+            prop: {
+                getFullName: function () {
+                    return this.fullName;
+                }
+            }
+        };
+        console.log(obj.prop.getFullName());//'javascript'  //***this指向prop,prop没有fullName这个属性，所以是undefined
+        var test = obj.prop.getFullName;
+        console.log(test());//'language'//this指向window
+
+        //输出结果：undefined  'language'
+    </script>
+</body>
+
+</html>

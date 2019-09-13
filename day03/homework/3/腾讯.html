@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="btnBox">
+        <input type="button" value="button_1" />
+        <input type="button" value="button_2" />
+        <input type="button" value="button_3" />
+        <input type="button" value="button_4" />
+        <input type="button" value="button_5" />
+    </div>
+
+    <script type="text/javascript">
+     /*
+        1、以下代码的功能是要实现为5个input按钮循环绑定click点击事件，绑定完成后点击1、2、3、4、5五个按钮分别会alert输出0、1、2、3、4五个字符。（腾讯）
+
+        请问如下代码是否能实现？
+
+        如果不能实现那么现在的效果是什么样的？
+
+        应该做怎样的修改才能达到我们想要的效果，并说明原理？
+        */
+        var btnBox = document.getElementById('btnBox'),
+            inputs = btnBox.getElementsByTagName('input');
+        var l = inputs.length;
+        for (var i = 0; i < l; i++) {
+            inputs[i].index = i;
+            inputs[i].onclick = function () {
+                alert(this.index);
+            }
+        }
+    /*
+        1.代码不能实现功能需求  不管点击哪个按钮弹出的都是5
+        
+    */ 
+    </script>
+</body>
+
+</html>

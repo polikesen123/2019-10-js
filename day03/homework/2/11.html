@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var foo = {
+            bar: function () {
+                console.log(this);
+            }
+        };
+        foo.bar();//{}
+        (foo.bar)();//虽然是自执行函数  但是函数执行时前面有主
+
+        //输出结果  {}  {}
+    </script>
+</body>
+
+</html>
