@@ -165,6 +165,7 @@ obj.fn = (function (x) {//x=2 3
         console.log(x);//6
     }
 })(obj.x);
+
 var fn = obj.fn;
 obj.fn(2);//y=2 x=3+2->5 6
 fn(1);//y=1 x=3+1=4 
