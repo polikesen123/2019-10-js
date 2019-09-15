@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //n a 
+        var n = 5;
+
+        function a(n) { //n=5        b
+            n++; //6
+            n = 10;
+            b();
+
+            function b() {
+                n++; //11
+                alert(n); //11
+            };
+        }
+        a(); //11
+        alert(n); //5
+    </script>
+</body>
+
+</html>
