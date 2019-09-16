@@ -29,6 +29,7 @@ var a = c = function () {
     console.log(2)
 };
 a(); //2
+// c();
 function a() {
     console.log(1)
 };

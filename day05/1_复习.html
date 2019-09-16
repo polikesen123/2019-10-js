@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    'use strict'//严格模式
+    /*
+        变量提升
+        浏览器垃圾回收机制：
+            堆内存：谷歌 定期清除 火狐  计数
+            栈内存：私有作用域的销毁：返回值是引用数据类型或者由外部占用函数内部某些内容，这个栈内存就不会被销毁
+            window.open(http://www.baidu.com)//打开页面  不支持异步
+            window.location.href='http://www.baidu.com' 在本页面打开新页面
+        全局作用域
+        私有作用域
+        块级作用域
+        作用域链：变量的查找机制 scope chain
+    */ 
+        // for(var i=0;i<10;i++){
+        //     window.location.href='http://www.baidu.com'
+        // }
+        let a = 100;
+        function f(){
+            console.log(a);
+            let a= 123;
+        }
+        var ary = [f];
+        var f2 = f;
+        ary[0] = 0;
+
+        if(1>2){
+            function fn(){
+                //在if条件句中的fn只声明不定义
+            }
+        }
+//*********************************
+        function f(){
+            a=123;
+        }
+        f();
+        console.log(a);//123
+//**********************************
+    </script>
+</body>
+</html>

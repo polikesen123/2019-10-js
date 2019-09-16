@@ -18,7 +18,7 @@
     </div>
 
     <script type="text/javascript">
-     /*
+        /*
         1、以下代码的功能是要实现为5个input按钮循环绑定click点击事件，绑定完成后点击1、2、3、4、5五个按钮分别会alert输出0、1、2、3、4五个字符。（腾讯）
 
         请问如下代码是否能实现？
@@ -28,18 +28,39 @@
         应该做怎样的修改才能达到我们想要的效果，并说明原理？
         */
         var btnBox = document.getElementById('btnBox'),
-            inputs = btnBox.getElementsByTagName('input');
+            inputs = btnBox.querySelectorAll('input');
         var l = inputs.length;
-        for (var i = 0; i < l; i++) {
-            inputs[i].index = i;
-            inputs[i].onclick = function () {
-                alert(this.index);
+        // for (var i = 0; i < l; i++) {
+        //     (function (i) {
+        //         console.log(i);
+        //         inputs[i].onclick = function () {
+        //             alert(i);
+        //         }
+        //     })(i)
+        //     // inputs[i].index = i;
+        // }
+        // for(var i = 0;i<inputs.length;i++){
+        //     f(i);
+        // }
+        // function f(i){
+        //     inputs[i].onclick = function (){
+        //         alert(i);
+        //     }
+        // };
+        inputs.forEach((item,index)=>{
+            item.onclick = function() {
+                alert(index);
             }
+        })
+        for(var i = 0;i<inputs.length;i++){
+            inputs[i].onclick = (function(){
+                
+            })()
         }
-    /*
-        1.代码不能实现功能需求  不管点击哪个按钮弹出的都是5
-        
-    */ 
+        /*
+            1.代码不能实现功能需求  不管点击哪个按钮弹出的都是5
+            
+        */
     </script>
 </body>
 
