@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        面向对象：一种思想
+        类            实例
+        人类          小明 
+        JS中的内置类：Array String Number Function RegExp Date Object...
+                    []  、''、1  f  /-/   {}
+        字面量  var ary = []
+        构造函数  var ary = new Array()  对象
+        万物皆对象 可对可错
+        基本类型可以加属性 ，只是加上了又自动清除了  所以万物皆对象
+        null  undefined没有属性和方法
+
+        自定义类 function A(){}
+        自定义类的实例只能通过new 的方式创建
+
+        JS 中常见的设计模式
+            单例模式
+            高级单例模式
+            工厂模式
+            构造函数模式
+            原型模式
+*/
+        //单例模式 命名空间  单例库 工具库
+        var obj = {
+            name: 123,
+            age: 10
+        }
+        //高级单例  闭包  比普通单例多了隐私空间
+        var obj2 = (function () {
+            var name = 123;
+            var age = 10;
+
+            function f() {
+                console.log(name, age)
+            }
+
+            function changeAge(n) {
+                age = n;
+            }
+            return {
+                name,
+                age,
+                f,
+                changeAge
+            }
+        })()
+        obj2.name = 666;
+        obj2.changeAge(100);
+        obj2.f();
+        console.log(obj2.name,obj.age);
+        //工厂模式  批量产生单例
+        function factory(name, age) {
+            var obj = {
+                name,
+                age,
+                eat() {},
+                play() {},
+            }
+            return obj;
+        }
+        //构造函数模式 eslint
+        function Person(name, age) {
+            //this是当前创建的实例
+            this.name = name;
+            this.age = age;
+            this.eat = function () {}
+            this.play = function () {}
+        }
+        var p1 = new Person('小明', 100) //p1是Person类的一个实例
+        console.log(p1);
+        //通过new执行函数时。函数中的this就是当前创建的实例，所以返回的就是this（当前创造的实例）
+
+        //es6  class创建的类只能通过new的方式执行
+        class Man {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+
+        }
+        //原型模式 在构造函数的基础上增加一个 原型 prototype ;原型模式其实就是一个堆内存
+        function Woman(name, age) {
+            //this是当前创建的实例
+            this.name = name;
+            this.age = age;
+        }
+        Woman.prototype.eat = function () {
+            console.log('吃')
+        }
+        Woman.prototype.play = function () {
+            console.log('玩')
+        }
+        var w1 = new Woman('小红', 10);
+        var w2 = new Woman('小花', 8);
+        w1.eat === w2.eat; //实例 会通过_proto_去访问所属类的原型
+
+        //作用域链 变量的查找机制
+        //原型链  属性的查找机制  先在自己的身上查找  没有的话，再通过_proto_去所属类的原型上查
+        //                       若所属类的原型上也没有该属性，则通过该原型的_proto_再去原型所属类的原型上接着查找，直到找到Object类（基类）的原型上，还是没有的话 就是undefined
+        class Girl{
+            constructor(name , age){
+                this.name = name;
+                this.age = age;
+            }
+            eat(){
+                console.log('eating');
+            }
+            play(){
+                console.log('playing');
+            }
+        }
+        var g1 = new Girl('哈哈',10);
+        var g2 = new Girl('lily',90);
+        console.log(g1.eat===g2.eat,g1,g2);
+    </script>
+</body>
+
+</html>
