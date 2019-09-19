@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //true 20 NaN Object   
+        function Fn(num){
+            this.x=this.y= num;
+        }
+        Fn.prototype = {
+            x:20,
+            sum:function(){
+                console.log(this.x+this.y);
+            }
+        };
+        let f =new Fn(10);
+        console.log(f.sum === Fn.prototype.sum);
+        f.sum();
+        Fn.prototype.sum();
+        console.log(f.constructor);
+    </script>
+</body>
+</html>

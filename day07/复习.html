@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        类                实例
+        人类              奥巴马
+        Object(基类)      {}
+        Function           f
+    */
+        function factory() {
+            var obj = {
+                name: 123,
+                age: 234
+            }
+            return obj;
+        }
+        var fa1 = factory();
+        fa1.toString();
+        //-------------------------------------
+        function Person() {
+            this.name = name;
+            this.age = age;
+        } //只有通过new执行Person才是一个类  不然它就是一个普通函数
+        var p1 = new Person();
+        //new执行比普通函数执行多了一个开堆内存的动作，存储this 默认返回this this就是这个实例
+        //类的好处 ：归纳总结 以后公用
+        class Man {
+            constructor() {
+                this.name = 777;
+                this.age = 666;
+            }
+            eat(){}
+            play(){}
+        }
+        var m1 = new Man();
+        var m2 = new Man();
+        //原型链  属性的查找机制；当我们调用一个属性时，先在自己身上查找，没有的话通过__proto__向所属类的原型上查找，没有的话再通过原型的__proto__向上级查找，直到找到基类
+        //原型上放的都是公用的属性 或者方法，一般都是方法
+
+        //hasOwnProperty  在基类的原型上
+        //constructor  判断数据类型的原理 
+        //原型重构 (Person.prototype = {constructor:Person})
+        //xxx instanceof yyy    从xxx到基类的原型链上是否存在yyy的身影；不适合基本数据类型
+    </script>
+</body>
+
+</html>

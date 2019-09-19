@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //call 是用来改变函数内部this指向的    
+        function fn() {
+            console.log(arguments);
+            console.log(this);
+        }
+        var obj = {
+            a: 12,
+            b: 13,
+            f: fn
+        }
+        fn(1, 2, 3);
+        obj.f(3, 4, 5);
+        fn.call({a:1}, 6, 6, 6);
+        /*
+            call 可以让函数执行，并且可以改变函数执行时内部的this指向
+            this指向了 call的第一个实参，call后边的所有参数，都被作为实参传给了前边的函数
+        */
+        // ({}).toString.call('');
+        // obj.toString();
+        //    fn.call.call(obj);
+
+        //自己实现一个myCall  用法等同于call
+        Function.prototype.myCall = function myCall(context, ...arg) { //剩余运算符 ...
+            //this 就是fn
+            //  this(...arg)//...扩展运算符
+            let a = Symbol(); //产生一个唯一不重复的值
+            context = context || window;
+            context[a] = this;//a是一个变量  所以只能用[]去取值
+            let res = context[a](...arg);//让fn执行
+            delete context[a];
+            return res;
+        }
+        fn.myCall(obj, 2, 3, 4, 5);
+        fn.myCall();
+    </script>
+</body>
+
+</html>

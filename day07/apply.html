@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //apply 功能类似于 call
+        function fn() {
+            console.log([...arguments]);
+            console.log(this);
+            console.log('----------------');
+        }
+        var obj = {
+            a: 12,
+            b: 23
+        }
+        fn.call(obj, 5, 6, 7, 8);
+        fn.apply(obj, [5, 6, 7, 8]) //第二个参数是数组或者类数组的集合，虽然是以一个集合的形式传进去的，但是fn接收时还是一个散乱的
+        Function.prototype.myApply = function myApply(context,arg) { //剩余运算符 ...
+            //this 就是fn
+            //  this(...arg)//...扩展运算符
+            let a = Symbol(); //产生一个唯一不重复的值
+            arg = arg || [];
+            context = context || window;
+            context[a] = this; //a是一个变量  所以只能用[]去取值
+            let res = context[a](...arg); //让fn执行
+            delete context[a];
+            return res;
+        }
+        fn.myApply(obj,[1, 2, 3, 4]);
+    </script>
+</body>
+
+</html>

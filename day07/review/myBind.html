@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function fn() {
+            console.log([...arguments]);
+            console.log(this);
+        }
+        var obj = {
+            a: 123,
+            b: 321
+        }
+        Function.prototype.myBind = function (context, ...arg) {
+            const that = this;
+            arg = arg || [];
+            return function f(...ary) {
+                if (this instanceof f) {
+                    return new that(...arg, ...ary);
+                }
+                return that.apply(context, [...arg, ...ary]);
+            }
+        }
+        var f = fn.myBind(obj,1,2,3,4);
+        var ff = new f(6,6,6);
+        // console.log(ff===f);
+    </script>
+</body>
+
+</html>

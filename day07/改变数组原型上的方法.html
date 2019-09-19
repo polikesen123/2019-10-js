@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //内置类的原型上的方法可以被修改，不能被重构
+        Array.prototype.pop = function () {
+            console.log(666);
+        }
+        Array.prototype = {};
+        Array.prototype.unique = function unique() {
+            // this--->ary this都是当前类的实例
+            // var obj = {};
+            // this.forEach(item=>{
+            //     obj[item]=item;
+            // })
+            // this.length = 0;
+            // for(var k in obj){
+            //     this.push(obj[k])
+            // }
+
+            // var arr = [...new Set(this)];
+            // this.length = 0;
+            // arr.forEach(item=>this.push(item))
+
+            var obj = {};
+            for (var i = 0; i < this.length; i++) {
+                if (obj.hasOwnProperty(this[i])) {
+                    this.splice(i, 1);
+                    i--;
+                } else {
+                    obj[this[i]] = this[i]
+                }
+            }
+        }
+        Array.prototype.myPop = function () {
+            let last = this[this.length - 1];
+            this.length--;
+            return last;
+        }
+        var ary = [1, 2, 3, 4, 7, 2, 3, 4, 5, 1, 3, 4, 4, 6, 3];
+        ary.pop();
+        ary.myPop();
+        ary.unique();
+        console.log(ary);
+    </script>
+</body>
+
+</html>

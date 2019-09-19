@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            函数的三种角色
+            普通函数
+                形参实参 this return 作用域 变量
+                纯函数 一个函数执行时对外界不会造成影响
+            类
+                new 类 实例 this 原型 原型链 __proto__ 基类
+            对象
+                属性名:属性值
+        */ 
+       //纯函数
+       function f(){
+           console.log(666);
+       }
+
+       function Person(name = 'zf',age=10){
+           this.name = name;
+           this.age = age;
+       }
+       Person();
+       var p = new Person();
+       Person.qqq = 12;
+
+       
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fn(){
+            console.log([...arguments]);
+            console.log(this);
+        }    
+        var obj = {
+            a:123,
+            b:321
+        }
+        // var f = fn.bind(obj,6,6,6);
+        // f(9,9,9);
+        Function.prototype.myBind = function(context){
+            var that = this;
+            return function(){
+                return that.apply(context);
+            }
+        }
+        var f1 = fn.myBind(obj);
+        f1();
+    </script>
+</body>
+</html>

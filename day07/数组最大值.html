@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var ary = [23,4,4,3,1,7,90,34] ;
+    Math.max(...ary);
+    Math.max.apply(Math,ary); //apply的散乱接收   利用了apply可以把集合散乱的传给前边的函数 
+    ary.sort((a,b)=>b-a)[0];
+    //假设法
+    var str = 'anafhyqbjhadusjjadhgbsg';
+    var arr = str.split('');
+    arr.sort((a,b)=>{
+        return a.localeCompare(b);
+    })
+    console.log(arr.join(''));
+    // console.log(arr.sort().join(''));
+
+    var ary2 = [
+        {
+            name:'小红',
+            age:100
+        },
+        {
+            name:'小花',
+            age:100
+        },
+        {
+            name:'小力',
+            age:100
+        },
+        {
+            name:'小名',
+            age:100
+        }
+    ];
+    var arr2 = ary2.sort((a,b)=>{
+        return a.name.localeCompare(b.name);
+    })
+    console.log(arr2);
+
+    </script>
+</body>
+</html>
