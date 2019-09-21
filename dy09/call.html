@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+/*
+    call 修改函数中this指向
+*/
+function fn(){
+    console.log(arguments);
+    console.log(this);
+    console.log('------------------')
+}
+fn();
+var ary = [fn];
+ary[0]();
+var res =fn.call(ary,1,2,3,4);//fn 执行 改变fn中this指向 把 1 2 3 4传给fn
+                    //call的第一个参数是让fn 中的this指向 这个参数
+                    //第二个及以后的参数 都传给fn 作为实参
+                    //call执行就是fn 的执行
+
+ function myNew(classN,...arg){
+     var obj = new Object();
+     obj.__proto__ = classN.prototype;
+     var res = classN.call(obj,...arg);
+     return typeof res === 'object'? res:obj;
+ }     
+
+ function myInstance(temp,classN){
+     if(typeof temp !== 'object' && typeof temp !== 'function') return false;
+     var left = temp.__proto__;
+     var right = classN.prototype;
+     while(left){
+         if(left===right) return true;
+         left = temp.__proto__;
+     }
+     return false;
+ }  
+ function mycall(context,...arg){
+    if(typeof context !== 'object' && typeof context !== 'function' && context !==null){
+        arg.unshift(context)
+        context = window;
+    }
+    var a = Symbol();
+    context[a] = this;
+    var res=context[a](...arg);
+    delete context[a];
+    return res;
+ }
+ Function.prototype.mycall = mycall;
+ fn.mycall(ary,2,2,3);
+ Object.prototype.toString.call('')='[object String]';//找到基类原型上的toString方法，把里面的this指向修改为自己的指定的指向
+</script>

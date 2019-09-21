@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    /*
+    fuunction fn(){}
+
+    普通函数
+    构造函数
+    普通对象
+
+    类数组转数组
+
+  */
+    function fn() {
+        //普通数组__proto__ Array.prototype
+        //arguments是一个类数组 他的 __proto__指向基类的原型
+        var ary = Array.from(arguments);
+        [...arguments];
+        [].slice.call(arguments, 0); //[].slice(0) [].slice()
+        // var res = [].concat.call(arguments, []);
+        // console.log(...res);
+        arguments.__proto__ = Array.__proto__;
+        //    console.log( arguments.slice());
+        console.log([2,3,4].toString());
+        console.log(arguments.toString());
+    }
+    fn(1, 2, 3, 4, 5)
+</script>

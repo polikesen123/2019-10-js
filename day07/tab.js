@@ -11,7 +11,7 @@ class Tab{
         for (let i = 0; i < this.tabs.length; i++) {
             this.tabs[i].onclick =  ()=> {
             //给每一个tab绑定点击事件
-            this.clearClass();
+            this.clearClass();                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
             this.tabs[i].className = 'tab current';
             this.bodys[i].className = 'body current';
             }

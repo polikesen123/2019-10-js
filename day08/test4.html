@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    function Fn(name, age) {
+        name ? this.name = name : null
+        age ? this.age = age : null;
+    }
+    Fn.prototype.eat = function () {
+        console.log('吃香蕉');
+        console.log(this.name)
+    }
+    var f1 = new Fn('zf', 10);
+    f1.eat = function () {
+        console.log('吃苹果');
+        console.log(this.age);
+    }
+    Fn.prototype = f1;
+
+    var f2 = new Fn('xm');
+    f2.eat()
+    f1.eat();
+    f2.__proto__.eat();
+    f1.__proto__.eat();
+</script>

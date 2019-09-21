@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    function fn() {
+        console.log(arguments);
+        console.log(this);
+        console.log('------------------')
+    }
+    var obj = {
+        x: 123
+    };
+    var res = fn.call(obj, 3, 2, 1); //res 是fn 的执行的返回结果
+    var res2 = fn.bind(obj, 1, 2, 3); //res2 是一个新函数  res2执行时候里边的this是obj 默认参数是1,2,3 返回结果是fn的结果
+    Function.prototype.mybind = function (context = window, ...arg) {
+        var _this = this;
+        return function (...ary) {
+            return _this.apply(context, arg.concat(ary))
+            return _this.apply(context, [...arg,...ary])
+        }
+    }
+    var res3 = fn.mybind(obj, 1, 2, 3);
+    /*
+        this:
+            箭头函数中的this 是上级作用域中的this 箭头函数是把this和arguments当变量
+            new 执行函数时 this 是当前创建的实例
+            定时器、自执行函数中的this是window
+            事件绑定 里的 this 是当前绑定的元素
+            其他情况看点
+
+            use strict：
+            fn.call(XXX);call里边参数 传啥this修改的this指向就是啥
+            实参和形参不是一一对应的映射关系
+            没申明的变量不可以使用
+
+    */ 
+</script>

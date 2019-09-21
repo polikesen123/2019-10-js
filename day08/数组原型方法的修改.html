@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // Object.prototype.getType = function () {
+    //     var str = this.constructor.toString();
+    //     return str.slice(9, str.indexOf('(')).toLowerCase();
+    // }
+    //myPop myPush
+    Array.prototype.myPop = function () {
+        // var temp = this[this.length-1];
+        this.length--;
+        return this;
+    }
+    Array.prototype.myPush = function (...arg) {
+        var l=arg.length;
+        for(var i =0;i<l;i++){
+            this[this.length]=arg[i]
+        }
+        return this;
+        // var arr = [...this, ...arg]
+        // return arr;
+    }
+    var ary = [1, 2, 3, 4, 5];
+    // ary.myPop().myPush(6, 6, 6).myPop().myPush(4, 5, 6);
+    // console.log(ary);
+    console.log(ary.myPop().myPush(6, 6, 6).myPop().myPush(4, 5, 6));
+    // Array.prototype.myReverse = function () {
+    //     for (var i = 0; i < this.length / 2; i++) {
+    //         var temp = this[i];
+    //         this[i] = this[this.length - 1 - i];
+    //         this[this.length - 1 - i] = temp;
+    //     }
+    //     return this;
+    // }
+    // Array.prototype.myUnique = function () {
+    //     //es6
+    //     // var arr = [...(new Set(this))];
+    //     // this.length = 0;
+    //     // this.push(...arr);
+    //     // return this;
+    //     var obj = {};
+    //     for (var i = 0; i < this.length; i++) {
+    //         if (obj.hasOwnProperty(this[i])) {
+    //             this.splice(i, 1);
+    //             i--;
+    //         } else {
+    //             obj[this[i]] = this[i]
+    //         }
+    //     }
+    //     return this;
+    // }
+    // var ary = [1, 2, 3, 4, 7, 2, 3, 4, 5, 1, 3, 4, 4, 6, 3];
+    // ary.myUnique();
+</script>
