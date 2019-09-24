@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    RegExp.prototype.execAll = function (str) {
+        //没有global的情况
+        var _this = this;
+        if (!_this.global) {
+            //   _this = eval(_this+'g');
+            var res = /^\/(.+)\/$/.exec(_this + '')[1]
+            // console.log(_this+'')
+            _this = new RegExp(res, 'g');
+            // console.log(_this);
+        }
+        var res = _this.exec(str); //exec会自己转字符串
+        var ary = [];
+        while (res) {
+            ary.push(res);
+            res = _this.exec(str)
+        }
+        return ary;
+    }
+
+    function getParams(url) {
+        var reg = /([^?=&]+)=([^?=&]+)/;
+        var ary = reg.execAll(url);
+        var obj = {};
+        ary.forEach(item => {
+            debugger;
+            obj[item[1]] = item[2];
+        });
+        return obj;
+    }
+    var str = 'http://www.zhufengpeixun.cn/?lx=1&from=wx&b=12&c=13';
+    var reg = /\d+/; //2009 2019 null
+
+    getParams(str);
+</script>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    /*
+    面向对象
+    面向过程
+
+    单例模式 封装的一些工具函数  工具库
+    高级单例 
+    构造函数模式
+    原型模式 react 
+
+    原型链
+    每一个函数  都有一个天生自带的属性 prototype，指向自己的原型对象
+    每一个对象  都有一个天生自带的属性 __proto__,指向所属类的原型对象
+    每一个默认的原型对象，都有一个天生自带的属性 constructor ,指向自己的构造函数本身
+
+    原型链是属性的查找机制 现在自己身上查找对应的属性 没有的话 就会通过__proto__查找所属类的原型
+
+    function 声明类
+    函数的三种角色： 普通函数   构造函数   普通对象
+
+    Array.from();
+    class 类名{
+        constructor(形参){
+            函数体
+        }
+        say(){
+
+        }
+        static fn(){};//类名.fn = function(){}
+    }
+*/
+    // function Fn() {
+    //     var a = 1;
+    //     this.a = a;
+    // }
+    // Fn.prototype.say = function () {
+    //     this.a = 2;
+    // };
+    // var f2 = new Fn();
+    // Fn.prototype = new Fn;
+    // var f1 = new Fn;
+    // f1.__proto__.b = function () {
+    //     this.a = 3;
+    // };
+    // console.log(f1.a);
+    // console.log(f1.prototype);
+    // console.log(f1.b);
+    // console.log(f2.b);
+    // console.log(f1.hasOwnProperty('b'));
+    // console.log('b' in f1);
+    // console.log(f1.constructor == Fn);
+    // console.log(Fn.prototype);
+    // f1.b();
+    // console.log(f1.a);
+    // f1.__proto__.b();
+    // console.log(f1.a, f2.a);
+
+    class Person {
+        constructor(name) {
+            this.name = name;
+        }
+        say() {
+            console.log(`my name is ${this.name}`);
+        }
+        static fn() {
+            console.log('静态属性');
+        }
+        static qqq = 123;
+    }
+    var p = new Person('ff');
+    class Child extends Person {
+        constructor(name) {
+            super();
+            this.name = name;
+        }
+    }
+    var c = new Child('小明');
+    //es5 继承
+    function Man() {}
+
+    function Boy() {
+        Man.call(this); //call继承
+    }
+    Boy.prototype = Object.create(Man.prototype); //es5继承
+    Boy.prototype.__proto__ = Man.prototype; //es6继承自动修改成这样
+
+
+    //在数组的原型上补充一个方法 del(n) 可以随机删除n项； 返回值是删除的项组成的新数组
+    Array.prototype.del = function (n) {
+        if(n>=this.length){
+            throw new Error('参数报错')
+        }
+        var ary = [];
+        for (var i = 0; i < n; i++) {
+            var s = Math.round(Math.random() * (this.length - 1));
+            ary = ary.concat(this.splice(s,1))
+        }
+        return ary;
+    }
+    var ary = [1, 2, 3, 4, 5, 6];
+    ary.del(2);
+    //在字符串的原型上加一个方法  getParam(url) 该方法 可以获取 url中的参数部分 及hash部分
+    String.prototype.getParam = function(key){
+        // var obj = {};
+        // var find1 = this.indexOf('?');
+        // var find2 = this.indexOf('#');
+        // var str2 = this.substr(find2+1);
+        // var str = this.slice(find1+1,find2-1);
+        // var ary = str.split('&');
+        // for(var i=0;i<ary.length;i++){
+        //     var ary2 = ary[i].split('=');
+        //     obj[ary2[0]]=ary2[1];
+        // }
+        // obj.hash = str2;
+        // return obj;
+
+        var obj = {};
+        // console.log( this.split('?')[1].split('#')[0].split('&'));
+        this.split('?')[1].split('#')[0].split('&').forEach(item=>{
+            var ary = item.split('=');
+            obj[ary[0]] = ary[1];
+        })
+        obj.hash = this.split('#')[1];
+        return key ? obj[key] : obj;
+    }
+    var str = 'http://www.baidu.com?a=12&bb=13&c=14V#hello'
+    //location.href 获取地址栏的url
+    //location.hash url #后面参数
+    str.getParam();//{a:12,bb:13,c:14,hash:'hello'}
+</script>

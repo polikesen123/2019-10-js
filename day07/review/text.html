@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    function fn() {
+        console.log(arguments, this)
+    }
+    var obj = {
+        a: 2,
+        b: 3
+    }
+
+    Function.prototype.myCall = function(context = window, ...arg) {
+        var a = Symbol();
+        context[a] = this;
+        var res = context[a](...arg);
+        delete context[a];
+        return res;
+    }
+    fn.myCall(obj, 2, 3, 4);
+
+    Function.prototype.myApply = function(context=window,arg){
+        var a = Symbol();
+        context[a] = this;
+        var res = context[a](...arg);
+        delete context[a];
+        return res; 
+    }
+    fn.myApply(obj,[3,4,5]);
+
+    Function.prototype.myBind = function(context = window,...arg){
+        var _this = this;
+        return function(...ary){
+            return _this.apply(context,arg.concat(ary));
+        }
+    }
+    var f = fn.myBind(obj,5,6,7);
+    f(6,6,6);
+    //new
+    function Person(name,age){
+            this.name = name;
+            this.age = age;
+        }    
+        // var p = new Person('zf',10);
+        function myNew(...arg){
+            var obj = {};
+            var Constructor = arg.shift();
+            obj.__proto__ = Constructor.prototype;
+            let res = Constructor.apply(obj,arg);
+            return typeof res ==='object' ? res : obj ;
+        }
+        var p2 = myNew(Person,'zf',10);
+        console.log(p2);
+    //myUnique
+    Array.prototype.myUnique = function(){
+        var obj = {};
+        for(let i = 0;i<this.length;i++){
+            if(obj.hasOwnProperty(this[i])){
+                this.splice(i,1);
+            }else{
+                obj[this[i]] = this[i];
+            }
+        }
+        this.length = 0;
+        for(var key in obj){
+            this.push(obj[key]);
+        }
+        return this;
+    }
+    var ary = [2,3,4,1,3,2];
+    ary.myUnique();
+</script>

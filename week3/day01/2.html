@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    function Fn() {
+        var a = 1;
+        this.a = a;
+    }
+    Fn.prototype.say = function () {
+        this.a = 2;
+        return this.a
+    };
+    var f2 = new Fn();
+    Fn.prototype = f2;
+    var f1 = new Fn;
+    f1.__proto__.b = function () {
+        this.a = 3;
+        return this.a
+    };
+    console.log(f1.a);//1
+    // console.log(f1.prototype.say());//报错
+    console.log(f1.hasOwnProperty('b'));
+    console.log('b' in f1);
+    console.log(f1.constructor == Fn);
+    console.log(Fn.prototype);
+    console.log(f1.b());//3
+    console.log(f2.b());//3
+    
+</script>

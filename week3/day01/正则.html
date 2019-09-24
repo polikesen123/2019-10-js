@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script src="./js/1.js"></script>
+<script>
+    /*
+        正则是一种处理字符串的 一种规则
+        JS中的正则 具体体现出来是一种数据类型  ；RegExp
+        JS编写正则的两种方式：
+            var reg = /q/
+            var reg = new RegExp('q') //涉及到变量时候会偶尔用new的方式创建正则，一般都是字面量的方式
+
+        正则一般有两种用途：
+            用于匹配(test)：编写一个正则，看对应的字符串是否符合该正则
+            用于捕获(exec)：编写一个正则，可以把对应字符串中的符合规则的部分获取到
+            var reg = /-re/g  双斜杠中的内容 我们称为元字符，斜杠外边的内容我们称为修饰符
+            常用的元字符可以分为 有特殊含义的元字符量次元字符 普通元字符
+            有特殊含义的元字符：
+                \        转义字符   把正则中有特殊含义字符转成字符本身 不再有任何特殊含义
+                \d       代表0~9之间数字
+                \D       代表除了0~9的任一字符
+                \w       代表了 数字 字母 下划线
+                \W       代表除了 数字 字母 下划线之外类的字符
+                ^        代表以什么字符开头
+                $        代表以什么字符结尾
+                .        代表除了换行以外的所有字符
+                \n       代表换行
+                x|y      代表x或者y
+                \t       代表制表
+                [ab]     代表a或者b
+                [^ab]    代表非ab
+                [a-z]    代表a-z之间的任意字符
+                [^a-z]   代表除了小写字母
+                ()       分组和提升优先级
+                (?:)     非捕获匹配
+                (?=)
+                (?!)
+            量词元字符：(一般都是用在其他元字符的后边)
+                ?       代表前边的字符出现0 或者1次
+                +       代表前边的字符出现一次或者多次
+                *       代表前边的字符出现0 或者 多次
+                {n}     代表前边字符出现n次
+                {n,m}   代表前边的字符出现n到m次
+                {n,}    代表前边的字符出现至少n次  n到多次
+            修饰符：
+                i     忽略大小写  ignoreCase
+                m     多行匹配    mutiline
+                g     全局匹配    global     
+    */
+    var str = '2019-9-23';
+    str = str.replace(/-/g, '/');
+    var ary = ['qqq', 'www', 'yyy'];
+    var arr = ary.map(item => new RegExp(item)) ;
+    console.log(arr);
+</script>
