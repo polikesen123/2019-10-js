@@ -60,7 +60,8 @@
                 g     全局匹配    global     
     */
     var str = '2019-9-23';
-    str = str.replace(/-/g, '/');
+    // str = str.replace(/-/g, '/');
+    console.log(str.replace(/-/g,'/'));
     var ary = ['qqq', 'www', 'yyy'];
     var arr = ary.map(item => new RegExp(item)) ;
     console.log(arr);

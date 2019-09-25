@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" name="" id="inp">
+</body>
+
+</html>
+<script>
+    /*
+    replace 替换
+    
+
+    */
+    '2019-02-03'.replace('-', '/').replace('-', '/');
+    // var res  ='2019-02-03'.replace(/-/g,'/');
+    // console.log(res);
+    // var str = 'jofaifio123jajfoafi1234jfaj';
+    // var res=str.replace(/\d+/g,'-');
+    // console.log(res);
+
+    var str = '   obhj  hmh   '; //去除首尾空格
+    var res = str.replace(/^ +| +$/g, '');
+    console.log(res);
+    inp.oninput = function () {
+        console.log(this);
+        var res = this.value;
+        var str = res.replace(/^\d+$/g, '');
+        this.value = str;
+    }
+
+    var str = 'kjafBHGkjbHJUIYUIihjkhuh';
+    var str2 = '';
+    var reg = /[A-Za-z]/g;
+    var res = str.replace(reg, function ($1) {
+        //replace 的回调函数的实参结果 跟 match 和exec获取到的类似
+        //返回的字符串是由匹配到的内容被return值 替换之后的新字符串
+        //回调函数的执行次数 跟 正则匹配到的次数一样
+        if ($1.toLowerCase() == $1) {
+            return $1.toUpperCase();
+        }
+        return $1.toLowerCase();
+    })
+    console.log(res)
+    for (var i = 0; i < str.length; i++) {
+        let a = str[i];
+        if (a.toLowerCase() == a) {
+            str2 += a.toUpperCase();
+        } else {
+            str2 += a.toLowerCase();
+        }
+    }
+    console.log(str, str2);
+    var str = 'zf2019zf2020';
+    var res = str.replace(/([a-z]+)(\d+)/g, function () {
+        // replace  的回调函数的实参结果 跟 match和exec获取的 类似
+        // 返回的字符串 是由匹配到的内容被return值 替换之后的新字符串
+        // 回调函数的执行次数跟 正则匹配到的次数一样
+        console.log(arguments)
+    });
+    var str = 'nkjHHJKHkojiVV';
+    var res = str.replace(/([a-z]*)([A-Z]*)/g,function($0,$1,$2){
+        return $1.toUpperCase()+$2.toLowerCase();
+    })
+    console.log(str,res,777);
+
+    var str = 'haiuy890890gvagh2hgg23hfv';
+    var res = str.replace(/([a-z]+)(\d+)/g,'$1$2');
+    console.log(res);
+
+    function getParam(url){
+        let reg =/([^?=&]+)([?=&#]+)/;
+        let obj={};
+        url.replace(reg,function($0,$1,$2){
+            obj[$1] = $2;
+        })
+        let ha =url.match(/#(.+)/)?url.match(/#(.+)/)[1]:null;
+        obj.hash = ha;
+        return obj;
+    }
+</script>

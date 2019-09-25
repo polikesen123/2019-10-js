@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    var reg = /d/;//匹配字符串中的d 
+    console.log(reg.test('nnj07vgh'));//false
+    console.log(reg.test('ndjjkjk'));//true
+
+    var reg = /\d/;
+    console.log(reg.test('jjsjkj'));//false
+    console.log(reg.test('9bbjh'));//true
+
+    var reg = /\d{2}/;//至少出现连续的两个数字
+    console.log(reg.test('9'));
+    console.log(reg.test('99'));
+    console.log(reg.test('jknk0bhj'));
+    console.log(reg.test('jknk0865bhj'));
+    
+    var reg = /\\d/;//第一个\代表转义把第二个\转成了不具有转义意义的字符\ 正则的意思就是匹配字符\d
+    console.log(reg.test('99h'));//f
+    console.log(reg.test('bhj\ddd98yv'));//f
+    console.log(reg.test('\\d'));//t
+
+    var reg = /^\d.123$///以数字开头以3结尾 3前边是个12 12前边是一个除了换行符以外的任意字符
+    console.log(reg.test('8\n123'));
+    console.log(reg.test('8.123'));
+    console.log(reg.test('8n123'));
+    
+    var reg = /^\d\.123$/;//. 不再代表正则中除了换行符以外的任何 而是只代表一个普通字符.  此正则代表以任意数字开头 以3结尾 中间是.12
+    console.log(reg.test('3.123'));
+    console.log(reg.test('5n123'));
+</script>

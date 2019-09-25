@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    function render(template, data) {
+        var reg = /{{(\w+)}}/g;
+        let str = template.replace(reg, function ($0, $1) {
+            console.log($0,$1);
+            return data[$1]
+        })
+        return str;
+    }
+    let template = '我是{{name}}，年龄{{age}}，性别{{sex}}';
+    let data = {
+        name: '姓名',
+        age: 18
+    }
+    console.log(render(template, data)); // 我是姓名，年龄18，性别undefined
+
+    function timeFormate(template,time){
+        time =time?new Date(time):new Date();
+        template = template || '今天是{{0}}年{{1}}月{{2}}日{{3}}时{{4}}分{{5}}秒';
+        let ary = [time.getFullYear(),time.getMonth()+1,time.getDate(),time.getHours(),time.getMinutes(),time.getSeconds()];
+        // console.log(ary);
+        return template.replace(/\{\{(\w+)\}\}/g,function($0,$1){
+            return ary[$1];
+        })
+
+    }
+    timeFormate();console.log(timeFormate());
+</script>
