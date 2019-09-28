@@ -20,7 +20,7 @@
         if (!_this.global) {
             //   _this = eval(_this+'g');
             var res = /^\/(.+)\/$/.exec(_this + '')[1]
-            // console.log(_this+'')
+            console.log(res)
             _this = new RegExp(res, 'g');
             // console.log(_this);
         }
@@ -32,19 +32,19 @@
         }
         return ary;
     }
-
     function getParams(url) {
-        var reg = /([^?=&]+)=([^?=&]+)/;
+        var reg = /([^?=&]+)=([^?=&]+)/g;
         var ary = reg.execAll(url);
+        console.log(ary);
         var obj = {};
         ary.forEach(item => {
-            debugger;
+            // debugger;
             obj[item[1]] = item[2];
         });
         return obj;
     }
     var str = 'http://www.zhufengpeixun.cn/?lx=1&from=wx&b=12&c=13';
-    var reg = /\d+/; //2009 2019 null
-
+    // var reg = /\d+/; //2009 2019 null
     getParams(str);
+
 </script>

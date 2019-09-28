@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #box {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box" style="padding: 30px">
+        珠峰培训
+
+    </div>
+    <script src="utils.js"></script>
+</body>
+
+</html>
+<script>
+    var box = document.getElementById('box');
+    var {
+        getCss,
+        setCss,
+        offSet,
+        winH
+    } = utils;
+    // console.log(box.style.width)
+    // console.log(box.style.padding);
+    //通过style的方式  获取不到width
+    // console.dir(getComputedStyle(box,null));//通过这种方法可以获取当前元素的所有样式，ie6-8不兼容
+    //box.currentStyle  ie6-8
+    console.log(getCss(box, 'width'));
+    setCss(box, 'background', 'skyblue');
+    setCss(box, 'margin', 200);
+    console.log(offSet(box));
+</script>

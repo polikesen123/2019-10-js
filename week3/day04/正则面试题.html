@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    //一个字符串中出现次数最多的字符
+    var str = 'asdfdfsafdfdsjkkjlafa'
+
+    function getMax(str) {
+        var obj = {};
+        for (var i = 0; i < str.length; i++) {
+            if (obj.hasOwnProperty(str[i])) {
+                obj[str[i]] += 1;
+            } else {
+                obj[str[i]] = 1;
+            }
+        }
+        var s = '',
+            n = 0;
+        for (var key in obj) {
+            if (obj[key] > n) {
+                n = obj[key];
+                s = key;
+            }
+        }
+        return {
+            key: s,
+            val: n
+        }
+    }
+    console.log(getMax(str));
+    var reg = /(\d+?)\1+/g; //回溯
+    var str = '1231231231213';
+    reg.exec(str);
+
+    var reg = /(\w)(\w)(\w)\3\2\1/; //qweewq
+    var str = 'qweewq'
+    console.log(reg.exec(str));
+
+    function getMax2(str) {
+        str = str.split('').sort().join('');
+        let reg = /(\w)\1*/g;
+        var ary = str.match(reg); //
+        ary.sort((a, b) => {
+            return b.length - a.length;
+        })
+        return {
+            key: ary[0][0],
+            val: ary[0].length
+        }
+    }
+    var str = 'kjahfujhbaasdsfdasdafa'
+
+    function getMax3(str) {
+        str = str.split('').sort().join('');
+        let reg = /(\w)\1*/g;
+        let s = '',
+            n = 0
+        str.replace(reg, function ($0, $1, $2) {
+            if ($0.length > n) {
+                n = $0.length;
+                s = $1;
+            }
+        }); //
+        return {
+            key: s,
+            val: n
+        }
+    }
+    console.log(getMax3(str));
+    //大小写翻转
+    var str = 'hello WORLD';
+
+    function turn(str) {
+        return str.replace(/\w/g, function (a) {
+            return a.toLowerCase() == a ? a.toUpperCase() : a.toLowerCase();
+        })
+    }
+    console.log(turn(str))
+
+    function turn2(str) {
+        var reg = /([A-Z]*)([a-z]*)/g;
+        return str.replace(reg, function (a, b, c) {
+            return c.toUpperCase() + b.toLowerCase();
+        })
+    }
+    console.log(turn2(str))
+
+    var str = '今年是2017年'; //
+    var ary = ['零', '壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖', '拾'];
+    var reg = /(\d)/g;
+    str.replace(reg,function(a){
+        return ary[a];
+    })
+</script>

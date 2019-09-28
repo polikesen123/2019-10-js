@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        body {
+            height: 2000px;
+            background: #eee;
+        }
+
+        #box {
+            width: 1200px;
+            height: 300px;
+            position: relative;
+            top: 1600px;
+            /* border: 1px dashed maroon; */
+        }
+        img {
+            width: 300px;
+            height: 300px;
+            float: left;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <img src="./1.jpg" realImg="./2.jpg" alt="">
+        <img src="./1.jpg" realImg="./2.jpg" alt="">
+        <img src="./1.jpg" realImg="./2.jpg" alt="">
+        <img src="./1.jpg" realImg="./2.jpg" alt="">
+        <img src="./1.jpg" realImg="./2.jpg" alt="">
+        <img src="./1.jpg" realImg="./2.jpg" alt="">
+        <img src="./1.jpg" realImg="./2.jpg" alt="">
+        <img src="./1.jpg" realImg="./2.jpg" alt="">
+        <img src="./1.jpg" realImg="./2.jpg" alt="">
+        <img src="./1.jpg" realImg="./2.jpg" alt="">
+        <img src="./1.jpg" realImg="./2.jpg" alt="">
+        <img src="./1.jpg" realImg="./2.jpg" alt="">
+    </div>
+    <script src="./utils.js"></script>
+</body>
+
+</html>
+<script>
+    var {
+        offSet,
+        winH
+    } = utils;
+    /*
+        刚进入页面时，让图片显示默认的小图，等到图片露出来的时候再换成真的图片
+    */
+    // var img = document.getElementById('img');
+
+    function loadImg(ele) {
+        //一执行该函数，就要判断 ele这个元素是否是已经加载过的元素，若是已经加载过的，下边的代码就不再执行了
+        if (ele.loaded) return;
+        let scrT = document.documentElement.scrollTop; //卷去的高度
+        let winh = utils.winH();
+        let tarT = offSet(ele).t; //当前元素到body的偏移量
+        if (scrT + winh > tarT) {
+            //说明图片已经露出来了
+            console.log(111);
+            let realSrc = ele.getAttribute('realImg');
+            let temp = new Image(); //创造了一个img标签
+            temp.src = realSrc; //使用临时创建的img去远程服务器获取真是的图片
+            temp.onload = function () { //防止屏幕出现裂图或者白屏
+                //图片加载完会触发该函数
+                ele.src = realSrc;
+                temp = null;
+                fadeIn(ele);
+            }
+            ele.loaded = true; //自定义一个loaded属性，用来记录这个元素的加载情况
+        }
+    }
+    window.onscroll = function () {
+        loadAll();
+    }
+
+    function loadAll() {
+        var imgs = document.querySelectorAll('img');
+        console.log(imgs);
+        for (var i = 0; i < imgs.length; i++) {
+            loadImg(imgs[i]);
+        }
+    }
+
+    function fadeIn(ele) {
+        ele.style.opacity = 0;
+        var a = 0;
+        ele.timer = setInterval(() => {
+            a += 0.1;
+            if (a > 1) {
+                clearInterval(ele.timer);
+                a = 1;
+            }
+            ele.style.opacity = a;
+        }, 20);
+    }
+</script>

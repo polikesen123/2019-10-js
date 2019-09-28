@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    var str = '这个人的名字是：{{name}}，年龄是：{{age}}，性别是：{{sex}}';
+    var data = {
+        name: '小明',
+        age: 10,
+        sex: '男'
+    }
+
+    function formate(template, data) {
+        var reg = /\{\{(\w+)\}\}/g;
+        return template.replace(reg, function (a, b) {
+            // console.log(a,b)
+            return data[b];
+        })
+    }
+    formate(str, data);
+
+    var str = '今天是{{year}}年{{month}}月{{date}}日';
+
+    function formateTime(str) {
+        let time = new Date();
+        let year = time.getFullYear();
+        let month = time.getMonth() + 1;
+        let date = time.getDate();
+        let reg = /\{\{(\w+)\}\}/g;
+        return str.replace(reg, function (a, b) {
+            return eval(b)
+        })
+    }
+    formateTime(str);
+</script>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    function offset(ele){
+        //ele到body 的偏移量
+        let l = ele.offsetLeft,//ele到上级参照物的偏移量
+            t = ele.offsetTop;//
+        let temp = ele.offsetParent;//ele的上级参照物 
+        while(temp){
+            l += temp.clientLeft+temp.offsetLeft;
+            t +=temp.clientTop + temp.offsetTop;
+            temp = temp.offsetParent;
+        }
+        return {
+            l,t
+        }
+    }
+</script>

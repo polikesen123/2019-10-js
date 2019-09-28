@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="container" class="main">hello world</div>
+</body>
+
+</html>
+<script>
+    /*
+        exec：返回结果是一个数组，没有就是null；数组中的第一项永远是大正则捕获的内容，第二项及以后都是对应小分组捕获的内容
+
+    */
+
+    // console.log(reg.exec(str)); //[2019]
+    //贪婪性 + * {n,m} {n,} 在这些字符后边加 ? 解决贪婪性
+    //懒惰性 添加全局修饰符g
+    //给正则添加上之后，每一次的匹配或者捕获都会影响该正则的lastIndex属性，这个属性是下一次正则开始匹配的起始索引
+    RegExp.prototype.execAll = function (str) {
+        //this
+        var _this = this; //函数中的this不能当变量用，因此不能随便赋值，得用一个变量替换下
+        if (!_this.global) {
+            // _this = eval(_this + 'g');
+            var res = /^\/(.+)\/$/.exec(_this + '')[1]
+            _this = new RegExp(res, 'g');
+        }
+        var ary = [];
+        var res = _this.exec(str); //exec会默认调用toString方法把正则里面的内容转成字符串
+        while (res) {
+            ary.push(res);
+            res = _this.exec(str);
+        }
+        return ary;
+    }
+    // var str = 'zf2009zf2020'
+    // var reg = /\d+/; // /(\d)+/
+    // console.log(reg.execAll(str));
+
+    //cookie 前端存储内容的地方 document.cookie
+    function getCookie() {
+        var str = document.cookie;
+        var reg = /([^ ;=]+)=([^ ;=]+)/g;
+        var ary = reg.execAll(str);
+        console.log(ary);
+        var obj = {};
+        ary.forEach(item => {
+            obj[item[1]] = item[2];
+        });
+        return obj;
+    }
+    getCookie();
+    var reg = /^\d{6}(19[7-9]\d)|(20[01]\d)(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])\d{2}\d(\d|X)$/
+    var str = '530328199705083043';
+    console.log(reg.execAll(str));
+    //捕获ID
+    var str = '<div id="container" class="main">hello world</div>';
+    var reg = /id=['"](\w+)['"]/;
+    reg.exec(str);
+     var reg = />([^><]+)</;
+     console.log(reg.exec(str));
+</script>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            padding-top: 2000px;
+        }
+
+        img {
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <img src="./img/2.jpg" realSrc='./img/3.jpg' alt="">
+        <img src="./img/2.jpg" realSrc='./img/3.jpg' alt="">
+        <img src="./img/2.jpg" realSrc='./img/3.jpg' alt="">
+        <img src="./img/2.jpg" realSrc='./img/3.jpg' alt="">
+        <img src="./img/2.jpg" realSrc='./img/3.jpg' alt="">
+        <img src="./img/2.jpg" realSrc='./img/3.jpg' alt="">
+        <img src="./img/2.jpg" realSrc='./img/3.jpg' alt="">
+    </div>
+</body>
+
+</html>
+<script src="./utils.js"></script>
+<script>
+    var imgs = document.getElementsByTagName('img');
+    // let flag = false;
+    function loadAll() {
+        for (let i = 0; i < imgs.length; i++) {
+            loadImg(imgs[i]);
+        }
+    }
+    var img = document.getElementById('img');
+    var {
+        winH,
+        offset
+    } = utils;
+    let flag = false;
+    window.onscroll = function () {
+        loadAll();
+    }
+
+    function loadImg(ele) {
+        if (ele.flag) return;
+        let scT = document.documentElement.scrollTop || document.body.scrollTop; //卷去的高度
+        let wH = winH().h; //一屏幕路的高度
+        let t = offset(ele).t; //当前元素到body 的偏移量
+        let h = ele.clientHeight
+        if (scT + wH > t + h / 2) {
+            //说明图片露出一半
+            console.log(666)
+            ele.flag = true;
+            // ele.src = 'https://img30.360buyimg.com/pop/s1180x940_jfs/t1/75497/1/9466/47740/5d723977E9c245206/5b7de79a5c375937.jpg';
+            //图片预加载
+            let temp = new Image();
+            let realSrc = ele.getAttribute('realSrc');
+            temp.src = realSrc;
+            temp.onload = function () {
+                //这张图片加载完成之后会触发该函数
+                ele.src = temp.src;
+                fadeIn(ele); //执行图片渐现效果
+                temp = null;
+            }
+        }
+    }
+
+    function fadeIn(ele) {
+        //让图片的opacity从0到1；
+        ele.style.opacity = 0;
+        let n = 0;
+        ele.timer = setInterval(() => {
+            n += 0.01;
+            if (n >= 1) {
+                clearInterval(ele.timer);
+            }
+            ele.style.opacity = n;
+        }, 100);
+    }
+</script>

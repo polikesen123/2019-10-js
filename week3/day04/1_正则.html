@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /*
+        正则：专门用于处理字符串的一种规则
+            匹配 test
+            捕获 exec 写一个正则 把字符串中符合正则的部分捕获到
+        正则的书面表达：
+            字面量： var reg = /-/g;
+            构造函数： var reg = new RegExp('-','img');
+        正则是由元字符、修饰符 组成的
+            元字符：有特殊含义的元字符
+                \ :转义
+                \d:0~9之家的数字
+                \D
+                \w:数字、字母、下划线
+                \W
+                \n newline
+                \s 空格 空白符space
+                . 除换行符以外的字符
+                ^ 以什么开头
+                $ 以什么结尾
+                [ab] a或者b [abc.] a或b或c或.
+                [a-b] a到b
+                [^a-bA-Z] 除了ab或者大写字母之外的字符
+                ab|cd ab 或 cd
+                () 分组 提升优先级
+                (?:) 只匹配不捕获
+                (?=) 正向肯定预查
+                (?!) 正向否定预查
+                \b 边界
+            限定符 （量词元字符）
+                ? 0 到 1次
+                * 0-
+                + 1-
+                {n} n
+                {n,m} n-m
+                {n,} n-
+            修饰符
+                i ignoreCase
+                m multiline
+                g global
+
+    */ 
+    var reg = /\\d/;
+    var str ='\\d';//=>\\d
+    var str = '\d';//=>\d
+
+    var reg = /[a\-b]+?/;// a或-或b ?解决贪婪性
+    var reg = /[\\-b]/;//\到b
+</script>

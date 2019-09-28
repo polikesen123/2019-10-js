@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            height: 2000px;
+            background: -webkit-linear-gradient(red, gold, yellow, green, pink, #fff);
+        }
+
+        #btn {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 100px;
+            position: fixed;
+            bottom: 50px;
+            right: 50px;
+            user-select: none;
+            background: aliceblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="btn">回到顶部</div>
+</body>
+
+</html>
+<script>
+    var btn = document.getElementById('btn');
+    var timer = null;
+
+    btn.onclick = function () {
+        timer = window.setInterval(() => {
+            if (document.documentElement.scrollTop == 0) {
+                clearInterval(timer);
+                return
+            }
+            document.documentElement.scrollTop -= 20;
+
+        },20)
+    }
+    window.onmousewheel = function(){
+        //监听滚动时间
+        console.log(document.documentElement.scrollTop);
+        clearInterval(timer)
+    }
+
+    //获取 css样式 getComputedStyle(ele)  获取当前元素的所有样式
+    //             IE用的是ele.currentStyle
+
+</script>

@@ -7,7 +7,7 @@ console.log(reg.test('0123'));
 console.log(reg.test('0123'));
 console.log(reg.test('01.23'));
 console.log(reg.test('10.23'));
-console.log(reg.test('0'));
+console.log(reg.test('0'));IOA
 
 //-------------------------------------------
 //匹配手机号
