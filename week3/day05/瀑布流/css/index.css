@@ -50,7 +50,9 @@ body {
     border-radius: 5px;
     transition: all 0.2s;
 }
-
+.body li:nth-child(5){
+    margin-right: 0;
+}
 .body li:hover {
     box-shadow: 0px 7px 11px 6px #ccc;
     transform: translateY(-10px)
@@ -58,6 +60,8 @@ body {
 
 .img_box {
     width: 100%;
+    /* margin-bottom: 16px; */
+    background: aliceblue;
 }
 
 .img_box img {
@@ -76,7 +80,7 @@ body {
 .img_box .desc {
     color: #ccc;
     border-bottom: 1px solid #eee;
-
+    text-indent: 8px;
 }
 
 .img_box .author {
