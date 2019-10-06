@@ -3,6 +3,14 @@ let {
     offset
 } = utils;
 let flag = false; //数据请求完成，true代表正在请求
+let body = document.getElementsByClassName('body')[0];
+let olis = body.getElementsByTagName('li');
+function init() {
+    [...olis].forEach(item => {
+        item.innerHTML = '';
+    })
+}
+init();
 //先去获取数据
 function getData() {
     flag = true;
@@ -20,18 +28,11 @@ function getData() {
     xhr.send();
 }
 getData();
-function init() {
-    [...olis].forEach(item => {
-        item.innerHTML = '';
-    })
-}
-let body = document.getElementsByClassName('body')[0];
-let olis = body.getElementsByTagName('li');
+
 function render(data) {
     //data 是后台给的数组
     //循环数组 拼接字符串 把拼接好的放到页面
     let html = '';
-    init();
     data.forEach(item => {
         let {
             pic,
@@ -42,7 +43,8 @@ function render(data) {
         html = `
         <img src="./img/oreal.jpg" realSrc="${pic}" style="height:${height}px">
         <p class="desc">${desc}</p>
-        <p class="author">${author}</p>`;
+        <p class="author">${author}</p>
+        `;
         //html是新拼接出来的一个块 我们需要决定的是这个快放到哪个里里面
         let temp = getMinLi();
         // temp.innerHTML += html;
@@ -71,8 +73,8 @@ function loadMore() {
     let tarT = offset(temp).t + temp.clientHeight; //元素到body的距离+元素本身的高度 就是元素底边到body的距离
     // console.log(tarT,wH,scrT)
     if (tarT < scrT+wH) { //底部露出来之后加载数据
+        console.log(111);
         getData();
-        // console.log(111);
     }
 }
 window.onscroll = function () {
