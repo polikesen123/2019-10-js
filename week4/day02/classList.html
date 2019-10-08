@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            height: 200px;
+            text-align: center;
+            line-height: 200px;
+            font-size: 35px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box" class="qqq www vsdf   aaa">珠峰培训</div>
+</body>
+
+</html>
+<script>
+    var box = document.getElementById('box');
+    console.log(box.classList)//ie10只兼容到
+    box.classList.add('qqqq');//添加类名 功能相当于addClass
+    box.classList.add('qqqq','jjj');
+    box.classList.remove('qqq');
+    box.classList.contains('ww');//查看是否有对应类名
+    box.classList.toggle('www');
+</script>

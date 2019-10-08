@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            height: 2000px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+</body>
+
+</html>
+<script>
+    //防抖：在连续触发某个函数时 直到最后才让对应的函数执行
+    // var timer = null;
+    // window.onscroll = function () {
+    //     clearInterval(timer)
+    //     timer = setTimeout(() => {
+    //         console.log(666)
+    //     }, 1000);
+    // }
+    function debounce(fn,wait) {
+        wait = wait||100;
+        var timer = null;
+        return function () {
+            clearInterval(timer)
+            timer = setTimeout(() => {
+                fn.apply(this,arguments)//保证this指向 和参数传递
+            }, wait);
+        }
+    }
+    let f = debounce(function () {
+        console.log(666)
+    })
+    window.onscroll = f;
+</script>
