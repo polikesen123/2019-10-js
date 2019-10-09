@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            background: lightcoral;
+            position: relative;
+            left: 0;
+            /* animation: run 2s linear infinite; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="box"></div>
+    <!-- <input type="text" id="inp"> -->
+</body>
+
+</html>
+<script>
+    //要移动的元素
+    //要移动的方向
+    //要移动的位置
+    //要移动的时间
+    function move(ele, attr, duration, target) {
+        //要移动的距离：目标位置-初始位置
+        let start = parseFloat(getComputedStyle(ele)[attr]);
+        let changeL = target - start;
+        let speed = changeL / duration;
+        // let l =start;
+        let t = 0;
+        let timer = setInterval(() => {
+            // l+= speed*20;
+            // if(l>=target){
+            //     l = target;
+            //     clearTimeout(time)
+            // }
+            t += 20;
+            let l = linear(start, target, duration, t);
+            if(l>=target){
+                l = target;
+                clearInterval(timer);
+            }
+            ele.style[attr] = l + 'px';
+        }, 20);
+    }
+
+    function linear(begin, target, duration, time) {
+        //begin:初始值
+        //target:目标值
+        //duration:运动总时间
+        //time:当前运动过的时间
+        //由以上三个值 可以计算出当前的位置
+        return (target - begin) / duration * time + begin;
+    }
+    let box = document.getElementById('box');
+    move(box, 'top', 1000, 500); //1秒之内往右移动500像素
+    move(box, 'left', 500, 500); //1秒之内往右移动500像素
+</script>
