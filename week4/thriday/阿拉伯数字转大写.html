@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    //=>toChineseChar这个函数可以把阿拉伯数字转换为大写的中文数字汉字
+    String.prototype.toChineseChar = function () {
+        var ary = ['零', '壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖'];
+        var reg = /(\d)/g;
+        var str = this;
+        var str = str.replace(reg, function (a) {
+            return ary[a];
+        });
+        console.log(str)
+    }
+    "54389".toChineseChar(); //=>”伍肆叁捌玖”
+</script>

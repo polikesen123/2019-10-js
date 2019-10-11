@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            height: 100px;
+            width: 100px;
+            background: lightcoral;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">点我</button>
+    <div class="box"></div>
+</body>
+
+</html>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+    //让指定的DIV始终显示在屏幕正中间  
+    // var box = document.querySelector('.box');
+    var $box = $('.box');
+    var $btn = $('#btn');
+    var flag = false;
+    $btn.on('click', function () {
+        setDivCenter($box);
+        $box.css({
+            'display': 'block'
+        });
+    });
+    function setDivCenter(divName) {
+        var top = ($(window).height() - $(divName).height()) / 2;
+        var left = ($(window).width() - $(divName).width()) / 2;
+        var scrollTop = $(document).scrollTop();
+        var scrollLeft = $(document).scrollLeft();
+        $(divName).css({
+            position: 'absolute',
+            'top': top + scrollTop,
+            left: left + scrollLeft
+        }).show();
+    }
+</script>

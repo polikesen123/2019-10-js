@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    String.prototype.repeatify = function (n) {
+        n = n||null;
+        var str = this;
+        if(n==null||n==1){
+            return str;
+        }
+        var rep = '';
+        for(let i =0;i<n;i++){
+            rep+=str;
+        }
+        return rep;
+    }
+    //=>在javascript对象上定义一个repeatify函数,这个函数接受一个整数参数,来明确子字符串需要重复几次
+    "abc".repeatify(3); //=>"abcabcabc"
+</script>
