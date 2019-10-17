@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #box {
+            width: 100px;
+            height: 100px;
+            background: darkcyan;
+            position: relative;
+            left: 0;
+            top:0;
+            /* transition: left 1s 2s linear,top 3s ease-in; */
+            /* transition: all 1s; */
+            /* animation: move 3s linear infinite; */
+        }
+        @keyframes move {
+            0%{
+                transform: translate(0,0);
+            }
+            50%{
+                transform: translate(300px,300px);
+            }
+            100%{
+                transform: translate(0,0);
+            }
+        }
+        /* 
+            让一个盒子上下居中：
+            display:flex align-items:center;
+            position: absolute 四个方向0 margin:auto; 高度不固定
+            top:50%;margin-top:- 盒子一半高度 高度固定
+            top:50%;transform:translateY(-50%)
+         */
+
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <button id="btn">click me!</button>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script>
+        //JQ动画
+        $('#box').animate({left:400,top:400},2000)
+
+
+        var box = document.getElementById('box');
+        //js动画  固定步长
+        //目标位置 向左移动600px
+        // var timer = null;
+        // let l = parseFloat(getComputedStyle(box).left);//获取初始值
+        // timer = setInterval(()=>{
+        //     l++;
+        //     if(l>600){
+        //         l = 600;
+        //         clearInterval(timer);
+        //     }
+        //     box.style.left = l +'px';
+        // },10)
+        let l = parseFloat(getComputedStyle(box).left); //获取初始值
+        function fn() {
+            l++;
+            if (l > 600) {
+                l = 600;
+            } else {
+                // setTimeout(() => {
+                //     fn();
+                // }, 10)
+                requestAnimationFrame(()=>{
+                    fn();
+                });//当前画面重绘完成之后会触发回调函数
+            }
+            box.style.left = l +'px';
+        }
+        // fn();
+        //固定步长 根据时间算出步长时间
+        let speed = (500-l)/1000;//目标位置-初始位置  除以时间 得出速度
+        let time = 0;//记录运动过的时间
+        function f(){
+            time+=10;
+            if(time>1000){
+                time = 1000;
+            }else{
+                setTimeout(()=>{
+                    f();
+                },10)
+            }
+            box.style.left = l + time*speed + 'px';//初始位置加运动过的距离
+        }
+        // f();
+        var btn = document.getElementById('btn')
+        btn.onclick = function(){
+            // box.style.left = 600 +'px';
+            // box.style.top = 300 +'px';
+            box.style.transform = 'translate(300px,300px)'
+        }
+    </script>
+</body>
+
+</html>

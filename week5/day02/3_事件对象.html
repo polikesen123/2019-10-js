@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background: #ccc;
+            margin: 50px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"><span>珠峰</span></div>
+    <input type="text" id="inp">
+    <textarea name="" id="txt" cols="30" rows="10"></textarea>
+</body>
+
+</html>
+<script>
+    //location.reload()重新加载页面
+    //location.href('自己地址')也可以重新加载
+
+    //
+    box.onclick = function (e) {
+        e = e || window.event //兼容ie低版本
+        var tar = e.target || e.srcElement;
+        console.log(e) //e是事件对象 event 浏览器自定的
+        //e.clientY  鼠标点击时的位置距离可视窗口左上角的Y轴的距离
+        //e.clientX  鼠标点击时的位置距离可视窗口左上角的X轴的距离
+        //e.pageY   鼠标点击时的那个位置到body左上角Y轴的距离
+        //e.target   e.srcElement  事件源   点击的那个元素
+        //this  绑定的元素
+        console.log(tar)
+
+    }
+    inp.oninput = function (e) {
+        console.log(e.target.value)
+    }
+    inp.onkeydown = function (e) {
+        if(e.keyCode == 13){
+            alert('提交成功')
+            this.blur();
+        }
+        console.log(e.keyCode)
+    }
+</script>

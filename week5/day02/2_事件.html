@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background: #ccc;
+            margin: 50px auto;
+        }
+        img{
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box" contenteditable="true">
+        <img src="../day01/mi/img/1.jpg" alt="">
+    </div>
+    <input type="text" id="inp">
+    <button id="btn">哈哈哈哈</button>
+</body>
+
+</html>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+    var box = document.getElementById('box')
+    //鼠标事件  
+    //onclick  单击  onclick = up+down
+    //ondblclick 双击事件 大约300ms之内连续点击两次触发
+    //onmouseenter  鼠标移入
+    //onmouseleave  鼠标移出
+    //onmouseover  鼠标滑过
+    //onmouseout  鼠标划出
+    //onmousemove  鼠标滑动
+    //onmousewheel  鼠标滚轮事件
+    //onmousedown 鼠标按下
+    //onmouseup  鼠标抬起
+    box.ondblclick = function () {
+        console.log('双击')
+    }
+    box.onmousemove = function(){
+        console.log(6666)
+    }
+    box.onclick = function(){
+        console.log('click')
+    }
+    box.onmousedown = function(){
+        console.log('down')
+    }
+    box.onmouseup = function(){
+        console.log('up')
+    }
+    box.oncontextmenu = function(e){
+        console.log('鼠标右键')
+        e.preventDefault();//清除右键单击出现侧边框
+    }
+    //键盘事件
+    //onkeydown  键盘按下  **
+    //onkeyup  键盘抬起 **
+    //onkeypress 按下抬起  有些系统键监听不到
+    //window document.body input textarea
+
+    box.onkeydown = function(){
+        console.log('key')
+    }
+
+    //input事件
+    //onfocus  聚焦 获取焦点
+    //onblur 失去焦点 提交验证
+    //oninput 内容改变就出发 
+    //onchange 内容发生改变  并且失去焦点的时候才触发
+    var inp = document.getElementById('inp');
+    inp.onfocus = function(){
+        console.log('获取焦点')
+    }
+    inp.onblur = function(){
+        console.log('失去焦点')
+    }
+    inp.onchange = function(){
+        console.log('change')
+    }
+    inp.oninput = function(){
+        console.log(666)
+    }
+    inp.value = 555;
+    var btn = document.getElementById('btn')
+    btn.onkeydown = function(){
+        console.log('btn')//凡是能获取焦点的都可触发key事件
+    }
+    //系统事件
+    //window.onscrooll  页面滚动  只要是能出现滚动条的元素 都可以绑定scroll事件
+    //window.onresize 窗口大小发生改变
+    //window.onload  页面资源加载完成之后完成 凡是能从远程加载资源的都可以触发onload事件  音频 视频
+    window.onload = function(){
+        console.log('load')
+    }
+    $(window).ready(function(){
+        //DOM结构加载完成之后触发
+        console.log('ready')
+    })
+</script>

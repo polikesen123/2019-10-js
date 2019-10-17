@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            box-sizing: border-box;
+        }
+        #outer {
+            width: 500px;
+            height: 500px;
+            background: red;
+            margin: 50px auto;
+            padding: 50px;
+        }
+
+        #center {
+            width: 400px;
+            height: 400px;
+            background: lawngreen;
+            /* margin: 50px auto; */
+            padding: 50px;
+        }
+        #inner {
+            width: 300px;
+            height: 300px;
+            background: gold;
+            /* padding: 50px; */
+            /* margin: 50px auto; */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outer">
+        <div id="center">
+            <div id="inner"></div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    //事件传播 击穿 点穿 点击穿透  因为有事件的传播 冒泡传播  不管元素怎么定位 它的事件冒泡只跟结构有关
+    window.onclick = function(e){
+        console.log('点了window')
+        e.stopPropagation();//阻止冒泡机制
+
+    }
+    outer.onclick = function(e){
+        console.log('outer')
+        e.stopPropagation();//阻止冒泡机制
+
+    }
+    center.onclick = function(e){
+        console.log('center')
+        e.stopPropagation();//阻止冒泡机制
+
+    }
+    inner.onclick = function(e){
+        e = e||window.event;
+        e.stopPropagation();//阻止冒泡传播
+        e.cancelBubble = true;//ie阻止冒泡
+        console.log('inner')
+    }
+    //事件传播的两个过程  ：捕获 冒泡
+</script>

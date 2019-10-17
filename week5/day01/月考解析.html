@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background:red;
+        }
+    </style>
+</head>
+<body>
+        <div id='box' style='background:red'></div>
+        <button>红</button>
+        <button>绿</button>
+        <button>蓝</button>
+</body>
+
+</html>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+    let colorAry = ['red', 'green', 'blue'];
+    $('button').on('click', function () {
+        let n = $(this).index('button');
+        $('#box').css({
+            background:colorAry[n]
+        })
+    });
+
+    //数组扁平化
+    function flatten(ary){
+        var temp = [];
+        function fn(ary){
+            ary.forEach(item => {
+                if(typeof item == 'object'){
+                    fn(item);
+                }else{
+                    temp.push(item);
+                }
+            });
+        }
+        fn(ary);
+        return temp;
+    }
+    function myNew(classN,...arg){
+        let obj = {};//new Object()
+        obj.__proto__ = classN.prototype;
+       let res = classN.apply(arg);
+       return typeof res ==='object' ? res : obj;
+    }
+    Object.prototype.myCreate = function(pro){
+        let obj = {};
+        obj.__proto__ = pro;
+        return obj;
+    }
+    function getMax(str){
+        str = str.split('').sort().join();
+        let key = '',num = 0;
+        str.replace(/(\w)\1*/g,function(a,b){
+            if(b.length>num){
+                
+            }
+        })
+    }
+</script>

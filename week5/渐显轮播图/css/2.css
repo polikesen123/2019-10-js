@@ -1,0 +1,103 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    list-style: 0;
+}
+
+#box{
+    width: 590px;
+    height: 470px;
+    position: relative;
+    margin: 30px auto;
+    border:1px solid saddlebrown;
+    box-sizing: border-box;
+}
+.imgbox{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+}
+.imgbox ul{
+    width: 2360px;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    left: 0;
+}
+.imgbox ul li{
+    float: left;
+    width: 590px;
+    height: 470px;
+    position: relative;
+
+}
+img{
+    width: 100%;
+    height: 100%;
+}
+.imgbox ul li img{
+    transition: all 0.5s;
+}
+.imgbox ul li:hover img{
+    transform: scale(1.2);
+
+}
+.imgbox ul li .desc{
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.5);
+    color: #ffffff;;
+    line-height: 50px;
+    text-align: center;
+}
+
+.tipbox{
+    position: absolute;
+    bottom: -30px;
+    right: 0;
+    right: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+.tipbox .tip{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: crimson;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.tipbox .tip.current{
+    background: darkcyan;
+}
+.btnbox{
+    position:absolute;
+    width: 100%;
+    height: 0;
+    top:50%;
+    margin-top: -25px;
+
+
+}
+.btnbox>div{
+    width: 30px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background: rgba(228,130,130,0.5);
+    cursor: pointer;
+    font-size: 20px;
+    color:#ffffff
+
+    
+}
+.leftbtn{
+    float: left;
+}
+.rightbtn{
+    float: right;
+}

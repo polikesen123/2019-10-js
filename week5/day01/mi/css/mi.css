@@ -1,0 +1,95 @@
+.bannerBox{
+    width: 1226px;
+    height: 460px;
+    margin: auto;
+    position: relative;
+}
+.img_box li{
+    float: left;
+    height: 460px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+}
+img{
+    width: 100%;
+}
+.left_btn{
+    width: 41px;
+    height: 69px;
+    background:url(../img/icon-slides.png) no-repeat;
+    background-position: -83px 0px;
+    background-size: cover;
+    position: absolute;
+    left: 234px;
+    top: 230px;
+    margin-top: -34px;
+    cursor: pointer;
+}
+.right_btn{
+    width: 41px;
+    height: 69px;
+    background:url(../img/icon-slides.png) no-repeat;
+    background-position: -124px 0px;
+    background-size: cover;
+    position: absolute;
+    right: 0;
+    top: 230px;
+    margin-top: -34px;
+    cursor: pointer;
+}
+.left_btn:hover{
+    background:url(../img/icon-slides.png) no-repeat;
+    background-position: 0px 0px;
+}
+.right_btn:hover{
+    background:url(../img/icon-slides.png) no-repeat;
+    background-position: -41px 0px;
+}
+.tip_box{
+    position: absolute;
+    right: 40px;
+    bottom:30px;
+}
+.tip_box li{
+    float: left;
+    width: 6px;
+    height: 6px;
+    margin-right: 5px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    border-color: rgba((255), 255, 255, 0.3);
+    background:rgba(0,0,0,0.4);
+    cursor: pointer;
+    user-select: none;
+}
+.tip_box li.current{
+    background: rgba((255), 255, 255, 0.3);
+    border-color:rgba(0,0,0,0.3);
+}
+.cataBox{
+    width: 234px;
+    height: 460px;
+    background-color:rgba(105,101,101,0.6);
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 20px 0;
+    box-sizing: border-box;
+}
+.cataBox li {
+    width: 234px;
+    height: 42px;
+    line-height: 42px;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    user-select: none;
+    text-indent: 20px;
+    background: url(../img/R.png) no-repeat 200px 16px;
+}
+.cataBox li:hover{
+    background-color: #ff6700;
+}
+

@@ -1,0 +1,69 @@
+.swiperBox{
+    width: 1220px;
+    height: 500px;
+    margin: 50px auto;
+    position: relative;
+    user-select: none;
+}
+.imgBox li{
+    width: 1220px;
+    height: 500px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.imgBox li img{
+    width: 100%;
+    height: 100%;
+}
+.moveBtn .left{
+    width: 41px;
+    height: 69px;
+    position: absolute;
+    background: url(../img/icon-slides.png) no-repeat;
+    background-position: -83px 0;
+    top: 250px;
+    left: 0;
+    margin-top: -20px;
+    cursor: pointer;
+}
+.moveBtn .right{
+    width: 41px;
+    height: 69px;
+    position: absolute;
+    background: url(../img/icon-slides.png) no-repeat;
+    background-position: -123px 0;
+    top: 250px;
+    right: 0;
+    margin-top: -20px;
+    cursor: pointer;
+}
+.moveBtn .left:hover{
+    background: url(../img/icon-slides.png) no-repeat;
+    background-position: 0 0;
+}
+.moveBtn .right:hover{
+    background: url(../img/icon-slides.png) no-repeat;
+    background-position: -42px 0;
+}
+.tipBtn{
+    position: absolute;
+    right: 30px;
+    bottom: 20px;
+}
+.tipBtn li{
+    float: left;
+    width: 6px;
+    height: 6px;
+    margin-right: 5px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    border-color: rgba((255), 255, 255, 0.3);
+    background:rgba(0,0,0,0.4);
+    cursor: pointer;
+    user-select: none;
+}
+.tipBtn li.current{
+    background: rgba((255), 255, 255, 0.3);
+    border-color:rgba(0,0,0,0.3);
+}

@@ -15,4 +15,4 @@ sayHello = function sayHo(){
     console.log('sayHello2');
 }
 sayHey(); //sayHey2
-sayHello();//sayHello
+sayHello();//sayHello2

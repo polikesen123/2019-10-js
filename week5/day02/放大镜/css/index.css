@@ -1,0 +1,22 @@
+.box{
+    width: 200px;
+    margin: 100px;
+    border: 1px solid #ccc;
+}
+.img_box{
+    width: 200px;
+    height: 200px;
+    background: url(../SONY.jpg) no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.mask{
+    width: 150px;
+    height: 150px;
+    background: rgba(255, 215, 0, 0.3);
+    display: none;
+    cursor: move;
+    position: absolute;
+    /* left: 0; */
+    /* bottom: 0; */
+}

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,23 +17,27 @@
         }
     </style>
 </head>
+
 <body>
     <div id="box">hahs</div>
-    <script>
-        function getSTR() {
-            var str = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-            var s = '';
-            while (s.length < 4) {
-                var n = Math.round(Math.random() * str.length);
-                if (s.indexOf(str[n] == -1)) {
-                    s += str[n];
-                }
-            }
-            return s;
-        }
-        box.onclick = function () {
-            box.innerText = getSTR();
-        }
-    </script>
 </body>
+
 </html>
+<script src="./gerStr.js"></script>
+<script>
+    var box = document.getElementById('box');
+    function getSTR() {
+        var str = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        var s = '';
+        while (s.length < 4) {
+            var n = Math.round(Math.random() * str.length-1);
+            if (s.indexOf(str[n] == -1)) {
+                s += str[n];
+            }
+        }
+        return s;
+    }
+    box.onclick = function () {
+        this.innerText = getSTR();
+    }
+</script>

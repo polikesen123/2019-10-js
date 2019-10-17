@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+    //Promise专为处理异步而生，promise能捕获同步的报错 ，也能捕获ajax的报错
+    //Promise的转态一经确认不会再发生任何改变 catch是捕获错误信息的;
+    //then后边接几个then的时候，后边then的实参是由上一个then执行后return的返回值决定的
+    new Promise((res, rej) => {
+        // setTimeout(() => {
+        //     console.log(qqq);
+        // }, 2000)
+        // $.ajax({
+        //     url:'./11.json',
+        //     success:()=>{
+
+        //     }
+        // })
+        // res(111);
+        rej(222)
+
+    }).then((data) => {
+        console.log(1111)
+    }).catch((err) => {
+        console.log(0)
+    }).finally(()=>{
+        //不管成功还是失败都要执行的代码 放到finally里面
+    })
+    //then catch finally 这三个方法都在promise的原型上
+    //all race resolve reject
+
+    var p1 = new Promise(function(res,rej){
+        setTimeout(()=>{
+            // res(111);
+            rej(1111)
+        },2000)
+    })
+    var p2 = new Promise(function(res,rej){
+        setTimeout(()=>{
+            res(2222);
+        },3000)
+    })
+    var p3 = new Promise(function(res,rej){
+        setTimeout(()=>{
+            res(3333);
+            // rej(333);
+        },4000)
+    })
+    //所有都成功才会走成功的回调函数  只要有一个失败就会走对应的失败函数
+    //exector函数是同步执行的函数   then catch 是异步的
+    Promise.all([p1,p2,p3]).then((data)=>{
+        console.log('data',data);
+    },(err)=>{
+        console.log('err',err);
+    });
+    Promise.race([p1,p2,p3]).then(data=>{
+        console.log('success',data);
+    },err=>{
+        console.log('failure',err)
+    })
+    // Promise.allSettled([p1,p2,p3]).then(data=>{
+    //     console.log('data',data)
+    // })
+    Promise.allSettled([p1,p2,p3]).then((data)=>{
+            console.log(data)
+        })
+    Promise.resolve(333).then(data=>{
+        console.log(data)
+    })
+    Promise.reject(444).then(data=>{
+        console.log(data)
+    }).catch(err=>{
+        console.log(err)
+    })
+</script>
