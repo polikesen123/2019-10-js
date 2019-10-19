@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            background: lightpink;
+        }
+
+        #box {
+            width: 200px;
+            height: 200px;
+            background: lightcyan;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -100px 0 0 -100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+</body>
+
+</html>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+    let $box = $('#box');
+    $box.one('click',function(){
+        console.log('hahha');
+    })
+    $box.on('click',function(){
+        console.log('皮卡皮卡~丘');
+    })
+
+   /*  
+        window.onload vs $(document).ready() 
+        $(document).ready()采用的是DOM2事件绑定 监听的是DOMContentLoaded这个事件，所以只要DOM结构加载完成就会被触发执行  而且同一个页面中可以使用多次（绑定不同的方法，因为基于DOM2 事件池绑定机制完成的）
+         window.onload 必须要等到所有资源加载完成才会被触发执行，采用DOM0级事件绑定，同一个页面只能绑定一次（一个方法），想绑定多个也需要修改成window.addEventListener('load',function(){} ,false)DOM2绑定方式
+   
+   */
+</script>
+<script>
+    var box = document.getElementById('box')
+    //查看元素事件  on****就是元素拥有的事件行为 
+    /*   box.onclick = function(){
+          console.log('哈哈哈哈~')
+          //移除事件绑定 ：DOM0直接赋值为null即可
+          box.onclick = null;
+      } */
+    /*  window.oncontextmenu = function(e){
+         e.preventDefault()
+         console.log('哇咔咔~')
+
+     } */
+    //DOM2 事件绑定的时候  一般都采用实名函数，目的：这样可以基于实名函数去移除事件绑定
+    /*  function fn(){
+         console.log('哈哈哈哈');
+         //移除事件绑定：从事件池中移除 ，所以需要指定好事件类型、方法等信息（要和绑定的时候一样才可以移除）
+         box.removeEventListener('click',fn,false);
+     }
+     box.addEventListener('click',fn,false); */
+
+    /* function f1(){console.log(111)}
+    function f2(){console.log(222)}
+    function f3(){console.log(333)}
+    box.addEventListener('click',f2,false);
+    box.addEventListener('click',f3,false);
+    box.addEventListener('click',f1,false);
+    //基于addEventListener往事件池中添加方法 存在去重的机制“同一个元素 同一个事件类型 同一个方法，在事件池中只能存储一遍这个方法，不会重复存储” 
+    box.addEventListener('click',f1,false);
+    box.addEventListener('click',f1,false); */
+
+    //DOM0和DOM2可以混在一起使用 执行的顺序以绑定的顺序为主
+    /* box.addEventListener('click', function () {
+        console.log(666)
+    }, false);
+    box.onclick = function () {
+        console.log(777)
+    }
+    box.addEventListener('click', function () {
+        console.log(999)
+    }, false) */
+
+    /* DOM0中能做事件绑定的事件行为  DOM2里面一些事件 DOM0不一定能处理绑定 ，例如:transitionend、DOMContentLoaded... */
+   /*  box.ontransitionend = function(){
+        console.log('皮卡皮卡~~~')
+    }
+
+    window.addEventListener('load',function(){
+        //页面所有资源都加载完成
+        console.log('load')
+    })
+    window.addEventListener('DOMContentLoaded',function(){
+        //只要DOM结构加载完成就会触发
+        console.log('DOMContentLoaded')
+    }) */
+    //$(document).ready(function(){ })
+   /*  $(function(){
+        //JQ中的这个处理（DOM结构加载完成触发）采用的就是DOMContentLoaded事件，并且依托DOM2事件绑定来处理 所以同一个页面中，此操作可以被使用多次
+    })
+    $(function(){
+        //JQ中的事件绑定采用DOM2事件绑定 on/off/one
+    }) */
+
+    // function fn(){
+    //     console.log('皮卡皮卡~');
+    //     box.removeEventListener('click',fn,false)
+    // }
+    // box.addEventListener('click',fn,false)
+
+
+</script>

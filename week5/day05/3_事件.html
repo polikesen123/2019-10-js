@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+<input type="text" name="" id="" autofocus>
+</body>
+
+</html>
+<script>
+    /* 
+        [鼠标事件]
+            click
+            dblclick
+            contextmenu
+            mousedown
+            mouseup
+            mouseenter
+            mouseleave
+            mouseover
+            mouseout
+            mousewheel
+            mousemove
+        [键盘事件]
+            keydown
+            keyup
+            keypress
+            可以绑定事件的元素  input document window textarea button  div+contenteditable =true   凡是可以获取焦点的都可以触发键盘事件
+        input事件
+            oninput
+            onchange  内容发生改变 并且失去焦点
+            onblur 失焦时候触发
+            onfocus 获得焦点时触发 事件
+            focus() 让该元素  聚焦
+            blur() 让该元素  失焦
+        系统事件
+            onscroll  
+            onresize
+            load 页面资源加载完成
+            $(document).ready(function(){}) DOM 加载完成  DOMContentLoaded
+
+
+     */
+     window.onresize = function(){
+         document.write(666)
+     }
+</script>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background: lightcoral;
+            border-radius: 50%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            cursor: move;
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box" class="box"></div>
+</body>
+
+</html>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+    //涉及到多人合作  或者封装 时候  用DOM二级事件  不然容易把 一级 的  （别人的）覆盖了
+    //先执行 事件  再执行默认事件  滚动的时候  先执行滚动  再执行 绑定的事件
+
+    //拖拽  
+    //鼠标按下  记录盒子的初始位置  和鼠标初始位置 
+    //鼠标移动  盒子跟着鼠标移动  鼠标当前的位置 -  鼠标初始位置 + 盒子的初始位置  =  盒子的当前位置
+    //鼠标抬起  盒子停止跟随
+    var box = document.getElementById('box');
+    // function move(e) {
+    //     this.style.left = e.pageX - this.startPX + this.startX + 'px';
+    //     this.style.top = e.pageY - this.startPY + this.startY + 'px';
+    // }
+    // var box = document.getElementById('box');
+    // box.onmousedown = function (e) {
+    //     this.startX = $(this).offset().left;
+    //     this.startY = $(this).offset().top;
+    //     this.startPX = e.pageX;
+    //     this.startPY = e.pageY;
+
+    //     document.onmousemove = move.bind(this)
+    //     document.onmouseup = function(){
+    //         document.onmousemove = null;
+    //         document.onmouseup = null;
+    //     }
+    // }
+    // document.onmouseup = function(){
+    //     document.onmousemove = null;
+    // }
+    //setCapture 狐火浏览器防止鼠标丢失  别的 为了防止鼠标丢失可以把元素绑在document上
+
+    //DOM2级事件
+    function move(e) {
+        this.style.left = e.pageX - this.startPX + this.startX + 'px';
+        this.style.top = e.pageY - this.startPY + this.startY + 'px';
+    }
+    function end(e) {
+        //鼠标抬起执行的函数
+        document.removeEventListener('mousemove', this.MOVE, false);
+        document.removeEventListener('mouseup', this.END, false)
+    }
+    function start(e) {
+        this.startX = $(this).offset().left;
+        this.startY = $(this).offset().top;
+        this.startPX = e.pageX;
+        this.startPY = e.pageY;
+        this.MOVE = move.bind(this);
+        this.END = end.bind(this);//保证this指向 并且要移出绑定的事件 up
+        document.addEventListener('mousemove', this.MOVE, false)
+        document.addEventListener('mouseup',this.END, false)
+    }
+    box.addEventListener('mousedown',start , false)//事件执行时候里边的回调函数的this就是绑定的那个元素
+</script>

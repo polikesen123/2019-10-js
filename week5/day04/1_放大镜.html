@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+</body>
+
+</html>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+    //放大镜  小蒙层/小盒子 === 小盒子/大图片 蒙层移动的方向和大图移动的方向是相反的
+
+    //2级事件绑定  ele.addEventListener('事件类型',callback,false)//false ：callback在冒泡阶段触发.true  捕获阶段
+    //            ele.removeListener('时间内类型'，cb,false) cbb必须是绑定时候的那个回调函数
+    //        IE  ele.attachEvent('on事件类型'，cb)  IE低版本
+    //            ele.dettachEvent('on事件类型',cb)
+    Element.prototype.one = function (type, cb) {
+        function fn(e){
+            //fn中的this就是box
+            cb.call(this,e);
+            this.removeEventListener('type',fn,false)
+        }
+        //this  是绑定的那个元素
+        this.addEventListener('type',fn,false)
+    }
+    // box.onclick = function(e){
+    //     console.log(this,e)
+    // }
+    box.one('click', function (e) {
+        //e 是事件对象  this就是box
+        console.log(e,this);
+    })
+
+    $(document).ready(function(){
+        //Dom加载完成
+        //DOMContentLoaded JQ内部实现ready DOM 二级事件绑定
+        console.log(111)
+    })
+    window.onload = function(){
+        console.log(222)
+        //页面资源加载完成
+    }
+    window.addEventListener('load',function(){},false)
+    //mouseover有事件冒泡     冒泡阶段触发cb
+    //mouseenter没有事件冒泡  捕获阶段触发cb
+    //利用事件冒泡可以实现事件委托 用事件源 e.target
+</script>

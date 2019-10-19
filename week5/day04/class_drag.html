@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            cursor: move;
+            user-select: none;
+        }
+        #box {
+            background:lightgreen;
+        }
+        #box1 {
+            background: lightcoral;
+
+        }
+        #box2 {
+            background: gold;
+
+        }
+        #box3 {
+            background: darkcyan;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box" class="box"></div>
+    <div id="box1" class="box2"></div>
+    <div id="box2" class="box3"></div>
+    <div id="box3" class="box4"></div>
+</body>
+
+</html>
+<script>
+    // var box = document.getElementById('box');
+    class Drag {
+        constructor(id, num) {
+            this.box = document.getElementById(id)
+            this.num = num; //目标次数
+            this.count = 0; //拖拽次数
+            this.MOVE = this.move.bind(this);
+            this.END = this.end.bind(this); //保证this指向 并且要移出绑定的事件 up
+            this.Start = this.start.bind(this)
+            this.box.addEventListener('mousedown', this.Start, false)
+        }
+        start(e) {
+            //this是当前实例
+            this.startX = this.offset(this.box).l;
+            this.startY = this.offset(this.box).t;
+            this.startPX = e.pageX;
+            this.startPY = e.pageY;
+            document.addEventListener('mousemove', this.MOVE, false)
+            document.addEventListener('mouseup', this.END, false)
+            // addZindex(this.box);
+            bigZindex(this.box);
+
+        }
+        move(e) {
+            //this是当前实例
+            this.box.style.left = e.pageX - this.startPX + this.startX + 'px';
+            this.box.style.top = e.pageY - this.startPY + this.startY + 'px';
+        }
+        end(e) {
+            //鼠标抬起执行的函数
+            document.removeEventListener('mousemove', this.MOVE, false);
+            document.removeEventListener('mouseup', this.END, false);
+            backZindex(this.box)
+            //拖拽次数判断
+            if (this.num === undefined) return;
+            this.count++; //拖拽次数累加
+            if (this.num === this.count) {
+                this.clear();
+            }
+        }
+        offset(ele) {
+            let l = ele.offsetLeft,
+                t = ele.offsetTop;
+            let temp = ele.offsetParent;
+            while (temp) {
+                l += temp.offsetLeft + temp.clientLeft;
+                t += temp.offsetTop + temp.clientTop;
+                temp = temp.offsetParent;
+            }
+            return {
+                l,
+                t
+            }
+        }
+        clear() {
+            this.box.removeEventListener('mousedown', this.Start, false)
+        }
+    }
+    let n = 0 ;
+    function addZindex(ele){
+        ele.style.zIndex = ++n;
+    }
+    function bigZindex(ele){
+        ele.style.zIndex = 999;
+    }
+    function backZindex(ele){
+        ele.style.zIndex = 1;
+    }
+    var d = new Drag('box');
+    var d1 = new Drag('box1');
+    var d2 = new Drag('box2');
+    var d3 = new Drag('box3');
+    // d.clear();
+</script>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #lit_box {
+            width: 100px;
+            height: 100px;
+            background: salmon;
+        }
+
+        #big_box {
+            width: 400px;
+            height: 400px;
+            border: 1px solid sandybrown;
+            margin: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="lit_box" class="lit_box" draggable="true"></div>
+    <div id="big_box"></div>
+    <!-- <input type="file" id="inp"> -->
+</body>
+
+</html>
+<script>
+    //原生上传
+    /* inp.oninput = function(e){
+        console.log(e.target.files[0])
+        let file = e.target.files[0];
+        let url = URL.createObjectURL(file);
+        bigBox.innerHTML +=`<img src="${url}">`
+    } */
+    //熊猫压缩  bjson  软件
+    var litBox = document.getElementById('lit_box')
+    var bigBox = document.getElementById('big_box')
+    litBox.ondragstart = function (e) {
+        console.log('start', e)
+    }
+    litBox.ondrag = function (e) {
+        // console.log('draging')
+    }
+    litBox.ondragend = function (e) {
+        console.log('end', e)
+    }
+    bigBox.ondragenter = function () {
+        console.log('拖进来')
+    }
+    bigBox.ondragover = function (e) {
+        e.preventDefault();
+        console.log('拖上来')
+    }
+    bigBox.ondragleave = function () {
+        console.log('离开')
+    }
+    bigBox.ondrop = function(e){
+        //需要与over配合使用  需要over组织默认事件
+        e.preventDefault();//阻止默认打开图片
+        console.log(e.dataTransfer.files[0])
+        let file = e.dataTransfer.files[0];
+        let url = URL.createObjectURL(file);//产生对应文件的路径
+        console.log(url);//type判断是不是image格式文件
+        this.innerHTML = `<img src=${url}>`;
+
+
+        // let _this = this;
+        // let res = new FileReader();//base64适合做小图 雪碧图等
+        // res.readAsDataURL(file);
+        // res.onload = function(e){
+        //     console.log(e);
+        //     // _this.innerHTML = `<img src=${e.target.result}>`;//base64 图片的一种形式数据
+        //     _this.innerHTML = e.target.result;
+        // }
+    }
+</script>

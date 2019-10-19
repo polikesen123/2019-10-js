@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            background: lightpink;
+        }
+
+        #box {
+            width: 200px;
+            height: 200px;
+            background: lightcyan;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin: -100px 0 0 -100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+</body>
+
+</html>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+    let $box = $('#box');
+    box = $box.get(0);
+    //给元素的事件行为绑定方法，当事件行为触发 方法会被执行，不仅会被执行而且会把当前操作的相关信息传递给这个函数 =>"事件对象"
+    /* 
+        如果鼠标操作 获取到的是MouseEvent类的实例 =>鼠标事件对象
+        鼠标事件对象 -》 MouseEvent.prototype ->UIEvent.prototype->Event.prototype->Object.prototype
+
+        如果是键盘操作  获取的是KeyboadEvent类的实例 =>键盘事件对象
+        除了以上还有：普通事件对象（Event）、手指事件对象(TouchEvent)等
+    */
+    // box.onclick = function (e) {
+        // console.log('胡巴胡巴~~~')
+        /* 
+            //鼠标事件对象
+            clientX/clientY：当前鼠标触发点距离当前窗口左上角X/Y轴的坐标
+            pageX/pageY：触发点距离当前页面左上角的X/Y轴坐标
+                **在没有滚动条的时候pageX==clientX pageY==clientY
+                有滚动条 pageX = clientX+卷去的宽度 pageY=clientY+卷去的高度
+            type:当前触发事件的类型
+            target：事件源（操作的哪个元素，哪个元素就是事件源）在不兼容的浏览器中可以通过srcElement获取，这个也代表事件源
+            preventDefault() 用来阻止默认行为，不兼容的浏览器中使用e.returnValue = false也可以阻止默认行为
+            stopPropagation() 阻止冒泡传播，不兼容的浏览器中使用e.cancelBubble=true
+        */
+        // console.log(e)
+    // }
+    //事件对象和函数以及给谁绑定的事件没啥关系 ，它存储的是当前本次操作的相关信息，操作一次只能有一份信息，所以在哪个方法中获取的信息都是一样的 第二次操作 ，存储的信息会把第一次操作的信息替换掉...
+
+    /* 
+        第一次是事件触发 ，浏览器都会处理一下
+            1.捕获到当前的操作行为（把操作信息获取到），通过创建MouseEvent等类的实例，得到事件对象e
+            2.通知所有绑定的方法（符合执行条件的）开始执行，并且把e当成实参传递给每一个方法 ，所以在一个方法中得到的事件对象其实就是一个
+            ...
+            3.后面再重新触发这个事件行为，会重新获取本次操作的信息，用新的信息替换老的信息，然后继续之前的步骤...
+    */
+    let obj = null
+    box.addEventListener('click',function(e){
+        console.log(e);
+        obj= e;
+    },false)
+    box.addEventListener('click',function(e){
+        console.log(e == obj)
+    },false)
+    document.addEventListener('click',function(e){
+        console.log(e===obj)
+    },false)
+</script>
