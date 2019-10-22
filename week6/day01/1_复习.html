@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 400px;height: 400px;border: 1px solid #ccc;
+            margin: 50px auto;
+        }
+        img{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div draggable="true"></div>
+    <div id="box">
+        <img src="../../week5/day03/img/big.jpg" alt="">
+    </div>
+    <input type="file">
+</body>
+</html>
+<script>
+    /* 
+        new Promise(executor);executor(res,rej){ }
+        pending  resolved rejected
+        then catch finally
+        Promise.  --->resolve reject all race
+
+        //JQ 
+        $.extend()  $.fn.extend()  参数都接受一个对象
+
+        事件
+        鼠标 键盘 input  系统的  ready(DOMContentLoaded)  onload
+        e.preventDefault()  return false
+        事件对象  e = e || window.event
+        事件源 e.target  || e.srcElement
+
+        事件的传播机制：冒泡传播   事件流 
+        e.stopPropagation()  e.cancelBubble = true
+        事件委托  原理即使冒泡传播
+
+        原生拖拽
+            dragstart drag  dragend 是绑定在被拖拽的元素身上 
+            dragenter dragleave dragover drop  drop能起作用  必须dropover有阻止默认行为
+     */
+    let box = document.getElementById('box');
+    box.ondragover = function(e){
+        e.preventDefault();
+    }
+    box.ondrop = function(e){
+        let file = e.dataTransfer.files[0]
+        console.log(file);
+        e.preventDefault(file);//阻止默认打开图片
+        let src = URL.createObjectURL(file);
+        console.log(src)
+        this.innerHTML = `<img src="../../week5/day03/img/big.jpg" alt="">`;
+    }
+</script>

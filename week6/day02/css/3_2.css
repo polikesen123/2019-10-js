@@ -1,0 +1,91 @@
+/* 
+  less  1.嵌套书写
+        2.变量
+        3.混合
+        4.函数
+        5.循环
+
+*/
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+@keyframes move {
+  0% {
+    transform: rotateX(0) rotateY(0);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+}
+.w,
+span {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+}
+.w .qqq {
+  background: rebeccapurple;
+}
+div {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+}
+div .qqq {
+  background: rebeccapurple;
+}
+#box {
+  width: 200px;
+  height: 200px;
+  margin: 150px auto;
+  position: relative;
+  perspective: 2000px;
+  background: url('../img/1.jpg');
+}
+#box ul {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform: rotateX(45deg) rotateY(30deg);
+  animation: move 2s infinite linear;
+  transform-origin: 100px 100px 100px;
+}
+#box ul li {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  line-height: 200px;
+  background: rgba(102, 212, 216, 0.6);
+  border: 1px dashed salmon;
+  box-sizing: border-box;
+}
+#box ul li:nth-child(2) {
+  background: rgba(139, 148, 233, 0.6);
+  transform: rotateX(-90deg);
+  transform-origin: bottom;
+}
+#box ul li:nth-child(4) {
+  background: rgba(205, 236, 89, 0.6);
+  transform: rotateY(-90deg);
+  transform-origin: left;
+}
+#box ul li:nth-child(5) {
+  background: rgba(159, 219, 153, 0.6);
+  transform: rotateX(90deg);
+  transform-origin: top;
+}
+#box ul li:nth-child(6) {
+  background: rgba(233, 171, 91, 0.6);
+  transform: translateZ(200px);
+}
+#box ul :nth-child(3) {
+  background: rgba(139, 148, 233, 0.6);
+  transform: rotateX(-90deg);
+  transform-origin: bottom;
+}

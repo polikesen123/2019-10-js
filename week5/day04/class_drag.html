@@ -67,8 +67,8 @@
             this.startPY = e.pageY;
             document.addEventListener('mousemove', this.MOVE, false)
             document.addEventListener('mouseup', this.END, false)
-            // addZindex(this.box);
-            bigZindex(this.box);
+            addZindex(this.box);
+            // bigZindex(this.box);
 
         }
         move(e) {
@@ -80,7 +80,7 @@
             //鼠标抬起执行的函数
             document.removeEventListener('mousemove', this.MOVE, false);
             document.removeEventListener('mouseup', this.END, false);
-            backZindex(this.box)
+            // backZindex(this.box)
             //拖拽次数判断
             if (this.num === undefined) return;
             this.count++; //拖拽次数累加

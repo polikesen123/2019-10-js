@@ -32,17 +32,34 @@ let point = {
         let moveY = function (y) {
             this.y = y;
         }
-        moveX(x);
+        moveX(x);//这俩执行时候没点this就是window
         moveY(y);
     }
 };
 point.moveTo(100, 200);
-console.log(point.x, point.y); //100,200?----->10 20
+console.log(point.x, point.y); //----->10 20
 
+let point = {
+    x: 10,
+    y: 20,
+    moveTo: function (x, y) {
+        let moveX =  (x)=> {
+            this.x = x;
+        }
+        let moveY =  (y)=> {
+            this.y = y;
+        }
+        moveX(x);//this是moveTo里面的
+        moveY(y);
+    }
+};
+point.moveTo(100, 200);
+console.log(point.x, point.y);//100,200
 //4.insertafter------------------------------
 function insertAfter(newEle, originEle) {
     //=>newEle:新插入的元素
     //=>originEle:指定的老元素
+    //思路：在老元素的后边元素的前边插入 
     if (originEle === null) return;
     var parent = originEle.parentNode;
     if (parent.lastChild === originEle) {

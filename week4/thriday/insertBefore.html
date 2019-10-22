@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="target">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+</body>
+</html>
+<script>
+    var  box = document.getElementById('box');
+    // var li = document.createElement('li');
+    // li.innerHTML = 4;
+    // // box.appendChild(li);
+    // // box.insertBefore(li,box.querySelector('li:nth-child(2)'))
+    // //box.insertBefore(newEle,oldEle)
+    // Element.prototype.insertAfter = insertAfter;
+    // function insertAfter(newEle,originELe){
+    //     let next = originELe.nextElementSibling;
+    //     if(next){
+    //         originELe.parentNode.insertBefore(newEle,next)
+    //         this.insertBefore(newEle,next);
+    //     }
+    //     else{
+    //         this.appendChild(newEle);
+    //     }
+    // }
+    // box.insertAfter(li,box.querySelector('li:nth-child(1)'))
+
+    var box = document.getElementById('target'),
+    olis = box.querySelectorAll('li');
+    var ary = [...olis].reverse()
+
+    var frag =document.createDocumentFragment();
+</script>
