@@ -1,0 +1,12 @@
+#box {
+  width: 1.33333333rem;
+  height: 1.33333333rem;
+  background: #000;
+}
+@media all and (max-width: 750px) {
+  #box {
+    width: 100px;
+    height: 100px;
+    background: rebeccapurple;
+  }
+}

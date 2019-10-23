@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+@img: '../images';
+
+.w() {
+    width: 100%;
+    height: 100%; //默认全屏
+}
+
+html,
+body {
+    .w();
+
+    .hide {
+        display: none;
+    }
+
+    font-size: 16px;
+
+    >section {
+        .w();
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    section.loadingBox {
+        background: #333;
+        z-index: 30;
+        text-align: center;
+        color: #fff;
+        // display: none;
+        transition: opacity 1s 1s;
+
+        h1 {
+            font-size: 0.9rem;
+            position: relative;
+            top: 25%;
+        }
+
+        h2 {
+            font-size: 0.6rem;
+            position: relative;
+            top: 35%;
+        }
+
+        .progressBox {
+            width: 80vw;
+            height: 0.4rem;
+            border-radius: 0.4rem;
+            overflow: hidden;
+            margin: auto;
+            position: relative;
+            background: #fff;
+            top: 45%;
+
+            .progress {
+                width: 0%;
+                height: 0.4rem;
+                transition: all 1s;
+                background: linear-gradient(45deg, #6faa6d 0%, #6faa6d 25%, #77c570 25%, #77c570 50%, #6faa6d 50%, #6faa6d 75%, #77c570 75%, #77c570 100%);
+                background-size: 0.4rem 0.4rem;
+            }
+        }
+    }
+
+    section.phoneBox {
+        background: url('@{img}/phone-bg.jpg');
+        background-size: cover;
+        overflow: hidden;
+        z-index: 20;
+        header {
+            color: #fff;
+            text-align: center;
+            position: relative;
+            top: 0.3rem;
+            h1{
+                font-size: 0.9rem;
+            }
+            h2{
+                font-size: 0.27rem;
+            }
+        }
+        footer{
+            width: 90vw;
+            // margin: auto;
+            height: 63vw;
+            background: url('@{img}/phone-listen.png') no-repeat;
+            background-size: contain;
+            position: absolute;
+            bottom: 0.5rem;
+            left: 5vw;
+            .circle{
+                width: 23vw;
+                height: 23vw;
+                border: 1px solid #77c570;
+                border-radius: 50%;
+                position: absolute;
+                left: 65.5vw;
+                top: 28.5vw;
+                // background-color: red;
+                animation: move 0.8s infinite linear;
+            }
+            // .hide
+        }
+        .overBox{
+            width: 90vw;
+            background: url('@{img}/phone-key.png');
+            height: 115vw;
+            background-size: contain;
+            position: absolute;
+            left: 5vw;
+            bottom: 0.3rem;
+        }
+        .bot{
+            transform: translateY(110%);
+            transition: all 0.5s ;
+        }
+        @keyframes move {
+            0%{
+                transform: scale(1.4);
+            }
+            100%{
+                transform: scale(1);
+            }
+        }
+    }
+
+}
