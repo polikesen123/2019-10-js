@@ -1,0 +1,411 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-size: 16px;
+  color: #fff;
+}
+html .music,
+body .music {
+  width: 0.8rem;
+  height: 0.8rem;
+  position: fixed;
+  top: 0.4rem;
+  right: 0.4rem;
+  animation: rotate 1s linear infinite;
+  z-index: 999;
+}
+html .toparrow,
+body .toparrow {
+  position: fixed;
+  bottom: 0.2rem;
+  left: 50%;
+  margin-left: -0.3rem;
+  animation: toTop 1s linear infinite;
+  z-index: 999;
+}
+html section,
+body section {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: contain;
+}
+html .hide,
+body .hide {
+  display: none;
+}
+html section.loadingBox,
+body section.loadingBox {
+  background: url(../images/bg.jpg) no-repeat;
+  background-size: cover;
+  position: relative;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+}
+html section.loadingBox .personal,
+body section.loadingBox .personal {
+  width: 5.6rem;
+  height: 0.6rem;
+  margin: 1.8rem 1rem 1rem 1rem;
+}
+html section.loadingBox .resume,
+body section.loadingBox .resume {
+  margin-left: 0.3rem;
+  width: 7rem;
+  height: 1.5rem;
+  margin-top: 0.9rem;
+}
+html section.loadingBox .job,
+body section.loadingBox .job {
+  position: absolute;
+  top: 3.6rem;
+  left: 3rem;
+}
+html section.loadingBox .job .topic,
+body section.loadingBox .job .topic {
+  font-size: 18px;
+  margin-bottom: 0.2rem;
+}
+html section.loadingBox .job p,
+body section.loadingBox .job p {
+  font-size: 16px;
+  color: #ccc;
+  text-align: center;
+}
+html section.loadingBox .avator,
+body section.loadingBox .avator {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  margin: 0.4rem 2.5rem;
+  margin-top: 1rem;
+}
+html section.loadingBox .bottom,
+body section.loadingBox .bottom {
+  width: 7rem;
+  height: 3rem;
+  margin-left: 0.25rem;
+  margin-top: 0.4rem;
+  color: #ccc;
+  font-size: 0.38rem;
+  padding-left: 1.5rem;
+  box-sizing: border-box;
+}
+html section.loadingBox .bottom p,
+body section.loadingBox .bottom p {
+  line-height: 0.7rem;
+}
+html section.perInfo,
+body section.perInfo {
+  background: url(../images/bg3.jpg);
+  background-size: cover;
+  z-index: 80;
+}
+html section.perInfo .top,
+body section.perInfo .top {
+  width: 80vw;
+  height: 30vw;
+  padding: 0.6rem;
+  margin-top: 0.4rem;
+  position: relative;
+  overflow: hidden;
+}
+html section.perInfo .top p,
+body section.perInfo .top p {
+  float: right;
+  text-align: center;
+}
+html section.perInfo .top img,
+body section.perInfo .top img {
+  right: 7vw;
+}
+html section.perInfo .top .english,
+body section.perInfo .top .english {
+  margin: 0.8rem 0.2rem;
+}
+html section.perInfo .top .word,
+body section.perInfo .top .word {
+  color: #0ec5c5;
+  font-size: 0.5rem;
+  width: 18vw;
+  height: 30vw;
+}
+html section.perInfo .top .cub,
+body section.perInfo .top .cub {
+  width: 20vw;
+  height: 30vw;
+  position: absolute;
+  top: 5vw;
+}
+html section.perInfo .bottom,
+body section.perInfo .bottom {
+  padding: 10vw;
+}
+html section.perInfo .bottom li,
+body section.perInfo .bottom li {
+  width: 80vw;
+  height: 10vw;
+  line-height: 10vw;
+  margin: 0.3rem 0;
+  border-bottom: 2px solid #0ec5c5;
+}
+html section.perInfo .bottom li img,
+body section.perInfo .bottom li img,
+html section.perInfo .bottom li p,
+body section.perInfo .bottom li p {
+  float: left;
+  margin: 0 0.1rem;
+}
+html section.Professional,
+body section.Professional {
+  background: url(../images/bg3.jpg);
+  background-size: cover;
+  z-index: 60;
+}
+html section.Professional .top,
+body section.Professional .top {
+  width: 80vw;
+  height: 30vw;
+  padding: 0.6rem;
+  margin-top: 0.4rem;
+  position: relative;
+  overflow: hidden;
+}
+html section.Professional .top p,
+body section.Professional .top p {
+  float: right;
+  text-align: center;
+}
+html section.Professional .top img,
+body section.Professional .top img {
+  left: 7vw;
+}
+html section.Professional .top .english,
+body section.Professional .top .english {
+  margin: 0.8rem 0.2rem;
+  margin-right: 2rem;
+}
+html section.Professional .top .word,
+body section.Professional .top .word {
+  color: #0ec5c5;
+  font-size: 0.5rem;
+  width: 18vw;
+  height: 30vw;
+}
+html section.Professional .top .cub,
+body section.Professional .top .cub {
+  width: 20vw;
+  height: 30vw;
+  position: absolute;
+  top: 5vw;
+}
+html section.Professional .bottom,
+body section.Professional .bottom {
+  float: left;
+  margin-top: 0.6rem;
+  border: 2px solid #0ec5c5;
+  border-radius: 8px;
+  margin: 0 0.4rem;
+}
+html section.Professional .bottom li,
+body section.Professional .bottom li {
+  margin-bottom: 0.2rem;
+  box-sizing: border-box;
+  padding: 0.2rem 0.3rem;
+  padding-bottom: 0.1rem;
+}
+html section.Professional .bottom li p,
+body section.Professional .bottom li p {
+  line-height: 0.5rem;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.2rem;
+}
+html section.ProjectExp,
+body section.ProjectExp {
+  background: url(../images/bg3.jpg);
+  background-size: cover;
+  z-index: 40;
+  float: left;
+}
+html section.ProjectExp .top,
+body section.ProjectExp .top {
+  width: 80vw;
+  height: 30vw;
+  padding: 0.6rem;
+  margin-top: 0.4rem;
+  position: relative;
+  overflow: hidden;
+}
+html section.ProjectExp .top p,
+body section.ProjectExp .top p {
+  float: right;
+  text-align: center;
+}
+html section.ProjectExp .top img,
+body section.ProjectExp .top img {
+  right: 7vw;
+}
+html section.ProjectExp .top .english,
+body section.ProjectExp .top .english {
+  margin: 0.8rem 0.2rem;
+}
+html section.ProjectExp .top .word,
+body section.ProjectExp .top .word {
+  color: #0ec5c5;
+  font-size: 0.5rem;
+  width: 18vw;
+  height: 30vw;
+}
+html section.ProjectExp .top .cub,
+body section.ProjectExp .top .cub {
+  width: 20vw;
+  height: 30vw;
+  position: absolute;
+  top: 5vw;
+}
+html section.ProjectExp .bottom,
+body section.ProjectExp .bottom {
+  margin-top: 0.8rem;
+  display: flex;
+  border-top: 1px solid #000;
+}
+html section.ProjectExp .bottom .project,
+body section.ProjectExp .bottom .project {
+  width: 5rem;
+}
+html section.ProjectExp .bottom .project div,
+body section.ProjectExp .bottom .project div {
+  padding: 0.2rem;
+}
+html section.ProjectExp .bottom .project div p,
+body section.ProjectExp .bottom .project div p {
+  line-height: 0.5rem;
+}
+html section.ProjectExp .bottom .project .title,
+body section.ProjectExp .bottom .project .title {
+  color: #0ec5c5;
+  font-size: 0.4rem;
+  padding: 0.2rem;
+}
+html section.ProjectExp .bottom .project .first,
+body section.ProjectExp .bottom .project .first {
+  margin-bottom: 0.4rem;
+}
+html section.ProjectExp .bottom .time,
+body section.ProjectExp .bottom .time {
+  padding-left: 0.4rem;
+}
+html section.ProjectExp .bottom .time img,
+body section.ProjectExp .bottom .time img {
+  margin: 0.6rem;
+}
+html section.selfP,
+body section.selfP {
+  background: url(../images/bg3.jpg);
+  background-size: cover;
+  z-index: 20;
+}
+html section.selfP .top,
+body section.selfP .top {
+  width: 80vw;
+  height: 30vw;
+  padding: 0.6rem;
+  margin-top: 0.4rem;
+  position: relative;
+  overflow: hidden;
+}
+html section.selfP .top p,
+body section.selfP .top p {
+  float: left;
+  text-align: center;
+}
+html section.selfP .top img,
+body section.selfP .top img {
+  left: 7vw;
+}
+html section.selfP .top .english,
+body section.selfP .top .english {
+  margin: 0.8rem 0.2rem;
+}
+html section.selfP .top .word,
+body section.selfP .top .word {
+  color: #0ec5c5;
+  font-size: 0.5rem;
+  width: 18vw;
+  height: 30vw;
+}
+html section.selfP .top .cub,
+body section.selfP .top .cub {
+  width: 20vw;
+  height: 30vw;
+  position: absolute;
+  top: 5vw;
+}
+html section.selfP .bottom,
+body section.selfP .bottom {
+  float: left;
+  border: 1px solid #0ec5c5;
+  margin: 0.5rem;
+  padding: 0.5rem 0.5rem;
+  line-height: 0.6rem;
+  text-indent: 0.6rem;
+}
+html section.last,
+body section.last {
+  background: url(../images/bg3.jpg);
+  background-size: cover;
+  text-align: center;
+  color: #0ec5c5;
+  z-index: 10;
+}
+html section.last img,
+body section.last img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  margin-top: 50vw;
+}
+html section.last p,
+body section.last p {
+  padding: 0.2rem;
+}
+html section.last .join,
+body section.last .join {
+  font-size: 0.4rem;
+  color: aquamarine;
+}
+html section.last .thanks,
+body section.last .thanks {
+  font-size: 0.8rem;
+  letter-spacing: 0.2rem;
+  margin-left: 0.4rem;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes toTop {
+  0% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(0.3rem);
+    opacity: 0.2;
+  }
+}

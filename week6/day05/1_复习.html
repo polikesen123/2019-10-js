@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            background: lightcoral;
+            transform: skew(45deg);
+            animation: rotate 1s linear infinite;
+            /* 动画状态 */
+            animation-play-state: running;
+        }
+        @keyframes rotate {
+            0%{
+                transform: rotate(0deg);
+            }
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+        #list li{
+            background: palegoldenrod;
+            width: 180px;
+            height: 20px;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <!-- <div class="box"></div> -->
+    <!-- 
+        css3  transition
+              animation
+              transform translate位移 rolate旋转 skew倾斜 scale缩放
+              3D perspective：1200px 景深  
+                 preserve-3d : 声明是个3d 
+        html5  
+            header  nav footer aside section article audio video
+
+     -->
+     <input type="text" id="inp">
+     <ul id="list" style="display: none;">
+         <li>1</li>
+         <li>2</li>
+         <li>3</li>
+         <li>4</li>
+         <li>5</li>
+     </ul>
+</body>
+</html>
+<script>
+    // inp.onclick  = function(e){
+    //     e.preventDefault();
+    //     list.style.display = 'block';
+    // }
+    inp.onfocus = function(e){
+        e.preventDefault();
+        list.style.display = 'block';
+    }
+    inp.onblur = function(e){
+        setTimeout(()=>{
+            list.style.display = 'none';
+        },100)
+    }
+    list.onclick = function(e){
+        if(e.target.nodeName.toLowerCase()=='li'){
+            inp.value = e.target.innerText;
+        }
+    }
+    // document.addEventListener('click',function(){
+    //     list.style.display = 'none';
+    // },false)
+</script>

@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    // color: #fff;
+}
+
+.lt {
+    float: left;
+}
+
+.rt {
+    float: right;
+}
+
+header {
+    background: rgb(230, 43, 43);
+    padding: 2.5vw;
+    overflow: hidden;
+
+    .logo_box {
+        color: #fff;
+        overflow: hidden;
+        height: 10vw;
+        line-height:
+            10vw;
+        position: relative;
+
+        .icon_lg {
+            font-size:
+                80px;
+            display: inline-block;
+            height: 10vw;
+            line-height: 10vw;
+        }
+
+        .tab {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            font-size: 13px;
+            padding: 0 4vw;
+            background: rgba(0, 0, 0, 0.2);
+            height: 7vw;
+            line-height: 7vw;
+            border-radius: 7vw;
+
+            .lit {
+                color: #333;
+                font-size: 12px;
+            }
+        }
+
+        .tool_box {
+            font-size: 18px;
+
+            .icon_user {
+                margin: 0 4vw;
+            }
+        }
+    }
+
+    nav {
+        overflow: hidden;
+
+        ul {
+            overflow: hidden;
+
+            li {
+                .lt;
+                width: 10vw;
+                // margin-right: 4vw;
+                text-align: center;
+                margin-bottom: 2vw;
+                margin: 1vw 4vw 1vw 0;
+
+                a {
+                    color: #fff;
+                }
+            }
+
+            li:nth-child(7n) {
+                margin-right: 0;
+            }
+        }
+
+    }
+}
+
+.banner {
+    padding: 3vw;
+    height: 60vw;
+
+    .swiper-pagination {
+        text-align: right;
+        color: #fff;
+        padding-right: 5vw;
+        box-sizing: border-box;
+        font-size: 16px;
+
+        span:nth-child(1) {
+            font-size: 20px;
+        }
+    }
+
+    .swiper-slide {
+        overflow: hidden;
+        height: 60vw;
+        background: chocolate;
+
+        img {
+            // width: 100%;
+            height: 100%;
+        }
+
+        p {
+            position: relative;
+            height: 10vw;
+            line-height: 10vw;
+            padding: 0 4vw;
+            background: rgba(0, 0, 0, .3);
+            top: -10vw;
+            color: #fff;
+        }
+    }
+}
+
+.listBox {
+    .list {
+        border-bottom: 1px solid #eee;
+        display: flex;
+        width: 94vw;
+        margin: auto;
+        padding: 3vw 0;
+        position: relative;
+        min-height: 20vw;
+
+        .textBox {
+            flex: 1;
+            .commentBox {
+                position: absolute;
+                font-size: 13px;
+                left: 2vw;
+                bottom: 3vw;
+                color: #b0b0b0;
+            }
+        }
+
+        .imgBox {
+            width: 30vw;
+            height: 20vw;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}

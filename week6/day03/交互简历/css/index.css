@@ -3,51 +3,45 @@
   padding: 0;
   list-style: none;
 }
-
 html,
 body {
   width: 100%;
   height: 100%;
   font-size: 16px;
 }
-
 html .hide,
 body .hide {
   display: none;
 }
-
-html>section,
-body>section {
+html > section,
+body > section {
   width: 100%;
   height: 100%;
+  overflow: hidden;
   position: absolute;
   top: 0;
   left: 0;
 }
-
 html section.loadingBox,
 body section.loadingBox {
   background: #333;
   z-index: 30;
   text-align: center;
   color: #fff;
-  transition: opacity 1s 1s;
+  transition: opacity 1s;
 }
-
 html section.loadingBox h1,
 body section.loadingBox h1 {
   font-size: 0.9rem;
   position: relative;
   top: 25%;
 }
-
 html section.loadingBox h2,
 body section.loadingBox h2 {
   font-size: 0.6rem;
   position: relative;
   top: 35%;
 }
-
 html section.loadingBox .progressBox,
 body section.loadingBox .progressBox {
   width: 80vw;
@@ -59,7 +53,6 @@ body section.loadingBox .progressBox {
   background: #fff;
   top: 45%;
 }
-
 html section.loadingBox .progressBox .progress,
 body section.loadingBox .progressBox .progress {
   width: 0%;
@@ -68,15 +61,14 @@ body section.loadingBox .progressBox .progress {
   background: linear-gradient(45deg, #6faa6d 0%, #6faa6d 25%, #77c570 25%, #77c570 50%, #6faa6d 50%, #6faa6d 75%, #77c570 75%, #77c570 100%);
   background-size: 0.4rem 0.4rem;
 }
-
 html section.phoneBox,
 body section.phoneBox {
   background: url('../images/phone-bg.jpg');
   background-size: cover;
   overflow: hidden;
   z-index: 20;
+  transition: transform 0.8s;
 }
-
 html section.phoneBox header,
 body section.phoneBox header {
   color: #fff;
@@ -84,17 +76,14 @@ body section.phoneBox header {
   position: relative;
   top: 0.3rem;
 }
-
 html section.phoneBox header h1,
 body section.phoneBox header h1 {
   font-size: 0.9rem;
 }
-
 html section.phoneBox header h2,
 body section.phoneBox header h2 {
   font-size: 0.27rem;
 }
-
 html section.phoneBox footer,
 body section.phoneBox footer {
   width: 90vw;
@@ -105,7 +94,6 @@ body section.phoneBox footer {
   bottom: 0.5rem;
   left: 5vw;
 }
-
 html section.phoneBox footer .circle,
 body section.phoneBox footer .circle {
   width: 23vw;
@@ -117,30 +105,157 @@ body section.phoneBox footer .circle {
   top: 28.5vw;
   animation: move 0.8s infinite linear;
 }
-
 html section.phoneBox .overBox,
 body section.phoneBox .overBox {
   width: 90vw;
-  background: url('../images/phone-key.png');
+  background: url('../images/phone-key.png') no-repeat;
   height: 115vw;
   background-size: contain;
   position: absolute;
   left: 5vw;
   bottom: 0.3rem;
 }
-
+html section.phoneBox .overBox .overBtn,
+body section.phoneBox .overBox .overBtn {
+  position: absolute;
+  width: 26vw;
+  height: 26vw;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 7vw;
+  border-radius: 50%;
+}
 html section.phoneBox .bot,
 body section.phoneBox .bot {
   transform: translateY(110%);
   transition: all 0.5s;
 }
-
 @keyframes move {
   0% {
     transform: scale(1.4);
   }
-
   100% {
     transform: scale(1);
   }
+}
+html section.chatBox,
+body section.chatBox {
+  width: 100%;
+  height: 100%;
+  background: #5c5a5a;
+  overflow: hidden;
+  z-index: 10;
+}
+html section.chatBox .chatMsgBox,
+body section.chatBox .chatMsgBox {
+  padding: 5vw;
+  transition: all 0.4s;
+  overflow: hidden;
+}
+html section.chatBox .chatMsgBox li,
+body section.chatBox .chatMsgBox li {
+  overflow: hidden;
+  margin-bottom: 5vw;
+  transition: all 0.5s;
+}
+html section.chatBox .chatMsgBox li > div,
+body section.chatBox .chatMsgBox li > div {
+  float: left;
+}
+html section.chatBox .chatMsgBox li .imgBox,
+body section.chatBox .chatMsgBox li .imgBox {
+  width: 13vw;
+  height: 13vw;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+}
+html section.chatBox .chatMsgBox li .imgBox img,
+body section.chatBox .chatMsgBox li .imgBox img {
+  width: 100%;
+  height: 100%;
+}
+html section.chatBox .chatMsgBox li .msg,
+body section.chatBox .chatMsgBox li .msg {
+  max-width: 60vw;
+  margin-left: 5vw;
+  background: #e48a24;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding: 3.5vw;
+  word-break: break-all;
+}
+html section.chatBox .chatMsgBox li .msg::before,
+body section.chatBox .chatMsgBox li .msg::before {
+  content: '';
+  display: block;
+  width: 3vw;
+  height: 3vw;
+  background: #e48a24;
+  transform: translateX(-5.2vw) translateY(1vw) rotate(45deg);
+  position: absolute;
+  border-top: none;
+  border-right: none;
+}
+html section.chatBox .chatMsgBox li.opa,
+body section.chatBox .chatMsgBox li.opa {
+  transform: translateY(0.5rem);
+  transition: all 0.5s;
+  opacity: 0;
+}
+html section.chatBox .chatMsgBox li.rightMsg,
+body section.chatBox .chatMsgBox li.rightMsg {
+  overflow: hidden;
+}
+html section.chatBox .chatMsgBox li.rightMsg > div,
+body section.chatBox .chatMsgBox li.rightMsg > div {
+  float: right;
+}
+html section.chatBox .chatMsgBox li.rightMsg .msg,
+body section.chatBox .chatMsgBox li.rightMsg .msg {
+  max-width: 60vw;
+  margin-left: 0;
+  margin-right: 5vw;
+  position: relative;
+  background: #10e93f;
+}
+html section.chatBox .chatMsgBox li.rightMsg .msg::before,
+body section.chatBox .chatMsgBox li.rightMsg .msg::before {
+  transform: translateY(1vw) rotate(45deg);
+  border-bottom: none;
+  border-left: none;
+  right: -1.6vw;
+  background: #10e93f;
+}
+html section.chatBox .keyboard,
+body section.chatBox .keyboard {
+  width: 7.5rem;
+  height: 6.05rem;
+  background: url('../images/message-keyboard.png') no-repeat;
+  background-size: contain;
+  position: absolute;
+  bottom: -0.5rem;
+  transition: transform 0.5s;
+}
+html section.chatBox .keyboard .chatBtn,
+body section.chatBox .keyboard .chatBtn {
+  position: absolute;
+  width: 1.72265625rem;
+  height: 0.8671875rem;
+  background: url('../images/message-chatBtn.png') no-repeat;
+  background-size: contain;
+  bottom: 0.7rem;
+  right: 0.1rem;
+}
+html section.chatBox .keyboard p,
+body section.chatBox .keyboard p {
+  position: absolute;
+  width: 4.8rem;
+  height: 0.5rem;
+  top: 0.45rem;
+  left: 1rem;
+}
+html section.chatBox .bot,
+body section.chatBox .bot {
+  transform: translateY(4.4rem);
 }

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>简历</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <script>
+        function refreshRem() {
+            var desW = 750,
+                winW = document.documentElement.clientWidth || document.body.clientWidth;
+            ratio = winW / desW;
+            document.documentElement.style.fontSize = ratio * 100 + 'px';
+        }
+        refreshRem();
+        window.addEventListener('resize', refreshRem);
+    </script>
+</head>
+
+<body>
+    <img src="./images/bgmBtn-fbd2dc.svg" alt="" class="music">
+    <img src="./images/toTop.png" alt="" class="toparrow">
+    <audio src="./audio/周杰伦 - 说好不哭（With 五月天阿信）.flac" loop id="cry"></audio>
+    <div>
+        <section class="loadingBox ">
+            <img src="./images/chinese.jpg" alt="" class="personal">
+            <img src="./images/resume.jpg" alt="" class="resume">
+            <div class="job">
+                <p class="topic">求职意向：</p>
+                <p class="myJOb">Web前端工程师</p>
+            </div>
+            <img src="./images/polikesen.JPG" alt="" class="avator">
+            <div class="bottom">
+                <p>求职者：polikesen</p>
+                <p>电话：18301692861</p>
+                <p>邮箱：polikesen@163.com</p>
+            </div>
+        </section>
+        <section class="perInfo hide">
+            <div class="top">
+                <p class="word">基本信息 </p>
+                <p class="english">Essential information </p>
+                <img src="./images/jx1.jpg" alt="" class="cub">
+            </div>
+            <ul class="bottom">
+                <li><img src="./images/my.jpg" alt="">
+                    <p>姓名：polikesen</p>
+                </li>
+                <li><img src="./images/birthday.jpg" alt="">
+                    <p>出生年月：1997-05-08</p>
+                </li>
+                <li><img src="./images/home.png" alt="">
+                    <p>籍贯：云南曲靖</p>
+                </li>
+                <li><img src="./images/hat.jpg" alt="">
+                    <p>学历：本科</p>
+                </li>
+                <li><img src="./images/school.png" alt="">
+                    <p>毕业院校：云南师范大学</p>
+                </li>
+                <li><img src="./images/phone.jpg" alt="">
+                    <p>电话：18301692861</p>
+                </li>
+            </ul>
+        </section>
+        <section class="Professional hide">
+            <div class="top">
+                <p class="english">Professional skills</p>
+                <p class="word">专业技能 </p>
+                <img src="./images/jx1.jpg" alt="" class="cub">
+            </div>
+            <ul class="bottom">
+                <li>
+                    <p>1.&nbsp;&nbsp;擅长原生JS、ES6、Promise等设计模式、组件和插件封装</p>
+                </li>
+                <li>
+                    <p>2.&nbsp;&nbsp;看过JQ源码，可以开发各种Hybrid混合APP...</p>
+                </li>
+                <li>
+                    <p>3.&nbsp;&nbsp;会微信小程序开发以及H5动画制作</p>
+                </li>
+                <li>
+                    <p>4.&nbsp;&nbsp;熟悉VUE和REACT</p>
+                </li>
+                <li>
+                    <p>5.&nbsp;&nbsp;对REACT渲染原理、MVC模式、SPA单页面应用、DIFF差异渲染机制以及REDUX原理等都有研究</p>
+                </li>
+            </ul>
+        </section>
+        <section class="ProjectExp hide">
+            <div class="top">
+                <p class="word">项目经验 </p>
+                <p class="english"> Project experience </p>
+                <img src="./images/jx1.jpg" alt="" class="cub">
+            </div>
+            <div class="bottom">
+                <div class="project">
+                    <div class="first">
+                        <p class="title">Web网页开发
+                        </p>
+                        <p class="content">
+                            班级留言墙，一个类似新闻列表的网页，可提供用户注册，登录，留言管理。基于html+css +SQL-Server+.asp完成
+                        </p>
+                    </div>
+                    <div class="second">
+                        <p class="title">微信小程序开发</p>
+                        <p class="content">
+                            ReaderAndMovie是一种类似豆瓣影评的程序，包括新闻阅读和电影资讯页面。页面多用flex弹性布局，学习了解移动端分辨率及小程序自适应单位RPX
+                            JS事件处理，数据交互，以及ES6语法等
+                        </p>
+                    </div>
+                </div>
+                <div class="time">
+                    <img src="./images/timeline.jpg" alt="">
+                    <p>2016年5月</p>
+                    <img src="./images/timeline.jpg" alt="">
+                    <p>2018年9月</p>
+                    <img src="./images/timeline.jpg" alt="">
+                </div>
+            </div>
+        </section>
+        <section class="selfP hide">
+            <div class="top">
+                <p class="word">自我评价 </p>
+                <p class="english"> Self assessment</p>
+                <img src="./images/jx1.jpg" alt="" class="cub">
+            </div>
+            <p class="bottom">
+                编写程序对于我来说不仅仅是工作，而是一种享受，编程影响了我的生活。我热爱软件开发行业，尤其热衷微信小程序开发以及Web前端开发。从事软件开发要勤奋，并富有耐心,对软件开发工作有兴趣，有责任感；有较强的学习能力，善于思考和发现问题；细心有条理，综合分析问题的能力较强；工作主动,责任心强,团队意识好；具有极高的工作激情与敬业精神。
+            </p>
+        </section>
+        <section class="last hide ">
+            <img src="./images/pikaq.jpg" alt="">
+            <p class="thanks">谢谢观看!</p>
+        </section>
+    </div>
+</body>
+
+</html>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="./js/index.js"></script>
