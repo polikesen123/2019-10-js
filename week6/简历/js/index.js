@@ -4,7 +4,7 @@ let $parts = $('section'),
     $music = $('.music'),
     $cry = $('.cry');
 
-console.log($parts)
+// console.log($parts)
 music.addEventListener('touchstart', function () {
     if (cry.paused) {
         cry.play();
