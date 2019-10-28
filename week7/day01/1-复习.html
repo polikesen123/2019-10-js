@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./flexible.js"></script>
+</head>
+<body>
+    <!-- 
+        transition
+            事件 ：transitionend  box.addEventListener('transitionend',function(){
+
+            }，{passive:true,capture:true})
+            //passive:true先执行默认事件  capture:true 在捕获阶段触发
+
+        animation 
+            @keyframe name  ... 声明动画
+            animation:move 1s linear infinite
+        H5
+            标签语义化  增加可读性  有利于seo优化
+            H5动画  
+                em  rem vw vh
+                1rem = 100px 是相对设计稿的  设计稿是640px-----100px ;w(屏幕宽)
+                viewport视口的宽
+                dpr 设备像素比
+                    dpr 1 2 3
+                flexible.js 淘宝的  屏幕分成10份 1rem = w/10 750px的设计稿量出100px 对应页面上的大小就是100/75px
+        @media all and (max-width:600px){
+            这里的样式只在宽度小于600px时起作用
+        }
+     -->
+</body>
+</html>
