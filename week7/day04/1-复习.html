@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /* 
+        onabort  ontimeout
+        setRequestHeader()
+        getRequestHeader()
+        send(post请求体，只能是字符串)
+
+
+        ajax({
+            method.
+            url,
+            async,
+            cache,
+            data:{},
+            headers:{},
+            success(data){},
+            error
+        })
+
+        //全局配置
+        axiox.defaults.baseURL = '',
+        axiox.get(url,{params:{a:12,b:34}})
+        axiox.post(url,{a:45,b:23})
+        axiox({
+            method,
+            params{},
+            data{},
+            headers:{},
+        })
+        请求拦截器
+        响应拦截器
+        axiox实例
+        let http = axiox.create({
+            headers:{},
+            baseURL:'',
+            requestTransform(){},
+            timeout:1000,
+        })
+
+        async await
+
+     */
+    let p1 = new Promise(function(res,rej){
+        setTimeout(()=>{
+            res(666);
+            console.log('time is 3s')
+        },3000)
+    })
+    async function fn(){
+        console.log(111);
+        let p = await p1;
+        console.log(p)
+    }
+    fn();
+</script>

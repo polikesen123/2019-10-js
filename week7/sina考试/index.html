@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/font.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/swiper.min.css">
+    <title>sina新浪网</title>
+    <script>
+        function refreshRem() {
+            var desW = 750,
+                winW = document.documentElement.clientWidth || document.body.clientWidth;
+            ratio = winW / desW;
+            document.documentElement.style.fontSize = ratio * 100 + 'px';
+        }
+        refreshRem();
+        window.addEventListener('resize', refreshRem);
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1 class="icon_lg"></h1>
+        <div class="top-center">
+            <span class="l">标准版</span>
+            |
+            <span class="r">智能版</span>
+        </div>
+        <div class="top-right">
+            <span class="icon_search"></span>
+            <span class="icon_user"></span>
+            <span class="icon_set"></span>
+        </div>
+    </header>
+    <nav>
+        <ul class="navList">
+            <li>新闻</li>
+            <li>新闻</li>
+            <li>新闻</li>
+            <li>新闻</li>
+            <li>新闻</li>
+            <li>新闻</li>
+            <li>新闻</li>
+            <li>新闻</li>
+            <li>新闻</li>
+            <li>新闻</li>
+            <li>新闻</li>
+            <li>新闻</li>
+            <li>新闻</li>
+            <li>新闻</li>
+            <li>新闻</li>
+            <li>新闻</li>
+            <li>新闻</li>
+            <li>新闻</li>
+            <li>新闻</li>
+            <li>新闻</li>
+            <li>新闻</li>
+        </ul>
+    </nav>
+    <section class="banner">
+        <div class="swiper-container">
+            <div class="swiper-wrapper" id="swiperBox">
+                <div class="swiper-slide ">
+                    <img src="./img/1.jpg" alt="">
+                    <p>和讲哈第三方很骄傲东方红</p>
+                </div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination page">
+            </div>
+        </div>
+    </section>
+    <section class="news">
+        <ul class="newsLists">
+            <li>
+                <div class="textBox">
+                    <p class="arti">印尼总统高难度盘腿坐姿走红 网友纷纷发起挑战</p>
+                    <div class="count">
+                        <i class="icon_com"></i>
+                        <i>238</i>
+                    </div>
+                </div>
+                <div class="imgBox"><img src="./img/1.jpg" alt=""></div>
+            </li>
+            <li>
+                <div class="textBox">
+                    <p class="arti">印尼总统高难度盘腿坐姿走红 网友纷纷发起挑战</p>
+                    <div class="count">
+                        <i class="icon_com"></i>
+                        <i>238</i>
+                    </div>
+                </div>
+                <div class="imgBox"><img src="./img/1.jpg" alt=""></div>
+            </li>
+            <li>
+                <div class="textBox">
+                    <p class="arti">印尼总统高难度盘腿坐姿走红 网友纷纷发起挑战</p>
+                    <div class="count">
+                        <i class="icon_com"></i>
+                        <i>238</i>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="textBox">
+                    <p class="arti">印尼总统高难度盘腿坐姿走红 网友纷纷发起挑战</p>
+                    <div class="count">
+                        <i class="icon_com"></i>
+                        <i>238</i>
+                    </div>
+                </div>
+                <div class="imgBox"><img src="./img/1.jpg" alt=""></div>
+            </li>
+        </ul>
+    </section>
+</body>
+
+</html>
+<script src="./js/swiper.min.js"></script>
+<script src="./js/index.js"></script>

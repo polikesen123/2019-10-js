@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        a.current {
+            color: orchid;
+            background: lawngreen;
+        }
+
+        h2 {
+            display: none;
+            background: orange;
+            color: orangered;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#html" class="current">html</a>
+    <a href="#css">css</a>
+    <a href="#js">js</a>
+    <h2>html</h2>
+    <h2>css</h2>
+    <h2>js</h2>
+</body>
+
+</html>
+<script>
+    let as = document.querySelectorAll('a'),
+        hs = document.querySelectorAll('h2')
+    window.addEventListener('hashchange', function () {
+        console.log(location.hash)
+        init();
+    })
+    function init(){
+        switch (location.hash) {
+            case '#html':
+                tab(0)
+                break;
+            case '#css':
+                tab(1)
+                break;
+            case '#js':
+                tab(2)
+                break;
+        }
+    }
+    init()
+    function tab(n) {
+        [...as].forEach((item, index) => {
+            if (index == n) {
+                item.classList.add('current');
+                hs[index].style.display = 'block';
+            } else {
+                item.classList.remove('current')
+                hs[index].style.display = 'none';
+            }
+        })
+    }
+</script>
+<script>
+    /* 
+        cookie
+        localStorage
+        sessionStorage
+        DNS域名解析
+        强缓存 协商缓存
+        URL  统一资源路径
+        URN
+        URI
+        http协议组成
+            协议://域名:端口号/路径?search#hash
+            http  超文本传输协议 默认端口 80
+            https  在http的基础上增加了一个SSL 安全套阶层  443
+            ftp   文本传输协议  后台用例上传文件用的  21
+        强缓存  cache-control:no-cache  不走强缓存 走协商缓存
+                             no-store  不走缓存
+                            max-age的时间是秒
+        让一个东西不缓存 可以在上传时侯改search值 这样每次页面刷新 浏览器就觉得它是一个会变的
+
+        单页面开发用的是  更改hash的方式开发的
+        window.onhashchange = function(){
+            //监听hash的改变
+            consolelog(location.hash)
+        }
+        hash不利于seo优化
+        
+     */
+</script>

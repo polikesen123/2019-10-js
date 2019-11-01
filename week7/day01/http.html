@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    //http 
+    /* 
+        http 事务：一次完整的http请求（请求+回应）
+        http报文
+        Headers
+            通用头 General
+                Request URl:请求路径  接口地址
+                Request Method:GET/POST 请求方式
+                Status Code 状态码
+            请求头  前端设置的
+                Accept: image/webp,image/apng,image/*,* / *;q=0.8
+                Accept-Encoding: gzip, deflate
+                Accept-Language: zh-CN,zh;q=0.9
+                Cache-Control: no-cache  不缓存
+                Connection: keep-alive  常链接
+                Cookie: UM_distinctid=16dd574b40c19-050652753d822b-b363e65-100200-16dd574b40d6f; Hm_lvt_bbcf1c00c855ede39d5ad2eac08d2ab7=1571205074,1571244238,1571626696,1572252833; Hm_lpvt_bbcf1c00c855ede39d5ad2eac08d2ab7=1572252833
+                Host: jquery.cuishifeng.cn
+                Pragma: no-cache
+                Referer: http://jquery.cuishifeng.cn/index.html
+                User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36
+
+                强缓存  控制请求头 前端自己做决定写的 不商量
+                两次请求同一个东西的时候才会用到缓存
+                Cache-Control:'public,max-age="XXX"'  在多少秒之内再次访问资源的时候都是使用本地资源，不再向服务器请求
+                浏览器会优先缓存css样式  为了避免页面改了之后没对应上样式可以在css文件后边加一个字段
+                协商缓存  304
+                    每次都向服务器验证一下缓存的有效性  每次都是有一个http请求 没啥意义
+                缓存的意义就是减少请求 缓解服务器的压力
+               
+
+            响应头   后端设置的
+                Accept-Ranges: bytes
+                Connection: keep-alive
+                Content-Length: 1150
+                Content-Type: image/x-icon
+                Date: Mon, 28 Oct 2019 08:53:53 GMT  第一次的请求时间
+                ETag: "5db2a7d6-47e"  缓存  没变就是304 后台的生成的hash值
+                Last-Modified: Fri, 25 Oct 2019 07:44:22 GMT  缓存  没变就是304  上次更改的时间
+                Server: nginx/1.10.3 (Ubuntu)
+                
+
+                协商缓存
+                 Etag  和 Last-Modified
+                 Etag 后台给的字段  唯一的字符 第一次请求给的
+                      第二次请求是就跟那个字段比较  一样的话缓存还有效，走缓存 
+                Last-Modified 上次更改的时间
+                if-modifined-since:Fri, 25 Oct 201707:44:22 GMT (在请求头里面)  这个时间早于last-Modifined时间 那就不走缓存 去服务器请求
+
+                *** 所有的缓存都是对于同一个地址
+
+                前端解决  ?时间戳  或者 ?随机数码
+            请求体
+                http://www.baidu.com/?qqq=134
+                Query String Parameters
+                search对应的东西
+            访问体
+        http 状态码
+            200 请求成功
+            301 永久重定向 Moved Permanently 重定向到另一个地址
+                访问一个网址时重新定向到了一个新的网址
+            302 临时重定向 Moved Temporarily  现在基本用307
+            304 缓存 代表当前请求走本地缓存  （协商缓存）
+            307
+
+            403  访问被拒绝
+            404 路径错误 90%都是前端写错了  对接口文档  10%运维 映射错误
+                 postman  模拟路径请求的
+            405 方法使用错误  用get 的时候用了post 反正就是反着来出的错
+            5XX 统一属于后端错误
+
+        URL  统一资源路径
+        URN  统一资源名称
+        URI  统一资源标识  = URL+URN
+
+        URL.createObjectURL
+        URL 的组成部分
+        https://www.baidu.com:443/s?wd=flex&rsv_spt=1#qqq
+        http           协议  http https ftp
+                       https 是在http 的基础上增加一个SSL安全套阶层
+        www.baidu.com  域名
+                       .com 顶级域名  baidu 二级域名
+        :443            端口号   0~65535  每一个服务都会对应一个端口号  https 默认443  http默认80 ftp默认21
+        /s            路径部分
+        ?wd=flex&rsv_spt=1  :search  更改会触发页面刷新
+        #qqq                :hash   hash的更改不会触发页面的刷新
+       
+    */
+</script>

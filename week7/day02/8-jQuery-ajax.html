@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script src="http://jquery.cuishifeng.cn/js/jquery-3.2.1_b5dbe7b.js"></script>
+<script>
+    $.ajax({
+        method:'get',
+        url:'./data.json',
+        async:false,
+        cache:false,//走缓存 只针对get起作用
+        timeout:2000,//超时
+        headers:{
+            hh:1324,
+            jj:8988
+            //设置头部信息
+        },
+        data:{
+            //传给后台的数据
+            a:123,
+            b:234,
+            c:'疯狂'
+        },
+        success:function(data){
+            console.log(data)
+        },
+        error:function(err){
+            console.log(err)
+        }
+    })
+
+    $.get('./data.json',{
+        a:'h',
+        n:'y77',
+
+    },function
+    (data){
+        console.log(data)
+    })
+</script>

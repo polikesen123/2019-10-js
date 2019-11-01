@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script src="./axios.js"></script>
+<script src="">
+    axios.get('https://www.easy-mock.com/mock/5db94e73e75ad470035b2e64/user/list', {
+        params: {
+            a: 33,
+            b: 78678
+        }
+    }).then(function (data) {
+        console.log(data)
+    }, function (err) {
+        console.log(err)
+    }).finally(function () {
+        console.log(666)
+    })
+    // axios.post('./data.json', {
+    //     a: 111,
+    //     b: 333
+    // }).then(function (data) {
+    //     console.log(data)
+    // }, (err) => {
+    //     console.log(err)
+    // })
+    // axios({
+    //     method: 'post',
+    //     url: './data.json',
+    //     // params:{
+    //     //     //get
+    //     //     a:33,
+    //     //     b:78678
+    //     // }
+    //     data: {
+    //         //post
+    //         a: 111,
+    //         b: 333
+    //     }
+    // }).then(data => {
+    //     console.log(data)
+    // }, err => {
+    //     console.log(err)
+    // })
+</script>
+<script>
+    //协议 域名 端口  三者有一个不一样就是跨域
+    //同源策略 浏览器的安全机制 防止各个站点的相互影响 跨域只存在于浏览器  后台就没跨域这一说  
+    axios.defaults.baseURL = 'http://127.0.0.1:5500/week7/day03/';
+    axios.defaults.headers['Content-Type'] = 'application/x-www-form-urlencoded';
+    axios.defaults.transformRequest = function (data = {}) {
+        // console.log(data);
+        let str = '';
+        for (let k in data) {
+            str += `&${k}=${data[k]}`;
+        }
+        return str.slice(1);
+    }
+    // 添加请求拦截器
+    axios.interceptors.request.use(function (config) {
+        // 在发送请求之前做些什么
+        console.log(config)
+        config.data.token = 143445436
+        return config;
+    }, function (error) {
+        // 对请求错误做些什么
+        return Promise.reject(error);
+    });
+
+    // 添加响应拦截器
+    axios.interceptors.response.use(function (response) {
+        // 对响应数据做点什么
+        console.log(response)
+        return response.data;
+    }, function (error) {
+        // 对响应错误做点什么
+        return Promise.reject(error);
+    });
+    axios.post('./data.json', {
+        "userid": "zhangsan",
+        "name": "张三"
+    })
+    axios.post('./data1.json', {
+        "userid": "zhangsan",
+        "name": "张三"
+    })
+    axios.get('./data.json', {
+        "userid": "zhangsan",
+        "name": "张三"
+    })
+    /* 
+        axios.get(url,{params:{参数}})
+        axios.post(url,{参数})
+        axios({
+            method:'get',
+            url:'',
+            data:{},
+            params:{},
+            headers:{},
+            timeout,
+            transformRequest:[f1,f2,f3,f4,f5],
+            transformResponse:[f1,f2,f3]
+        })
+        //全局配置
+
+        axios.defaults.baseURL
+        var http=axios.create({
+            baseURl:'',
+            timeout:'',
+            headers:{},
+            transformRequest:[f1,f2,f3,f4,f5],
+            transformResponse:[f1,f2,f3]
+        })
+    */
+</script>

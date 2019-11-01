@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        大数据处理  web worker(工作线程)  分页（后台）
+        无痕埋点 事件传播
+        百度 等记录埋点用的是一个1X1的图片  new Images() 去请求数据
+     -->
+</body>
+</html>
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+    $.ajax({
+        mefthod:'get',
+        url:'./data.json',
+        data:{
+            a:12,
+            b:'换手机'
+        },
+        asysc:true,
+        cache:false,
+        headers:{
+            qqq:132,
+            www:34
+        },
+        success(data){
+
+        },error(err){
+
+        }
+    })
+</script>

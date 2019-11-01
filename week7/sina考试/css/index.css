@@ -1,0 +1,150 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+body header {
+  height: 20vw;
+  width: 100vw;
+  line-height: 20vw;
+  background: #FE350E;
+  overflow: hidden;
+  padding: 0.2rem 0.1rem;
+  box-sizing: border-box;
+  color: #fff;
+}
+body header .icon_lg {
+  float: left;
+  width: 16vw;
+  height: 16vw;
+  margin-top: -5vw;
+}
+body header .top-center {
+  font-size: 3vw;
+  float: left;
+  border-radius: 7vw;
+  margin-left: 1.6rem;
+  height: 7vw;
+  width: 27vw;
+  line-height: 7vw;
+  margin-top: 5vw;
+  background: rgba(243, 236, 236, 0.3);
+}
+body header .top-center span {
+  display: inline-block;
+  height: 10vw;
+  padding: 0 4px;
+  box-sizing: border-box;
+}
+body header .top-center .r {
+  color: #333;
+}
+body header .top-right {
+  float: right;
+  font-size: 0.4rem;
+  overflow: hidden;
+  margin-top: 5vw;
+}
+body header .top-right span {
+  float: left;
+  margin: 0 2vw;
+}
+body nav {
+  background: #FE350E;
+  width: 100vw;
+  color: #fff;
+  padding: 2vw 0;
+}
+body nav .navList {
+  overflow: hidden;
+}
+body nav .navList li {
+  float: left;
+  font-size: 0.3rem;
+  padding: 1.5vw 2.6vw;
+  margin-right: 1.2vw;
+}
+body nav .navList li:nth-child(7n) {
+  margin-right: 0;
+}
+body .banner .swiper-container {
+  width: 100vw;
+  height: 60vw;
+  position: relative;
+}
+body .banner .swiper-container .swiper-wrapper {
+  width: 100vw;
+}
+body .banner .swiper-container .swiper-slide {
+  position: relative;
+}
+body .banner .swiper-container .swiper-slide img {
+  width: 100%;
+  height: 100%;
+}
+body .banner .swiper-container .swiper-slide p {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-size: 0.3rem;
+  width: 100%;
+  height: 0.7rem;
+  line-height: 0.7rem;
+  text-indent: 0.2rem;
+  color: #ccc;
+  background: rgba(0, 0, 0, 0.5);
+}
+body .banner .swiper-container .swiper-pagination {
+  font-size: 0.35rem;
+  z-index: 20;
+  position: absolute;
+  bottom: 2vw;
+  left: 80vw;
+  color: #fff;
+  width: 10vw;
+}
+body .banner .swiper-container .swiper-pagination span:last-child {
+  font-size: 0.3rem;
+  color: #ccc;
+}
+body .news {
+  width: 7.5rem;
+  font-size: 0.3rem;
+  padding: 0.2rem;
+  box-sizing: border-box;
+}
+body .news .newsLists {
+  display: flex;
+  flex-direction: column;
+}
+body .news .newsLists li {
+  height: 2rem;
+  border-bottom: 1px solid #ccc;
+  overflow: hidden;
+}
+body .news .newsLists li .textBox {
+  width: 4rem;
+  margin-right: 0.3rem;
+  float: left;
+}
+body .news .newsLists li .textBox p {
+  margin: 0.2rem 0;
+}
+body .news .newsLists li .textBox i {
+  display: inline-block;
+  font-style: normal;
+  color: #ccc;
+}
+body .news .newsLists li .imgBox {
+  width: 2.6rem;
+  height: 1.6rem;
+  margin-top: 0.2rem;
+  float: left;
+}
+body .news .newsLists li .imgBox img {
+  width: 100%;
+  height: 100%;
+}
+body .news .newsLists li:last-child {
+  border-bottom: none;
+}
