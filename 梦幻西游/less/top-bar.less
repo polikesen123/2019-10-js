@@ -1,6 +1,6 @@
 html,
 body {
-    min-width: 1280px;
+    min-width: 1260px;
     background: #f5f7f9;
     position: relative;
 }
@@ -111,7 +111,7 @@ body {
     .topBar-menu {
         width: 100%;
         // height: 500px;
-        background: rgba(255, 255, 255, 0.8);
+        background: rgba(255, 255, 255, 0.95);
         position: absolute;
         top: 55px;
         left: 0;
@@ -444,6 +444,7 @@ body {
         .commend-center {
             width: 1109px;
             margin: 50px 120px;
+
             .commend-top {
                 li {
                     width: 170px;
@@ -527,6 +528,7 @@ body {
 
         }
     }
+
     .topBar-commend.topBar-commend-hover {
         height: 380px;
         transition: all 1s linear;
@@ -543,7 +545,7 @@ body {
     .wrapper-bg {
         position: absolute;
         width: 100%;
-        // height: 100%;
+        height: 100%;
         top: 0;
         left: 0;
 
@@ -561,5 +563,311 @@ body {
                 object-fit: contain;
             }
         }
+    }
+}
+
+/* logo导航 */
+.headBar {
+    width: 1170px;
+    height: 350px;
+    z-index: 666;
+    margin: 0 auto;
+    position: relative;
+    top: -1042px;
+
+    h1 {
+        float: left;
+        margin-top: -20px;
+
+        a {
+            display: inline-block;
+            width: 200px;
+            height: 98px;
+            background: url(../images/200.webp) center center no-repeat;
+            background-size: cover;
+        }
+    }
+
+    .news-lists {
+        float: left;
+
+        li {
+            float: left;
+            width: 90px;
+            margin-right: 8px;
+
+            a {
+                display: inline-block;
+                color: #fff;
+                box-sizing: border-box;
+                font-size: 14px;
+                padding: 3px 8px;
+                position: relative;
+
+                .hot {
+                    width: 11px;
+                    height: 11px;
+                    display: inline-block;
+                    background: url(../images/Hot.png) center center no-repeat;
+                    background-size: cover;
+                    position: absolute;
+                    right: -7px;
+                    top: 7px;
+                }
+            }
+
+            a:first-child {
+                font-weight: 800;
+            }
+        }
+
+        .first {
+            width: 54px;
+        }
+    }
+}
+
+.cloud {
+    position: absolute;
+    width: 101px;
+    height: 289px;
+    top: 96px;
+    left: 50%;
+    margin-left: 580px;
+    z-index: 8;
+    background: url(../images/kltn2_2e5cae0.png) no-repeat;
+
+
+    a {
+        display: block;
+        width: 101px;
+        height: 289px;
+    }
+}
+
+/* 主要内容区域 */
+.mainBox {
+    width: 1170px;
+    height: 470px;
+    background: lightblue;
+    margin: 0 auto;
+    z-index: 100;
+    position: relative;
+    top: -1070px;
+
+    li {
+        padding: 10px 0;
+        box-sizing:border-box;
+        cursor: pointer;
+        div {
+            display: flex;
+
+            div {
+                display: flex;
+            }
+            .icon{
+                margin-left:10px;
+            }
+            .iconName {
+                font-size: 18px;
+                display: flex;
+                flex-direction: column;
+                margin: 0 10px;
+                text-align: center;
+
+                p {
+                    color: #fefefe;
+                }
+            }
+        }
+    }
+
+    .pc {
+        border-bottom: 1px solid #d43742;
+        .icon {
+            position: relative;
+
+            .bigIcon {
+                width: 50px;
+                height: 44px;
+                background: url(../images/spirit-2.png) no-repeat;
+                background-position: -380px -221px;
+            }
+
+            .litIcon {
+                width: 22px;
+                height: 24px;
+                background: url(../images/spirit-2.png) no-repeat;
+                background-position: -54px -371px;
+                position: absolute;
+                left: 14px;
+                top: 5px;
+            }
+        }
+
+    }
+
+    .phone {
+        border-bottom: 1px solid #d43742;
+        .icon {
+            position: relative;
+            margin-left: 20px;
+
+            .bigIcon {
+                width: 35px;
+                height: 47px;
+                background: url(../images/spirit-2.png) no-repeat;
+                background-position: -380px -173px;
+            }
+
+            .litIcon {
+                width: 22px;
+                height: 24px;
+                background: url(../images/spirit-2.png) no-repeat;
+                background-position: -54px -371px;
+                position: absolute;
+                left: 6px;
+                top: 14px;
+            }
+        }
+        .smallWord{
+            font-size: 12px;
+            color:#f7b0b4;
+        }
+
+    }
+
+    .app {
+        .icon{
+            margin-left: 16px;
+        }
+        .bigIcon {
+            width: 41px;
+            height: 41px;
+            background: url(../images/spirit-2.png) no-repeat;
+            background-position: -93px -328px;
+        }
+    }
+
+    .reg {
+        background-color: #3b8bed;
+        border-bottom: 1px solid #0d838b;
+        .icon{
+            margin-left: 30px;
+        }
+        .bigWord{
+            font-size:14px;
+        }
+        .bigIcon {
+            width: 25px;
+            height: 33px;
+            background: url(../images/spirit-2.png) no-repeat;
+            background-position: -415px -174px;
+        }
+    }
+    .giveMoney {
+        background-color: #3b8bed;
+        border-bottom: 1px solid #0d838b;
+        .icon{
+            margin-left: 30px;
+        }
+        .bigWord{
+            font-size:14px;
+        }
+        .bigIcon {
+            width:30px;
+            height: 30px;
+            background: url(../images/spirit-2.png) no-repeat;
+            background-position: -316px -199px;
+        }
+    }
+    .peopleHelp {
+        background-color: #2973ce;
+        .icon{
+            margin-left: 30px;
+        }
+        .bigWord{
+            font-size:14px;
+        }
+        .phoneNumer{
+            font-size:14px;
+        }
+        .bigIcon {
+            width: 24px;
+            height: 27px;
+            background: url(../images/spirit-2.png) no-repeat;
+            background-position: -400px -328px;
+        }
+    }
+    .wyVip {
+        width:190px;
+        height:60px;
+        background: url(../images/hy_bg_4433a14.webp);
+        background-size: cover;
+        .bigIcon {
+            width: 31px;
+            height: 40px;
+            background: url(../images/hy_icon_4a1ee4a.png) no-repeat;
+            background-size: cover;
+        }
+        .bigWord{
+            font-size:12px;
+            color:#ffe2a3;
+            margin-bottom: 10px;
+        }
+        .look{
+            width:54px;
+            height:17px;
+            background: url(../images/hy_btn1_68ac751.png) no-repeat;
+            background-size: cover;
+        }
+    }
+
+    .left {
+        width: 190px;
+        height: 470px;
+        float: left;
+        background: olive;
+
+        .pc,
+        .phone,
+        .app {
+            width: 190px;
+            height: 80px;
+            line-break: 80px;
+            background-color: #f24854;
+        }
+
+        .reg,
+        .giveMoney {
+            width: 190px;
+            height: 53px;
+            line-height: 30px;
+        }
+
+        .peopleHelp {
+            width: 190px;
+            height: 60px;
+        }
+
+        .wyVip {
+            width: 190px;
+            height: 64px;
+        }
+    }
+
+    .banner {
+        width: 462px;
+        height: 470px;
+        margin: 0 20px;
+        float: left;
+        background: orangered;
+    }
+
+    .right {
+        width: 478px;
+        height: 470px;
+        float: left;
+        background: palevioletred;
     }
 }

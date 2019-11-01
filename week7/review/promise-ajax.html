@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    function ajax(url,options={}){
+		let {
+			method='get',
+			data={},
+			cache=true,
+			async=true,
+			headers={}
+		}=options;
+		let isGet = method.toLowerCase()==='get';
+		let searchStr = '';
+		for(let k in data){
+			searchStr+=`&${k}=${data[k]}`;
+		}
+		searchStr = searchStr.slice(1);
+		if(isGet){
+			url = url.indexOf('?')===-1?url+'?'+searchStr:url+'&'+searchStr;
+		}
+		return new Promise(function(res,rej){
+			let xhr = new XMLHttpRequest();
+			xhr.open(method,url,async);
+			xhr.onreadystatechange = function(){
+				if(xhr.readyState==4){
+					if(/2\d{2}|304/.test(xhr.status)){
+						let data = JSON.parse(xhr.response);
+						res(data);
+					}else if(/[45]\d{2}/.test(xhr.status)){
+						rej(xhr);
+					}
+				}
+			}
+			xhr.send(JSON.stringify(data))
+		})
+    }
+    ajax.get = function(url,data){
+        return ajax(url,{
+            method:'get',
+            data
+        })
+    }
+    ajax.post = function(url,data){
+        return ajax(url,{
+            method:'post',
+            data
+        })
+    }
+    // ajax('./data.json',{data:{a:12,b:13}}).then((data)=>{
+    //     console.log(data)
+    // })
+    // ajax.get('./data.json',{a:8897,b:089}).then(data=>{
+    //     console.log(data)
+    // })
+    ajax.post('https://web-api.juejin.im/query',{a:8897,b:089}).then(data=>{
+        console.log(data)
+    })
+    function ajax1(url, options) {
+        let {
+            method = 'get',
+                data = {},
+                cache = true, // 是否走缓存
+                async = true, // true是异步
+                    headers = {}
+        } = options;
+        let isGet = method.toLowerCase() === 'get'; // 判断是不是get
+        let searctStr = '';
+        console.log(data)
+        for (let k in data) {
+            searctStr += `&${k}=${data[k]}`
+        }
+        // console.log(searctStr)
+        searctStr = searctStr.slice(1);
+        if (isGet) {
+            url = url.indexOf('?') == -1 ? url + '?' + searctStr : url + '&' + searctStr;
+            // console.log(url);
+        }
+        return new Promise(function (res, rej) {
+            let xhr = new XMLHttpRequest();
+            xhr.open(method, url, async);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+                    if (/2\d{2}|304/.test(xhr.status)) {
+                        let data = JSON.parse(xhr.response)
+                        res(data)
+                    } else if (/[45]\d{2}/.test(xhr.status)) {
+                        rej(xhr)
+                    }
+                }
+            }
+            xhr.send(JSON.stringify(data));
+        })
+
+    }
+	
+</script>
