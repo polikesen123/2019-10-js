@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{this.name}}</h1>
+        {{obj}}
+        <span style="display:none;">{{t}}</span>
+    </div>
+</body>
+</html>
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script>
+    //data中的属性 最后都是挂载到了 当前的这个实例身上
+    /* 
+        改变vue的数据  能触发试图更新 前提是 该数据有 set  和 get
+        若没有get 和 set 更改数据是不会触发试图更新的 但是数据是有的
+
+        给对象新增属性时  vue不会触发试图的更新  
+        1.一开始 就在data里面写上对应的属性  并复制为undefined
+        2.整个对象的替换   替换后的每一个属性都会被监听
+        3.通过$set(对象,属性名,属性值)
+        4.初始时 创建一个无关变量  在新增对象属性时 可以去更新刚才的无关变量
+    */
+    let vm = new Vue({
+        el:'#app',
+        data:{
+            name:"珠峰",
+            obj:{
+                a:12,
+                // c:undefined
+            },
+            t:999
+        }
+    })
+    // vm.obj.c=133;
+    // vm.obj = JSON.parse(JSON.stringify(Object.assign(vm.obj,{b:345})))//深拷贝
+    // vm.obj = Object.assign({b:123},vm.obj)//Object.assign返回的是合并后的原有对象
+    //1.使用深拷贝  返回一个新的地址  
+    //2.跟换assign 参数的两个地址
+    // vm.$set(vm.obj,'b',45)
+    vm.obj.b = {ss:876};
+    vm.t = Math.random()
+</script>

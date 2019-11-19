@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    
+</head>
+
+<body>
+    <div id="app">
+        <!--  
+            小胡子语法  
+            里面只能写表达式 不能写语句
+        -->
+        <h1>{{qqq}}</h1>
+    </div>
+    <div id="app2">
+        <h1>{{qqq}}</h1>
+    </div>
+</body>
+
+</html>
+<script>
+    /* 
+        框架  库
+        框架  自己写代码  框架帮我们调用   库  别人写好的代码  自己去用
+        渐进式  vue vue-router vuex axios
+               vue 的 UI组件库  :ele vant  iview 可以直接搭脚手架
+               编辑器:Hbuilder-X  uni-app 
+     */
+
+    new Vue({
+        // el: "#app", //不能是body 和 html
+        //  template:`<div>这是个执行模板{{qqq}}</div>`,
+        data: {
+            //data中的属性  就是vue的变量
+            qqq: 'hello world!',
+            www: '阿个电话就关机啊是南方公园',
+            aaa: '228437'
+        }
+    }).$mount('#app2')
+</script>

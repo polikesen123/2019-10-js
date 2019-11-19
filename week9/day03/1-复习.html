@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{name}}</h1>
+        <button @click='fn'>999</button>
+        <button @click='fn()'>999</button>
+        <button @click='fn(111,222,$event)'>999</button>
+        <h2>{{obj}}</h2>
+        <ul>
+            <li v-for='(item,index) in 5' :key='item'>{{item}}--{{index}}</li>
+        </ul>
+        <span v-show='false'>{{t}}</span>
+    </div>
+</body>
+</html>
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script>
+    /* 
+        v-model v-text v-html v-cloak v-once v-pre v-show v-if v-for 
+        v-bind 修饰行内  简写:
+        v-on 事件绑定 简写@
+        .stop .prevent .once .self .capture(在捕获阶段触发) .passive(先执行默认事件)
+        .enter .13
+        v-model 的三个修饰符:.trim .number .lazy
+    */
+    let vm = new Vue({
+        el:'#app',
+        data:{
+            name:"珠峰",
+            obj:{
+                a:2334
+            },
+            t:0
+        },
+        methods: {
+            fn() {
+                this.myalert();
+            },
+            myalert(){
+                // alert(666),
+                this.obj.b=123
+                // this.$set(this.obj,'b',100)
+                this.t = Math.random();
+                console.log(this.obj)
+            }
+        },
+    })
+</script>

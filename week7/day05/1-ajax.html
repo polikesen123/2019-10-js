@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    // let xhr = new XMLHttpRequest();
+    // // get head  delete;post options put
+    // //head 一般用于只要响应头的时候
+    // xhr.open(type, url, async)
+    // xhr.onreadystatechange = function () {
+    //     //readyState  0 1 2 3 4
+    //     //status 200 301 302 304 307 403 404 5XX
+    //     if (xhr.readyState == 4) {
+    //         if (/2\d{2}|304/.test(xhr.status)) {
+
+    //         } else if (/[45]\d{2}/.test(chr.status)) {
+
+    //         }
+    //     }
+    // }
+    // xhr.send('143545') //send只接受字符串 不是字符串的会默认调用toString方法 POST方法send传参才有用  get方法是直接拼在url 后边
+    //ontimeout 超时  timeout=2000
+    //onabort 连接被打断
+
+    /* 
+        websocket
+
+     */
+    let ws = new WebSocket('wss://docs.qq.com/socket.io/?gtag=main_page_p.24092244&EIO=3&transport=websocket');
+    ws.onopen = function (e) {
+        //链接打通的时候
+    }
+    ws.onmessage = function(e){
+        //前端接收到后端推送的消息时候
+        console.log(e)
+    }
+    ws.onerror = function(e){
+        //链接出现的失败时候触发
+    }
+    ws.onclose = function(e){
+        //链接关闭时候
+    }
+    // ws.send({a:123})
+    //socket.io 是websocket封装好的库
+</script>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{name}}</h1>
+    </div>
+    <div id="qqq">
+
+    </div>
+    <div id="www">
+
+    </div>
+</body>
+
+</html>
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script>
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            name: "珠峰"
+        }
+    })
+    let obj = {};
+    let ary = [];
+    let val = 0;
+    Object.defineProperty(obj, 'qqq', {
+        // value:'zhuefeng',
+        // enumerable:true,//可枚举(可循环到)
+        // configurable:true,//可删除
+        // writable:true,//可改写
+        get() {
+            console.log('get')
+            return val
+        },
+        set(value) { //value就是给对应属性设置的值  set里面写return 没啥用
+            console.log('set', arguments)
+            val = value;
+            ary.forEach(fn=>{
+                fn();
+            })
+            return 'set'
+        }
+    })
+    // for(let k in obj){
+    //     console.log(k)
+    // }
+    //vue的 mvvm 
+    function render(){
+        qqq.innerHTML = obj.qqq;
+    }
+    function render2(){
+        www.innerHTML = obj.qqq;
+    }
+    ary.push(render);
+    ary.push(render2);
+
+    let obj2 = {a:23,b:65};
+    let o = new Proxy(obj2,{
+        get(...arg){
+            console.log(arg);
+        },
+        set(...arg){
+            console.log(arg)
+        }
+    })
+</script>

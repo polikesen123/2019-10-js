@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+  /*   //push pop unshift shift reverse splice sort 
+    //forEach map filter some every find findIndex reduce include flat
+    let ary = [1, 2, 3, 4, 5, 6, 7]
+    var arr = ary.filter((item, index) => {
+        return item > 3
+    })
+    console.log(arr)
+    ary.reduce(function(prev,next){
+        //prev 若第一次执行回调函数时 prev 是reduce的第二个参数  若第二个参数不存在 则 prev 就是数组的第一项 next是数组的第二项  再后边 的回调 prev 就是上一个回调的返回值  next就是当前项
+        //reduce的返回值就是最后一个回调函数的执行结果
+        console.log(arguments)
+        return 666;
+    },10) */
+
+    let ary = [{a:1},{a:2},{a:3}];
+    let t = ary.reduce((prev,next)=>prev+next.a,0);
+    let s = ary.find((item,index)=>{
+        //find 回调函数返回true 就把当前的这一项返回给s 后边的的回调函数不再执行
+        console.log(666)
+        return item.a ==3;
+    })
+    //以上方法都属于声明式写法 别人写好的  规定好的  比如 forEach
+    //编程式                                        for
+
+    
+</script>

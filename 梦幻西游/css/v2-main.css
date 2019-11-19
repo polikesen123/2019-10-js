@@ -1,0 +1,55 @@
+.headBar {
+  width: 1170px;
+  height: 300px;
+  z-index: 666;
+  margin: 0 auto;
+  position: absolute;
+  top: 41px;
+  left: 93px;
+}
+.headBar h1 {
+  float: left;
+  margin-top: -20px;
+}
+.headBar h1 a {
+  display: inline-block;
+  width: 200px;
+  height: 98px;
+  background: url(../images/200.webp) center center no-repeat;
+  background-size: cover;
+}
+.headBar .news-lists {
+  float: left;
+}
+.headBar .news-lists li {
+  float: left;
+  width: 90px;
+  margin-right: 8px;
+}
+.headBar .news-lists li a {
+  display: inline-block;
+  color: #fff;
+  box-sizing: border-box;
+  font-size: 14px;
+  padding: 3px 8px;
+  position: relative;
+}
+.headBar .news-lists li a .hot {
+  width: 11px;
+  height: 11px;
+  display: inline-block;
+  background: url(../images/Hot.png) center center no-repeat;
+  background-size: cover;
+  position: absolute;
+  right: -7px;
+  top: 7px;
+}
+.headBar .news-lists li a:first-child {
+  font-weight: 800;
+}
+.headBar .news-lists li a:hover {
+  color: #ffe2a3;
+}
+.headBar .news-lists .first {
+  width: 54px;
+}

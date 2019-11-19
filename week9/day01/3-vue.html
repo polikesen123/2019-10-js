@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" v-cloak>
+        <h1>姓名是:{{name}}</h1>
+        <!-- 
+            在 vue中 所有的 v-xxx 的行内属性 都是 vue的指令
+            网速慢时候容易看到小胡子
+            v-text=“vue”
+            v-html='vue' 这个属性可以识别字符串中的Dom结构 类似innerHTML 里面的值 只会当作普通html, 不会当作vue模版进行渲染
+            v-model =“VUE变量”
+            v-cloak 后边不跟值  就是利用了vue渲染完成之前  元素上还会有v-cloak属性 渲染完成之后 ,vue会吧v-cloak属性去掉 这样页面上就不会显示出小胡子语法  必须配合css使用
+            v-once后边不跟值  代表有这个属性的元素  里面的语法  vue只会渲染一次
+            v-pre  告诉vue:有这个指令的标签及其后代标签 都不进行编译,可以提升vue的编译速度
+
+         -->
+        <input type="text" v-model='name1'>
+         <!-- <h2 v-once>{{name1}}</h2> -->
+         <div v-once>
+            {{name1}}
+            <i>{{age}}</i>
+         </div>
+         <h3 v-text="name1"></h3>
+         <input type="number" v-model="age">
+         <h3>{{age>=18?'成年人':'未成年人'}}</h3>
+         <div>{{p}}</div>
+         <div v-text='p'></div>
+         <div v-html='p'></div>
+         <textarea name="" id="" cols="30" rows="10" v-model="n"></textarea>
+         <h1>{{n=100}}</h1>
+         <h2>{{n}}</h2>
+         <div v-pre>
+             {{name}}
+             {{name1}}
+         </div>
+    </div>
+</body>
+</html>
+<script>
+    //双向数据绑定
+    let vm = new Vue({
+        el:'#app',
+        data:{
+            name:'珠峰',
+            name1:666,
+            age:0,
+            p:`<h3>hello world</h3>`,
+            n:'8980'
+        }
+    })
+</script>

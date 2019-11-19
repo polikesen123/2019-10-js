@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .box{
+            width: 603px;
+            border: 1px solid #ccc;
+            margin: 0 auto;
+        }
+        .head{
+            height: 50px;
+            border-bottom: 1px solid #ccc;
+        }
+        .head li{
+            float: left;
+            width: 150px;
+            text-align: center;
+            color: red;
+            line-height: 50px;
+            border-right: 1px solid #ccc;
+        }
+        .head li.current{
+            background: lightgoldenrodyellow;
+        }
+        .head li:last-child{
+            border-right: none;
+        }
+        .body{
+            overflow: hidden;
+        }
+        .body li{
+            height: 200px;
+            text-align: center;
+            font-size: 22px;
+            line-height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="box">
+            <ul class="head">
+                <li v-for='(item,index) in ary' @click = 'change(index)' :class="{current:qqq==index}">{{item}}</li>
+            </ul>
+            <ul class="body">
+                <li v-for='(item,index) in body' v-show='index===qqq'>{{item}}</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script>
+    let vm = new Vue({
+        el:'#app',
+        data:{
+            name:"珠峰",
+            ary:['js','css','html','Vue'],
+            body:['js学的好','css学的好','html学的好','Vue学的好'],
+            qqq:0,
+        },
+        methods:{
+            change(n){
+                console.log(n)
+                this.qqq=n;
+            }
+        }
+    })
+</script>

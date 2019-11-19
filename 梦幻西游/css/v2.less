@@ -1,0 +1,1606 @@
+#box {
+    min-width: 1280px;
+    height: 100px;
+    color: #f5f7f9;
+}
+
+/* 头部导航栏 */
+.topBarBox {
+    height: 55px;
+    position: relative;
+
+    /* 导航 */
+    .topNav {
+        position: relative;
+        height: 54px;
+        border-bottom: 1px solid #d8d8d8;
+        user-select: none;
+
+        .menu {
+            width: 179px;
+            height: 54px;
+            float: left;
+            background-color: #cf1132;
+            color: #fff;
+            text-align: center;
+            line-height: 54px;
+            cursor: default;
+
+            .menuIcon {
+                display: inline-block;
+                width: 25px;
+                height: 11px;
+                background: url(../images/sprite-1.png) -90px -306px no-repeat;
+                margin-right: 8px
+            }
+        }
+
+        .news-img {
+            width: 420px;
+            height: 54px;
+            float: left;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .logo {
+            width: 133px;
+            height: 44px;
+            display: inline-block;
+            background: url(../images/wy_logo.png)no-repeat;
+            position: absolute;
+            left: 50%;
+            margin-left: -30px;
+            margin-top: 5px;
+        }
+
+        .freeClass {
+            width: 139px;
+            height: 54px;
+            border-left: 1px solid #dadada;
+            float: right;
+            color: #333;
+            cursor: pointer;
+
+            span {
+                float: left;
+                width: 139px;
+                height: 53px;
+                line-height: 53px;
+                text-align: center;
+            }
+
+            span:hover {
+                color: #cf1132;
+                background: #dadada;
+                border-bottom: 1px solid #cf1132;
+            }
+
+            .money {
+                display: none;
+            }
+        }
+
+        .hotRecommend {
+            width: 129px;
+            height: 54px;
+            border-left: 1px solid #dadada;
+            float: right;
+            line-height: 54px;
+            text-align: center;
+            color: #333;
+            cursor: pointer;
+
+            i {
+                display: inline-block;
+                width: 17px;
+                height: 20px;
+                background: url(../images/sprite-1.png) -81px -343px no-repeat;
+                position: relative;
+                top: 5px;
+                margin-right: 10px
+            }
+        }
+
+        .hotRecommend:hover i {
+            background: url(../images/sprite-1.png) -98px -343px no-repeat;
+        }
+
+        .hotRecommend:hover {
+            color: #cf1132;
+            border-bottom: 1px solid #cf1132;
+        }
+    }
+
+    //全部菜单
+    .topBar-menuBox {
+        width: 100%;
+        height: 0;
+        position: absolute;
+        top: 55px;
+        left: 0;
+        background: rgba(255, 255, 255, 0.9);
+        z-index: 999;
+        // display: none;
+        transition: all 0.3s linear;
+        overflow: hidden;
+
+        .menuBox {
+            width: 1260px;
+            // height: 500px;
+            margin: 0 auto;
+
+            .menuTop {
+                background: rgb(238, 235, 235);
+
+                li {
+                    float: left;
+                    height: 40px;
+                    line-height: 40px;
+                    color: #af0925;
+                    font-weight: 800;
+                    font-size: 14px;
+                    border-right: 1px solid #eee;
+                    text-indent: 20px;
+                }
+
+                .client {
+                    width: 299px;
+                }
+
+                .phone {
+                    width: 815px;
+                }
+
+                .assit {
+                    border-right: none;
+                }
+            }
+
+            .menuMain {
+                li {
+                    float: left;
+                    padding: 0 20px;
+                    box-sizing: border-box;
+
+                    h4 {
+                        height: 30px;
+                        line-height: 30px;
+                        color: #333;
+                    }
+
+                    a {
+                        display: block;
+                        height: 22px;
+                        line-height: 22px;
+                        color: #333;
+                        position: relative;
+                    }
+
+                    a:hover {
+                        color: #af0925;
+                    }
+
+                    .No1 {
+                        display: inline-block;
+                        width: 18px;
+                        height: 9px;
+                        background: url(../images/sprite-1.png) -97px -276px no-repeat;
+                        position: absolute;
+                        top: 5px;
+                        right: 20px;
+                    }
+
+                    .hot {
+                        display: inline-block;
+                        width: 18px;
+                        height: 9px;
+                        background: url(../images/sprite-1.png) -97px -152px no-repeat;
+                        position: absolute;
+                        top: 5px;
+                        right: 20px;
+                    }
+
+                    .new {
+                        display: inline-block;
+                        width: 18px;
+                        height: 9px;
+                        background: url(../images/sprite-1.png) -97px -214px no-repeat;
+                        position: absolute;
+                        top: 5px;
+                        right: 30px;
+                    }
+
+                }
+
+                .client-game {
+                    width: 300px;
+                    // height: 440px;
+                    display: flex;
+                    border-right: 1px solid #eee;
+                    position: relative;
+
+                    .No1 {
+                        right: 20px;
+                    }
+
+                    .hot {
+                        right: 20px;
+                    }
+
+                    .new {
+                        right: 30px;
+                    }
+
+                    .cosplay {
+                        flex: 1;
+                    }
+
+                    .Athletics-leisure {
+                        flex: 1;
+                    }
+
+                    .moreClient {
+                        position: absolute;
+                        top: 120px;
+                        right: 0;
+                        display: block;
+                        height: 110px;
+                        width: 30px;
+                        background: #cf1132;
+                        color: #fff;
+                        line-height: 16px;
+                        box-sizing: border-box;
+                        padding: 5px 10px;
+                    }
+
+                    .moreClient:hover {
+                        opacity: 0.8;
+                        color: #fff;
+                    }
+                }
+
+                .mobile-game {
+                    width: 815px;
+                    display: flex;
+                    position: relative;
+                    // height: 440px;
+
+                    .hot {
+                        right: 5px;
+                    }
+
+                    .new {
+                        right: 6px;
+                    }
+
+                    .Popular-recommendation {
+                        width: 130px;
+                        border-right: 1px solid #eee;
+                    }
+
+                    .newGame-recommendation {
+                        display: flex;
+                        flex: 1;
+                        padding-left: 20px;
+                        box-sizing: border-box;
+
+                        div {
+                            // flex: 1;
+                            width: 130px;
+
+                        }
+
+                        .colum3,
+                        .colum4,
+                        .colum5 {
+                            width: 100px;
+                        }
+                    }
+
+                    .moreMobile {
+                        position: absolute;
+                        top: 120px;
+                        right: 0;
+                        display: block;
+                        height: 110px;
+                        width: 30px;
+                        background: #cf1132;
+                        color: #fff;
+                        line-height: 16px;
+                        box-sizing: border-box;
+                        padding: 5px 10px;
+                    }
+
+                    .moreMobile:hover {
+                        opacity: 0.8;
+                        color: #fff;
+                    }
+
+                    .colum2,
+                    .colum3,
+                    .colum4,
+                    .colum5 {
+                        margin-top: 30px;
+                    }
+
+                }
+
+                .Game-assist {
+                    position: relative;
+                    padding-top: 20px;
+                    box-sizing: border-box;
+
+                    .hot {
+                        right: -25px;
+                    }
+
+                    .new {
+                        right: -25px;
+                    }
+
+                    .a-logo {
+                        color: #af0925;
+                        position: relative;
+                        text-indent: 25px;
+                        line-height: 28px;
+
+                        .logo {
+                            width: 24px;
+                            height: 18px;
+                            background: url(../images/sprite-1.png) 0 -338px no-repeat;
+                            position: absolute;
+                            top: 5px;
+                            left: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .topBar-menuBox.topBar-menuBox-current {
+        height: 500px;
+        transition: all 0.3s linear;
+    }
+
+    //新闻图片
+    .topBar-news {
+        position: absolute;
+        top: 55px;
+        left: 179px;
+        z-index: 999;
+        display: none;
+
+        a {
+            display: block;
+            width: 974px;
+            height: 250px;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+    //热门推荐
+    .topBar-commend {
+        height: 0px;
+        background: #fff;
+        position: absolute;
+        top: 55px;
+        left: 0;
+        box-sizing: border-box;
+        overflow: hidden;
+        z-index: 1000;
+        transition: all 1s;
+
+        .commend-center {
+            width: 1109px;
+            margin: 50px 120px;
+
+            .commend-top {
+                li {
+                    width: 170px;
+                    height: 240px;
+                    background: #000;
+                    float: left;
+                    margin-right: 17px;
+
+                    a {
+                        width: 170px;
+                        height: 240px;
+                        display: block;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                }
+
+                .nobR {
+                    margin-right: 0;
+                }
+            }
+
+            .commend-myfoot {
+                margin-top: 20px;
+                width: 100%;
+
+                span {
+                    float: left;
+                    color: #af0925;
+                    border-left: 1px solid #cf1132;
+                    padding-left: 5px;
+                    box-sizing: border-box;
+                }
+
+                a {
+                    float: left;
+                    margin: 0 5px;
+                    color: #666
+                }
+            }
+
+            .commend-bottom {
+                margin-left: 340px;
+
+                a {
+                    float: left;
+                    border: 1px solid #999;
+                    border-radius: 4px;
+                    margin: 0 30px;
+                    text-align: center;
+                    padding: 2px 15px;
+                    color: #666;
+                    overflow: hidden;
+                    vertical-align: middle;
+
+                    i {
+                        display: inline-block;
+                        width: 13px;
+                        height: 13px;
+                        margin-right: 6px;
+                        // margin-top: 10px;
+                        background: url(../images/sprite-1.png) no-repeat;
+                    }
+
+                    .count {
+                        background-position: 0 -443px;
+                    }
+
+                    .money {
+                        background-position: -19px -443px;
+                    }
+
+                    .help {
+                        background-position: -36px -443px;
+                    }
+                }
+            }
+
+        }
+    }
+
+    .topBar-commend.topBar-commend-hover {
+        height: 380px;
+        transition: all 0.3s linear;
+    }
+}
+
+/* 中间内容区域 */
+.MainBox {
+    // height: 4100px;
+    // background: hotpink;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+
+    .wrapper-bg {
+        width: 100%;
+        height: 100%;
+        position: relative;
+
+        div {
+            z-index: 1;
+        }
+
+        .head-video {
+            position: absolute;
+            left: 50%;
+            margin-left: -961px;
+            width: 1920px;
+            height: 1080px;
+            top: 0;
+            overflow: hidden;
+
+            video {
+                object-fit: contain;
+            }
+        }
+
+        .bg-010 {
+            width: 100%;
+            height: 580px;
+            background: url(../images/bg_01_3974fa4.webp) no-repeat center top;
+        }
+
+        .bg-011 {
+            position: relative;
+            height: 631px;
+            // background: url(../images/bg_01_2_gd_4bd90c1.webp) no-repeat center top;
+        }
+
+        .bg-02 {
+            height: 1100px;
+            margin-top: -336px;
+            background: #f9f3f3;
+        }
+
+        .bg-03 {
+            height: 1100px;
+            background: #fff;
+        }
+    }
+
+    .headBar {
+        width: 1170px;
+        height: 300px;
+        z-index: 666;
+        margin: 0 auto;
+        position: absolute;
+        top: 41px;
+        left: 93px;
+
+        h1 {
+            float: left;
+            margin-top: -20px;
+
+            a {
+                display: inline-block;
+                width: 200px;
+                height: 98px;
+                background: url(../images/200.webp) center center no-repeat;
+                background-size: cover;
+            }
+        }
+
+        .news-lists {
+            float: left;
+
+            li {
+                float: left;
+                width: 90px;
+                margin-right: 8px;
+
+                a {
+                    display: inline-block;
+                    color: #fff;
+                    box-sizing: border-box;
+                    font-size: 14px;
+                    padding: 3px 8px;
+                    position: relative;
+
+                    .hot {
+                        width: 11px;
+                        height: 11px;
+                        display: inline-block;
+                        background: url(../images/Hot.png) center center no-repeat;
+                        background-size: cover;
+                        position: absolute;
+                        right: -7px;
+                        top: 7px;
+                    }
+                }
+
+                a:first-child {
+                    font-weight: 800;
+                }
+
+                a:hover {
+                    color: #ffe2a3;
+                }
+            }
+
+            .first {
+                width: 54px;
+            }
+        }
+    }
+
+    .cloud {
+        position: absolute;
+        width: 101px;
+        height: 289px;
+        top: 39px;
+        left: 50%;
+        margin-left: 581px;
+        z-index: 8;
+        background: url(../images/kltn2_2e5cae0.png) no-repeat;
+
+
+        a {
+            display: block;
+            width: 101px;
+            height: 289px;
+        }
+    }
+
+    /* 主要内容区域 */
+    .mainBox {
+        width: 1170px;
+        height: 470px;
+        margin: 0 auto;
+        z-index: 666;
+        position: absolute;
+        top: 340px;
+        left: 93px;
+
+        .mainTop {
+            .left {
+                width: 190px;
+                height: 470px;
+                float: left;
+
+                li {
+                    padding: 10px 0;
+                    box-sizing: border-box;
+                    cursor: pointer;
+
+                    div {
+                        display: flex;
+
+                        div {
+                            display: flex;
+                        }
+
+                        .icon {
+                            margin-left: 10px;
+                        }
+
+                        .iconName {
+                            font-size: 18px;
+                            display: flex;
+                            flex-direction: column;
+                            margin: 0 10px;
+                            text-align: center;
+
+                            p {
+                                color: #fefefe;
+                            }
+                        }
+                    }
+                }
+
+                .pc,
+                .phone,
+                .app {
+                    width: 190px;
+                    height: 80px;
+                    line-break: 80px;
+                    background-color: #f24854;
+                }
+
+                .reg,
+                .giveMoney {
+                    width: 190px;
+                    height: 53px;
+                    line-height: 30px;
+                }
+
+                .peopleHelp {
+                    width: 190px;
+                    height: 60px;
+                }
+
+                .wyVip {
+                    width: 190px;
+                    height: 64px;
+                }
+
+                .pc {
+                    border-bottom: 1px solid #d43742;
+
+                    .icon {
+                        position: relative;
+                        overflow: hidden;
+                        width: 66px;
+
+                        .bigIcon {
+                            width: 50px;
+                            height: 44px;
+                            background: url(../images/spirit-2.png) no-repeat;
+                            background-position: -380px -221px;
+                            // overflow: hidden;
+                        }
+
+                        .litIcon {
+                            width: 22px;
+                            height: 24px;
+                            background: url(../images/spirit-2.png) no-repeat;
+                            background-position: -54px -371px;
+                            position: absolute;
+                            left: 14px;
+                            top: 5px;
+                            transition: 0.2s linear;
+                            // transform: translateY(20px);
+                        }
+
+                        .litIcon::after {
+                            content: "";
+                            width: 100%;
+                            height: 100%;
+                            bottom: 100%;
+                            left: 0;
+                            position: absolute;
+                            background-repeat: no-repeat;
+                            background: url(../images/spirit-2.png) no-repeat;
+                            background-position: -54px -371px;
+                        }
+                    }
+
+                }
+
+                .pc:hover .litIcon {
+                    transform: translateY(25px);
+                    transition: all ease-out .2s;
+                }
+
+                .phone {
+                    border-bottom: 1px solid #d43742;
+
+                    .icon {
+                        position: relative;
+                        margin-left: 20px;
+
+                        .bigIcon {
+                            width: 35px;
+                            height: 47px;
+                            background: url(../images/spirit-2.png) no-repeat;
+                            background-position: -380px -173px;
+                        }
+
+                        .litIcon {
+                            width: 22px;
+                            height: 24px;
+                            background: url(../images/spirit-2.png) no-repeat;
+                            background-position: -54px -371px;
+                            position: absolute;
+                            left: 6px;
+                            top: 14px;
+                        }
+                    }
+
+                    .smallWord {
+                        font-size: 12px;
+                        color: #f7b0b4;
+                    }
+
+                }
+
+                .phone:hover .litIcon {
+                    transform: translateY(15px);
+                    transition: all ease-out .3s;
+                }
+
+                .app {
+                    .icon {
+                        margin-left: 16px;
+                    }
+
+                    .bigIcon {
+                        width: 41px;
+                        height: 41px;
+                        background: url(../images/spirit-2.png) no-repeat;
+                        background-position: -93px -328px;
+                    }
+                }
+
+                .app:hover .bigIcon {
+                    transform: translateY(20px);
+                    transition: all ease-out .3s;
+                }
+
+                .reg:hover .bigIcon {
+                    transform: translateY(20px);
+                    transition: all ease-out .3s;
+                }
+
+                .giveMoney:hover .bigIcon {
+                    transform: translateY(20px);
+                    transition: all ease-out .3s;
+                }
+
+                .peopleHelp:hover .bigIcon {
+                    transform: translateY(20px);
+                    transition: all ease-out .3s;
+                }
+
+                .wyVip:hover .bigIcon {
+                    transform: translateY(20px);
+                    transition: all ease-out .3s;
+                }
+
+                .reg {
+                    background-color: #3b8bed;
+                    border-bottom: 1px solid #0d838b;
+
+                    .icon {
+                        margin-left: 30px;
+                    }
+
+                    .bigWord {
+                        font-size: 14px;
+                    }
+
+                    .bigIcon {
+                        width: 25px;
+                        height: 33px;
+                        background: url(../images/spirit-2.png) no-repeat;
+                        background-position: -415px -174px;
+                    }
+                }
+
+                .giveMoney {
+                    background-color: #3b8bed;
+                    border-bottom: 1px solid #0d838b;
+
+                    .icon {
+                        margin-left: 30px;
+                    }
+
+                    .bigWord {
+                        font-size: 14px;
+                    }
+
+                    .bigIcon {
+                        width: 30px;
+                        height: 30px;
+                        background: url(../images/spirit-2.png) no-repeat;
+                        background-position: -316px -199px;
+                    }
+                }
+
+                .peopleHelp {
+                    background-color: #2973ce;
+
+                    .icon {
+                        margin-left: 30px;
+                    }
+
+                    .bigWord {
+                        font-size: 14px;
+                    }
+
+                    .phoneNumer {
+                        font-size: 14px;
+                    }
+
+                    .bigIcon {
+                        width: 24px;
+                        height: 27px;
+                        background: url(../images/spirit-2.png) no-repeat;
+                        background-position: -400px -328px;
+                    }
+                }
+
+                .wyVip {
+                    width: 190px;
+                    height: 65px;
+                    background: url(../images/hy_bg_4433a14.webp);
+                    background-size: cover;
+
+                    .bigIcon {
+                        width: 31px;
+                        height: 40px;
+                        background: url(../images/hy_icon_4a1ee4a.png) no-repeat;
+                        background-size: cover;
+                    }
+
+                    .bigWord {
+                        font-size: 12px;
+                        color: #ffe2a3;
+                        margin-bottom: 10px;
+                    }
+
+                    .look {
+                        width: 54px;
+                        height: 17px;
+                        background: url(../images/hy_btn1_68ac751.png) no-repeat;
+                        background-size: cover;
+                    }
+                }
+
+            }
+
+            .banner {
+                width: 462px;
+                height: 470px;
+                margin: 0 20px;
+                float: left;
+                position: relative;
+                cursor: pointer;
+                user-select: none;
+
+                .channelBtn {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    z-index: 500;
+
+                    a {
+                        width: 60px;
+                        height: 40px;
+                        float: left;
+                        font-size: 16px;
+                        color: #fff;
+                        text-align: center;
+                        line-height: 40px;
+                        background-color: #333;
+                    }
+
+                    a.current {
+                        background-color: #3b8bed;
+                    }
+                }
+
+                .bannerBox {
+                    .banner1 {
+                        .ban1 {
+                            width: 462px;
+                            height: 460px;
+                            position: relative;
+
+                            li {
+                                width: 462px;
+                                height: 460px;
+                                position: absolute;
+
+                                img {
+                                    width: 100%;
+                                    height: 100%;
+                                }
+                            }
+                        }
+
+                        .changeBtn {
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            background-color: rgba(0, 0, 0.8);
+
+                            span {
+                                float: left;
+                                padding: 10px;
+                                box-sizing: border-box;
+                                color: #fff;
+                                font-size: 14px;
+                                width: 92.4px;
+                                height: 60px;
+                                text-align: center;
+                            }
+
+                            span.current {
+                                background-color: #3b8bed;
+                            }
+                        }
+                    }
+
+                    .banner2 {
+                        display: none;
+
+                        .ban1 {
+                            width: 462px;
+                            height: 460px;
+                            position: relative;
+
+                            li {
+                                width: 462px;
+                                height: 460px;
+                                position: absolute;
+
+                                img {
+                                    width: 100%;
+                                    height: 100%;
+                                }
+                            }
+                        }
+
+                        .changeBtn {
+                            position: absolute;
+                            bottom: 0;
+                            left: 0;
+                            background-color: rgba(0, 0, 0.8);
+                            padding: 0 28px;
+                            box-sizing: border-box;
+                            width: 462px;
+
+                            span {
+                                float: left;
+                                padding: 0 10px;
+                                box-sizing: border-box;
+                                color: #fff;
+                                font-size: 14px;
+                                width: 135px;
+                                height: 60px;
+                                line-height: 60px;
+                                text-align: center;
+                            }
+
+                            span.current {
+                                background-color: #3b8bed;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .right {
+                width: 478px;
+                height: 470px;
+                float: left;
+                background: #fff;
+                position: relative;
+
+
+                .right-top {
+                    width: 478px;
+                    height: 60px;
+                    color: #333;
+                    position: relative;
+                    cursor: pointer;
+
+                    i {
+                        display: block;
+                        width: 75px;
+                        height: 3px;
+                        background: #f24854;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        transition: all 0.3s ease-in-out;
+                    }
+
+                    span {
+                        float: left;
+                        width: 75px;
+                        height: 60px;
+                        font-size: 16px;
+                        text-align: center;
+                        line-height: 60px;
+                    }
+
+                    span:hover {
+                        color: #f24854;
+                    }
+                }
+
+                .slideBox {
+                    padding: 20px;
+                    box-sizing: border-box;
+
+                    .more {
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                        width: 75px;
+                        height: 60px;
+                        line-height: 60px;
+                        font-size: 16px;
+                        border-top: none;
+                        color: #333;
+
+
+                        .icon-arrow-sl {
+                            font-size: 12px;
+                            color: #333;
+
+                        }
+                    }
+
+                    .slideWrapper {
+                        position: relative;
+
+                        .slide-item {
+                            height: 390px;
+                            color: #3c3c3c;
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+                            background: #fff;
+
+                            .item-top {
+                                height: 140px;
+                                border-bottom: 1px dashed #ccc;
+                                display: flex;
+                                cursor: pointer;
+
+                                img {
+                                    width: 150px;
+                                    height: 113px;
+                                    margin-right: 25px;
+                                }
+
+                                .content {
+                                    overflow: hidden;
+                                    flex: 1;
+
+                                    h3 {
+                                        margin-bottom: 15px;
+                                        color: #f24854;
+                                        font-size: 16px;
+                                        font-weight: normal;
+                                    }
+
+                                    p {
+                                        font-size: 14px;
+                                        overflow: hidden;
+                                        display: -webkit-box;
+                                        text-overflow: ellipsis;
+                                        -webkit-box-orient: vertical;
+                                        -webkit-line-clamp: 3;
+                                        word-break: break-all;
+                                        white-space: normal;
+                                        line-height: 25px;
+                                    }
+                                }
+                            }
+
+                            .item-bottom {
+                                margin-top: 20px;
+
+                                li {
+                                    height: 34px;
+                                    font-size: 14px;
+                                    line-height: 34px;
+                                    cursor: pointer;
+
+                                    span:first-child {
+                                        float: left;
+                                        width: 310px;
+                                        overflow: hidden;
+                                        text-overflow: ellipsis;
+                                        white-space: nowrap;
+                                    }
+
+                                    span:last-child {
+                                        float: right;
+                                        color: #b8b8b9;
+                                    }
+
+                                    span.red {
+                                        color: #f24854;
+                                    }
+                                }
+
+                                li:hover span {
+                                    color: #f24854;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .dreamHot {
+            width: 1170px;
+            height: 380px;
+            // background: #ccc;
+            margin-top: 20px;
+            display: flex;
+
+            .left {
+                width: 190px;
+                display: flex;
+                flex-direction: column;
+
+                li {
+                    // flex: 1;
+                    font-size: 14px;
+                    color: #fff;
+                    background: #00a5c0;
+                    height: 63.4px;
+                    line-height: 63px;
+                    padding: 0 10px;
+                    box-sizing: border-box;
+                    text-indent: 30px;
+
+                    i {
+                        display: inline-block;
+                        background: url(../images/spirit-2.png) no-repeat;
+                        position: relative;
+                        top: 8px;
+                        left: -10px;
+                        font-style: normal;
+                    }
+
+                    .CBG {
+                        float: left;
+                        width: 48px;
+                        height: 39px;
+                        left: 10px;
+                        background-position: -134px -328px;
+
+                    }
+
+                    .order {
+                        width: 33px;
+                        height: 31px;
+                        background-position: -253px -199px;
+                    }
+
+                    .Billboard {
+                        width: 28px;
+                        height: 36px;
+                        background-position: -190px -292px;
+                    }
+
+                    .consumer {
+                        width: 32px;
+                        height: 31px;
+                        background-position: -190px -199px;
+                    }
+
+                    .welfare {
+                        width: 30px;
+                        height: 32px;
+                        background-position: -250px -292px;
+                    }
+
+                    .gift {
+                        width: 30px;
+                        height: 28px;
+                        background-position: -370px -328px;
+                    }
+                }
+
+                .CBG-box {
+                    width: 190px;
+                    height: 62px;
+                    background-position: -190px -230px;
+                    overflow: hidden;
+                    background-image: url(../images/spirit-2.png);
+                    background-repeat: no-repeat;
+                }
+            }
+
+            .centerHot {
+                width: 462px;
+                height: 380px;
+                background: #fff;
+                margin: 0 20px;
+                padding: 0 20px;
+                box-sizing: border-box;
+
+                .hotTop {
+                    height: 61px;
+                    line-height: 61px;
+                    color: #3c3c3c;
+                    border-bottom: 1px solid #dadada;
+
+                    h4 {
+                        font-size: 20px;
+                        float: left;
+                    }
+
+                    .read {
+                        width: 58px;
+                        height: 24px;
+                        background-image: url(../images/spirit-2.png);
+                        background-position: -134px -371px;
+                        background-repeat: no-repeat;
+                        float: left;
+                        margin: 20px 20px 0px 215px;
+                    }
+
+                    .more {
+                        float: left;
+                        font-size: 14px;
+                        color: #000;
+                        margin-top: 2px;
+                    }
+                }
+
+                .hotMain {
+                    .hotMain-title {
+                        position: relative;
+
+                        span {
+                            float: left;
+                            width: 70px;
+                            height: 45px;
+                            line-height: 45px;
+                            font-size: 14px;
+                            text-align: center;
+                            color: #3c3c3c;
+                        }
+
+                        i {
+                            display: block;
+                            width: 70px;
+                            height: 3px;
+                            background: #f24854;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            transition: all .3s ease-in-out;
+                        }
+                    }
+
+                    .sliderBox {
+                        position: relative;
+
+                        .hotMain-content {
+                            position: absolute;
+                            left: 0;
+                            top: 0;
+
+                            li {
+                                color: #3c3c3c;
+                                font-size: 14px;
+                                width: 380px;
+                                height: 39px;
+                                line-height: 39px;
+                                border-bottom: 1px dashed #dadada;
+                                margin: 0 10px;
+
+                                .recommend {
+                                    display: inline-block;
+                                    font-size: 14px;
+                                    width: 40px;
+                                    height: 24px;
+                                    text-align: center !important;
+                                    line-height: 24px;
+                                    position: relative;
+                                    left: 0;
+                                    top: 0;
+                                    background: #f24854;
+                                    color: #fff;
+                                    font-style: normal;
+                                }
+                            }
+
+                            li.red {
+                                color: #f24854;
+                            }
+
+                            li:hover {
+                                color: #f24854;
+                            }
+                        }
+                    }
+
+                }
+            }
+
+            .rightNews {
+                width: 478px;
+                height: 380px;
+                // background: rgb(224, 233, 108);
+                display: flex;
+
+                div {
+                    width: 230px;
+
+                    div {
+                        height: 300px;
+                    }
+                }
+
+                .bottom {
+                    height: 80px;
+                    display: flex;
+                    text-align: center;
+                    line-height: 80px;
+                    position: relative;
+
+                    i {
+                        position: absolute;
+                        left: 113px;
+                        height: 10px;
+                        height: 40px;
+                        font-style: normal;
+                        font-size: 20px;
+                        color: #b8b8b9;
+                    }
+
+                    span {
+                        flex: 1;
+                        font-size: 14px;
+                        color: #fff;
+                        background: #3b8bed;
+
+                        i {
+                            display: inline-block;
+                            width: 23px;
+                            height: 23px;
+                            position: relative;
+                            top: 5px;
+                            left: 0;
+                            background: url(../images/gift_bg_h_f4c85c7.png);
+                            background-size: 23px 23px;
+                        }
+                    }
+                }
+
+                .newServer {
+                    .top {
+                        background: url(../images/ban1-2.webp);
+                        background-size: cover;
+                    }
+
+                    margin-right: 20px;
+
+                    .top {
+                        padding: 20px;
+                        box-sizing: border-box;
+
+                        h4 {
+                            color: #f24854;
+                            font-size: 22px;
+                        }
+
+                        ul {
+                            display: flex;
+                            flex-direction: column;
+
+                            li {
+                                flex: 1;
+                                font-size: 16px;
+                                color: #3c3c3c;
+                                line-height: 20px;
+                                margin-bottom: 20px;
+
+                                h5 {
+                                    font-weight: 700;
+                                }
+                            }
+                        }
+                    }
+
+                    .bottom {
+                        .left1 {
+                            color: #ff3;
+                        }
+                    }
+
+                }
+
+                .raceCenter {
+                    .top {
+                        background: url(../images/wst_ed52b45.webp);
+                        background-size: cover;
+                        padding: 20px 10px;
+                        box-sizing: border-box;
+
+                        h4 {
+                            color: #f24854;
+                            font-size: 22px;
+                        }
+
+                        h5 {
+                            font-size: 16px;
+                            color: #3c3c3c;
+                            margin: 10px 0;
+                        }
+
+                        ul {
+                            display: flex;
+                            flex-direction: column;
+
+                            li {
+                                flex: 1;
+
+                                span {
+                                    float: left;
+                                    font-size: 14px;
+                                    color: #000;
+                                }
+
+                                .dot {
+                                    width: 68px;
+                                    background: url(../images/dot_76d881c.png) no-repeat left center;
+                                    position: relative;
+                                    text-align: center;
+                                    margin-right: 5px;
+                                    line-height: 20px;
+                                }
+                            }
+                        }
+                    }
+
+                    .bottom {
+                        span {
+                            background: #00a5c0;
+                        }
+                    }
+                }
+            }
+        }
+
+        .dreamToolbox {
+            width: 1170px;
+            // height: 380px;
+            background: darkseagreen;
+            margin-top: 20px;
+
+            .left {
+                width: 190px;
+                background: #445366;
+                padding: 0 20px;
+                box-sizing: border-box;
+                color: #b3beb2;
+                float: left;
+
+                li {
+                    height: 53px;
+                    // text-align: center;
+                    line-height: 53px;
+                    color: #b3beb2;
+                    font-size: 14px;
+                    text-indent: 10px;
+                }
+
+                li:hover {
+                    color: #fff;
+                }
+
+                .toolTitle {
+                    height: 61px;
+                    line-height: 61px;
+                    border-bottom: 1px solid #dadada;
+                    font-size: 20px;
+                    text-align: center;
+                }
+
+                .toolTitle:hover {
+                    color: #b3beb2;
+                }
+            }
+
+            .toolboxMain {
+                // width: 710px;
+                height: 380px;
+                margin-left: 20px;
+                background: rgb(111, 226, 140);
+                float: left;
+                display: flex;
+
+                .Gallery {
+                    width: 710px;
+                    margin-right: 20px;
+                    background: brown;
+                    padding: 0 20px;
+                    box-sizing: border-box;
+                    color: #3c3c3c;
+
+                    .Gtop {
+                        height: 61px;
+                        line-height: 61px;
+                        border-bottom: 1px solid #dadada;
+
+                        h4 {
+                            font-size: 20px;
+                            float: left;
+                        }
+
+                        .more {
+                            float: right;
+                        }
+                    }
+                }
+
+                .WuAltar {
+                    width: 230px;
+                    background: chocolate;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        h1 {
+            width: 600px;
+        }
+
+        h2 {
+            width: 600px;
+            background: #ccc;
+            text-align: center;
+        }
+
+        .v-enter {
+            opacity: 0;
+            transform: translateX(200px);
+        }
+
+        .v-enter-active {
+            transition: all 0.5s;
+        }
+
+        .v-enter-to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .v-leave {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .v-leave-active {
+            transition: all 0.5s;
+        }
+
+        .v-leave-to {
+            opacity: 0;
+            transform: translateX(200px);
+        }
+
+        .qqq-enter {
+            color: aqua;
+            transform: scale(0.2);
+        }
+
+        .qqq-enter-active {
+            transition: all 0.5s;
+        }
+
+        .qqq-enter-to {
+            transform: scale(1);
+            ;
+            color: blueviolet;
+        }
+
+        @keyframes move {
+            0% {
+                opacity: 0;
+                transform: scale(0.2);
+            }
+
+            50% {
+                opacity: 0.5;
+                transform: scale(1.2);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .myanimation-enter-active,
+        .myanimation-leave-active {
+            animation: move 1s linear;
+        }
+
+        .myanimation-leave-active {
+            animation: move 1s reverse;
+            /* reverse 动画方向相反 */
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <!-- 
+        transition 只能配合 v-if v-show使用
+        里边只能放一个跟元素
+        自定义名字 name="xxx" xxx.enter
+     -->
+    <div id="app">
+        <button @click="fn">按钮</button>
+        <!-- <transition>
+            <h1 v-show="flag">{{name}}</h1>
+        </transition>
+        <transition name="qqq">
+            <h2 v-show="flag">{{name}}</h2>
+        </transition> -->
+        <!-- 帧动画 -->
+        <!-- <transition name="myanimation">
+            <h2 v-if="flag">
+                {{name}}
+            </h2>
+        </transition> -->
+        <!-- 结合animate.css动画库使用 -->
+        <!-- <transition enter-active-class="animated wobble" leave-active-class="animated bounceOutLeft" name="hhh">
+            <h2 v-if="flag">{{name}}</h2>
+        </transition> -->
+        <transition enter-active-class="animated wobble" leave-active-class="animated bounceOutLeft" name="hhh" mode="out-in">
+            <!-- mode="out-in"  是控制先消失再显示-->
+            <h2 v-if="flag">{{name}}</h2>
+            <h3 v-else>{{name}}{{name}}</h3>
+        </transition>
+    </div>
+</body>
+
+</html>
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script>
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            name: "珠峰",
+            flag: true
+        },
+        methods: {
+            fn() {
+                this.flag = !this.flag
+            }
+        }
+    })
+</script>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{name}}</h1>
+        <input type="radio" value="woman" v-model='sex'>女
+        <input type="radio" value="man" v-model='sex'>男
+
+        <!-- selectbox 下拉框 -->
+        <select v-model='fruit' @change='fn'>
+            <option value="apple">🍎</option>
+            <option value="banana">🍌</option>
+            <option value="peach">🍑</option>
+        </select>
+    </div>
+</body>
+
+</html>
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script>
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            name: "珠峰",
+            sex: 'man',
+            fruit: 'apple'
+        },
+        methods: {
+            fn() {
+                console.log(this.fruit)
+            }
+        },
+    })
+</script>
