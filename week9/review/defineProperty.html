@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    /* 
+        defineProperty()可以实现vue数据的监听  
+        该方法里面传三个参数:要监听的对象,要监听的对象对应的属性,要设置的内容 对象
+    */
+    // let obj = {};
+    // let val = 999;//找了个中间人 
+    // Object.defineProperty(obj,'yyy',{
+    //     // value:'哈哈哈',
+    //     // enumerable:true,
+    //     // configurable:true,
+    //     // writable:false
+    //     get(){
+    //         console.log('get')
+    //         return val;
+    //     },
+    //     set(value){
+    //         console.log(arguments)
+    //         val = value
+    //     }
+    // })
+    // console.log(obj.yyy)
+    
+    //es6  Proxy 监听的是一个对象
+    //Proxy可以直接监听对象而非属性
+    // Proxy可以直接监听数组的变化
+    let obj2 = {a:2,b:3}
+    let o = new Proxy(obj2,{
+        get(){
+
+        },
+        set(){
+
+        }
+    })
+</script>

@@ -117,32 +117,16 @@
             TODO-LIST
         </nav>
         <div class="content">
-            <h2>亲~ 你还有{{doingNum}}件事要完成</h2>
+            <h2>亲~ 你还有{{count}}件事要完成</h2>
             <input type="text" class="inp" v-model="todo" @keyup.enter='submit'>
             <ul class="todo_list">
-                <li v-for="(item,index) in ary" :key="item.id" @dblclick.prevent="turn(item)" v-if="hash=='#/all'">
+                <li v-for="(item,index) in todoAry" :key="item.id" @dblclick.prevent="turn(item)" >
                     <span :class="{text_del:item.done}" v-if="!item.editable">
                         <input type="checkbox" v-model="item.done">
                         {{item.todo}}
                     </span>
                     <input type="text" v-else v-focus="item.editable" v-model="item.todo" @blur="turn(item)">
-                    <button @click="del(index)">删除</button>
-                </li>
-                <li v-for="(item,index) in doneAry" :key="item.id" @dblclick.prevent="turn(item)" v-else-if="hash=='#/finished'">
-                    <span :class="{text_del:item.done}" v-if="!item.editable">
-                        <input type="checkbox" v-model="item.done">
-                        {{item.todo}}
-                    </span>
-                    <input type="text" v-else v-focus="item.editable" v-model="item.todo" @blur="turn(item)">
-                    <button @click="del(index)">删除</button>
-                </li>
-                <li v-for="(item,index) in doingAry" :key="item.id" @dblclick.prevent="turn(item)" v-else>
-                    <span :class="{text_del:item.done}" v-if="!item.editable">
-                        <input type="checkbox" v-model="item.done">
-                        {{item.todo}}
-                    </span>
-                    <input type="text" v-else v-focus="item.editable" v-model="item.todo" @blur="turn(item)">
-                    <button @click="del(index)">删除</button>
+                    <button @click="del(item)">删除</button>
                 </li>
             </ul>
             <ul class="hash_tab">

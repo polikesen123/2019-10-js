@@ -24,26 +24,32 @@ let vm = new Vue({
         }],
         todo: '',
         hash: '', //用来存储当前路径的哈希值
+        count:0
     },
     created() {
         this.hash = location.hash || '#/all';
         window.addEventListener('hashchange', () => {
             this.hash = location.hash
-        })
+        });
+        this.ary = JSON.parse(localStorage.getItem('mytodolist')) || [];//从本地存储中获取数据
     },
     computed: {
-        doingNum() {
-            let arr = this.ary.filter(item => !item.done)
-            return arr.length;
-        },
-        doneAry(){
-            let arr = this.ary.filter(item => item.done)
-            return arr
-        },
-        doingAry(){
-            let arr = this.ary.filter(item => !item.done)
-            return arr
-        },
+        todoAry(){
+            this.count = this.ary.filter(item => !item.done).length
+            //只要this.ary发生改变就要存储在localStorage
+            localStorage.setItem('mytodolist',JSON.stringify(this.ary))
+            //依赖于 ary 和 hash
+            switch(this.hash){
+                case '#/all':
+                    return this.ary;
+                    break;
+                case '#/finished':
+                    return this.ary.filter(item => item.done)
+                    break;
+                case '#/unfinished':
+                    return this.ary.filter(item => !item.done)
+            }
+        }
     },
     methods: {
         submit() {
@@ -61,8 +67,8 @@ let vm = new Vue({
         turn(obj) {
             obj.editable = !obj.editable;
         },
-        del(n) {
-            this.ary.splice(n, 1)
+        del(obj) {
+            this.ary=this.ary.filter(item=>item.id!==obj.id)
         }
     },
     directives: {
@@ -71,6 +77,14 @@ let vm = new Vue({
                 setTimeout(() => {
                     el.focus();
                 }, 10)
+            }
+        }
+    },
+    watch:{
+        ary:{
+            deep:true,
+            handler(newV,oldV){
+                console.log(666)
             }
         }
     }

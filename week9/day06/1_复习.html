@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{name}}</h1>
+    </div>
+</body>
+</html>
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script>
+    /* 
+        v-model v-text v-html v-cloak v-pre  v-once 
+        v-for v-if v-show v-on(@) v-bind(:) class style
+
+        自定义指令
+        全局指令:Vue.directive(指令名,function(el,obj))
+        directives:{
+            指令名1(el,obj){
+
+            },
+            指令名2(el,obj){
+
+            }
+        }
+        全局过滤器: Vue.filter(过滤器名,function(val,传递的其他参数){val就是管道符前边的值})
+        Vue自定义标签
+        <template></template>
+        <transition></transition>//里边只能有一个跟元素
+          <transition-group></transition-group>
+
+        el data template methods computed watch filters directives created
+    */
+    let vm = new Vue({
+        el:'#app',
+        data:{
+            name:"珠峰"
+        }
+    })
+</script>

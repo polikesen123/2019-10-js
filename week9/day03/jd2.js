@@ -6,7 +6,6 @@ let vm = new Vue({
     data: {
         name: "珠峰",
         datalist: [],
-        total: 0,
         show: false,
         delIndex: null
     },
@@ -17,15 +16,15 @@ let vm = new Vue({
         }  */
         checkAll: {
             get() {
-                return this.datalist.every(item=>item.isSelect)
+                return this.datalist.every(item => item.isSelect)
             },
             set(val) {
                 console.log(val)
-                this.datalist.every(item=>item.isSelect = val)
-            },
-            total(){
-                this.total = this.datalist.filter(item => item.isSelect).reduce((prev, next) => prev + next.count * next.price, 0)
+                this.datalist.every(item => item.isSelect = val)
             }
+        },
+        total() {
+            return this.datalist.filter(item => item.isSelect).reduce((prev, next) => prev + next.count * next.price, 0)
         }
     },
     created() {
