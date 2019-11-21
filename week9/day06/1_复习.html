@@ -18,6 +18,10 @@
         v-model v-text v-html v-cloak v-pre  v-once 
         v-for v-if v-show v-on(@) v-bind(:) class style
 
+        事件修饰符 .stop .prevent .capture .passive .self .once
+        按键修饰符: .enter/.13  
+        系统修饰符: .ctrl 
+        v-model的修饰符: .lazy(onchange事件  失去焦点时触发))  .number(parseFloat转换 转不出来还是字符串)) .trim(去除首尾空格)
         自定义指令
         全局指令:Vue.directive(指令名,function(el,obj))
         directives:{
@@ -35,6 +39,15 @@
           <transition-group></transition-group>
 
         el data template methods computed watch filters directives created
+
+        钩子  自定义指令的钩子: 
+                bind insert update componentUpdate unbind  简写时 bind 和 insert 的合体
+            Vue.directive('qqq',{
+                bind(){},
+                insert(){}
+            })
+            transition的钩子  @before-enter="fn" 
+
     */
     let vm = new Vue({
         el:'#app',

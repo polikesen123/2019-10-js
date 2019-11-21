@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{name}}</h1>
+        <my-count></my-count>
+        <my-num></my-num>
+    </div>
+    <template id="mycount">
+        <div>
+            <h2>{{name}}</h2>
+            <qqq></qqq>
+            <qqq></qqq>
+        </div>
+    </template>
+    <template id="myNum"> 
+        <div>
+            <h2>这是一个局部私有组件</h2>
+            <!-- <my-count></my-count>
+        </div> -->
+    </template>
+</body>
+
+</html>
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script>
+    /* 
+        全局组件 通过Vue.component创建  创建之后 所有组件都能使用
+        局部组件 先声明一个对象 再去要使用该组件的那个组件去注册  然后才能使用
+
+        组件就是vue实例  vue实例也是组件  组件在用的时候才会是实例 只有new才会产生实例
+    */
+    let myNum = {
+        template: '#myNum',
+        data() {
+            return {
+                name: 'number组件'
+            }
+        },
+        created(){
+            console.log(this)
+        }
+    };
+    Vue.component('my-count', {
+        template: '#mycount',
+        data() {
+            return {
+                name: '珠峰'
+            }
+        },
+        components:{
+            'qqq':myNum
+        }
+    });
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            name: "珠峰"
+        },
+        components: {
+            //局部组件注册
+            'my-num': myNum
+        }
+    })
+</script>

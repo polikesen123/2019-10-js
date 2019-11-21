@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/element-ui/lib/theme-chalk/index.css">
+    <title>Document</title>
+    <style>
+        tr>th,
+        tr>td {
+            text-align: center;
+        }
+
+        .table>tbody>tr>td,
+        .table>tbody>tr>th {
+            vertical-align: middle;
+        }
+
+        .mask {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index:99999;
+        }
+
+        .mask .center {
+            margin: 200px auto;
+            width: 400px;
+            height: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="alert alert-success">{{name}}</div>
+        <table class="table  table-bordered text-center">
+            <thead class="alert alert-success" role="alert">
+                <tr>
+                    <td>全选 <input type="checkbox" v-model="checkAll"></td>
+                    <td>商品名称</td>
+                    <td>图片</td>
+                    <td>描述</td>
+                    <td>单价</td>
+                    <td>数量</td>
+                    <td>小记</td>
+                    <td>操作</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="(item,index) in datalist" :key="item.id">
+                    <td><input type="checkbox" v-model="item.isSelect"></td>
+                    <td>{{item.title}}</td>
+                    <td><img :src="item.pic" alt=""></td>
+                    <td>{{item.desc}}</td>
+                    <td>{{item.price|setDots}}</td>
+                    <td>
+                        <el-input-number v-model="item.count" :min="0" size="mini"></el-input-number>
+                    </td>
+                    <td>{{item.price*item.count|setDots}}</td>
+                    <td>
+                        <el-button size="mini" @click="edit">编辑</el-button>
+                        <el-button size="mini" type="danger" @click="del(index)">删除
+                        </el-button>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan='7' class="text-left">总价:</td>
+                    <td colspan='1'>{{total|setDots}}</td>
+                </tr>
+                <tr>
+                    <td colspan='8' class="text-right">
+                        <el-button type="danger" @click="clean()">清空购物车</el-button>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+        <div class="mask" v-show="show">
+            <div class="center">
+                <el-alert title="确定要清空购物车吗?" type="warning" show-icon class="warn">
+                    <el-button size="mini" @click="cancel">取消</el-button>
+                    <el-button size="mini" type="danger" @click="sure">确定
+                    </el-button>
+                </el-alert>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script src="../node_modules/element-ui/lib/index.js"></script>
+<script src="./index.js"></script>
