@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        ul {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            width: 500px;
+            margin: auto;
+            box-shadow: 5px 7px 10px 5px rgb(2, 2, 2);
+        }
+
+        ul>li:nth-child(2n) {
+            background: rgb(11, 189, 201);
+            color: #333;
+        }
+
+        ul>li:nth-child(2n+1) {
+            background: rgb(11, 93, 201);
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{name}}</h1>
+        <list :data="ary">
+            <template slot-scope="qqq">
+                <h2>姓名: <i>{{qqq.item.name}}</i> 年龄: <i>{{qqq.item.age}}</i> </h2>
+                索引是{{qqq.$index}}
+            </template>
+        </list>
+    </div>
+</body>
+<template id="list">
+    <ul>
+        <li v-for="(item,index) in data" :key="index">
+            <slot :item="item" :$index="index"></slot>
+        </li>
+    </ul>
+</template>
+
+</html>
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script>
+    const list = {
+        template: '#list',
+        props: ['data']
+
+    }
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            name: "珠峰",
+            ary: [{
+                name: '明',
+                age: 18
+            }, {
+                name: '明2',
+                age: 12
+            }, {
+                name: '明3',
+                age: 23
+            }, {
+                name: '明4',
+                age: 40
+            }]
+        },
+        components: {
+            list
+        }
+    })
+</script>

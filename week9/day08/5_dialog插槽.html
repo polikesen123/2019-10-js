@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
+    <title>Document</title>
+    <style>
+        .dailogBox {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, .5);
+        }
+
+        .contentBox {
+            width: 500px;
+            min-height: 300px;
+            background: #fff;
+            margin: auto;
+            transform: translateY(100px);
+            border-radius: 10px;
+            font-size: 20px;
+        }
+
+        .contentBox header {
+            border-bottom: 1px solid #eee;
+            padding-left: 15px;
+            height: 50px;
+            line-height: 50px;
+        }
+
+        .contentBox main {
+            min-height: 200px;
+            padding-left: 15px;
+            box-sizing: border-box;
+        }
+
+        .contentBox footer {
+            height: 50px;
+            line-height: 50px;
+            text-align: right;
+            padding: 0 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .myBtn {
+            min-width: 80px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            font-size: 18px;
+            margin: 0 auto;
+            outline: none;
+            border-radius: 5px;
+        }
+
+        .myBtn:hover {
+            background: rgb(79, 155, 173);
+        }
+
+        .fade-enter-active,
+        .fade-leave-active {
+            transition: opacity 0.1s;
+        }
+
+        .fade-enter,
+        .fade-leave {
+            opacity: 0;
+        }
+
+        .fade-enter-to,
+        .fade-leave {
+            opacity: 1;
+        }
+
+        .drop-enter,
+        .drop-leave-to {
+            transform: translateY(0);
+        }
+
+        .drop-enter-to,
+        .drop-leave {
+            transform: translateY(100px);
+        }
+
+        .drop-enter-active,
+        .drop-leave-active {
+            transition: all 0.2s;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{name}}</h1>
+        <my-button text="点击展示弹框" @click="showFn"></my-button>
+        <my-dialog :visible='isshow'>
+            <!-- <header slot="head">我自己弹框</header>
+            <main slot="body">今天吃啥啊?</main> -->
+            <footer slot="foot">
+                <my-button text="取消" @click="cancelFn"></my-button>
+                <my-button text="确定" @click="sureFn"></my-button>
+            </footer>
+        </my-dialog>
+    </div>
+</body>
+<template id="myDialog">
+    <transition name="fade">
+        <!-- enter-active-class="animated zoomIn" leave-active-class="animated fadeOut" -->
+        <div class="dailogBox" v-show="visible">
+            <transition name="drop">
+                <div class="contentBox" v-show="visible">
+                    <slot name="head">
+                        <header>默认身体</header>
+                    </slot>
+                    <slot name="body">
+                        <main>默认身体</main>
+                    </slot>
+                    <slot name="foot">
+                        <footer>默认脚部</footer>
+                    </slot>
+                </div>
+            </transition>
+        </div>
+    </transition>
+
+</template>
+<template id="myButton">
+    <button class="myBtn" v-text="text||'按钮'" @click="fn"></button>
+</template>
+
+</html>
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script>
+    Vue.component('my-dialog', {
+        template: '#myDialog',
+        props: ['visible'],
+        methods: {}
+    })
+    Vue.component('my-button', {
+        template: '#myButton',
+        props: ['text'],
+        methods: {
+            fn(e) {
+                this.$emit('click', e)
+            }
+        }
+    })
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            name: "珠峰",
+            isshow: false
+        },
+        methods: {
+            showFn(e) {
+                // console.log(e)
+                this.isshow = !this.isshow
+            },
+            sureFn() {
+                this.isshow = !this.isshow
+            },
+            cancelFn() {
+                this.isshow = !this.isshow
+            }
+        }
+    })
+</script>

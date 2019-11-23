@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{name}}</h1>
+        <my-slot>
+            <template v-slot:header='qqq'>
+                <header>
+                    hello world{{qqq}}
+                </header>
+            </template>
+            <template #main="qqq">
+                <main>
+                    中间内容部分{{qqq}}
+                </main>
+            </template>
+            <template slot="footer" slot-scope="qqq">
+                <footer >
+                    尾部{{qqq}}
+                </footer>
+            </template>
+
+        </my-slot>
+    </div>
+</body>
+<template id="mySlot">
+    <div>
+        <slot name="header":aaa="[2]"></slot>
+        <slot name="main" :www="[1,3]"></slot>
+        <slot name="footer" :www="[1,3,4,5,6]"></slot>
+    </div>
+</template>
+
+</html>
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script>
+    Vue.component('my-slot', {
+        template: '#mySlot'
+    })
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            name: "珠峰"
+        }
+    })
+</script>

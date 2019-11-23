@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .myBtn {
+            min-width: 80px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            font-size: 18px;
+            margin: 0 auto;
+            outline: none;
+            border-radius: 5px;
+        }
+
+        .myBtn:hover {
+            background: rgb(79, 155, 173);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{name}}</h1>
+        <my-button>这是我自己的按钮</my-button>
+    </div>
+</body>
+<!-- 插槽就是把自定义标签(组件)内包含的部分  我们可以在组件内部 通过使用
+        <slot></slot> 放到对应的标签里边
+        <slot>标签里面包含的就是默认内容
+-->
+<template id="myButton">
+    <button class="myBtn" @click="fn">
+        <slot>按钮</slot>
+    </button>
+</template>
+
+</html>
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script>
+    Vue.component('my-button', {
+        template: '#myButton',
+        props: ['text'],
+        methods: {
+            fn(e) {
+                this.$emit('click', e)
+            }
+        },
+        created(){
+            console.log(this)
+        }
+    })
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            name: "珠峰"
+        }
+    })
+</script>
