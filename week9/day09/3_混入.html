@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{name}}</h1>
+        <my></my>
+        <my></my>
+        <my></my>
+    </div>
+</body>
+
+</html>
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script>
+    // 把混入对象中的 data 合并到每一个组件的data中  若data中的属性名重复 则以组件中data的属性为主
+    // 把混入对象中所有的钩子函数添加到每一个组件中  并且先执行混入对象的钩子函数  再去执行组件对应的钩子函数
+    Vue.mixin({
+        data(){
+            return {
+                aaa:123,
+                name:'哈交话费就开始'
+            }
+        },
+        beforeCreate(){
+            console.log('mixin beforeCreate')
+        },
+        mounted(){
+            console.log('mixin mounted')
+        }
+    })
+    Vue.component('my', {
+        render(h) {
+            return h('h2', {
+                'class': 'qqq'
+            }, 'hello')
+        },
+        beforeCreate() {
+            console.log('my beforeCreate')
+        },
+        mounted(){
+            console.log('my mounted')
+        }
+    })
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            name: "珠峰"
+        },
+        beforeCreate() {
+            console.log('vm beforeCreate')
+        }
+    })
+</script>

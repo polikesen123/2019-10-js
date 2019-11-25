@@ -27,7 +27,7 @@
         },
         methods: {
             openVn() {
-                const h = this.$createElement;//三个参数  :(标签名,{标签的行内属性},内容)
+                const h = this.$createElement;//三个参数  :(标签名,{标签的行内属性},内容) 返回值是一个虚拟DOM
                 this.$message({
                     message: h('p', null, [
                         h('span', null, '内容可以是 '),

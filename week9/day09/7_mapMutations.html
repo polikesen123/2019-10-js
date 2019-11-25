@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h2>{{$store.state.count}}</h2>
+        <my-btn></my-btn>
+    </div>
+</body>
+</html>
+<template id='myBtn'>
+    <div>
+        <h5>{{count}}</h5>
+        <button @click='myadd'>+</button>
+        <button @click='myminus'>-</button>
+    </div>
+</template>
+<script src="../node_modules/vuex/dist/vuex.js"></script>
+<script src="../node_modules/vue/dist/vue.js"></script>
+<script>
+    let store = new Vuex.Store({
+        state:{
+            // 存放公用数据的地方
+            count:0,
+        },
+        mutations:{
+            // 存储的都是用来改变 state中的状态  的方法
+            // 我们需要通过 $store.commit这个方法来触发对应的函数；
+            //mutations里边的函数都是同步的
+            add(state){
+                state.count ++
+            },
+            minus(state){
+                state.count --
+            }
+        }
+    })
+    Vue.component('my-btn',{
+        template:"#myBtn",
+        data() {
+            return {
+                
+            }
+        },
+        computed: {
+            ...Vuex.mapState(['count'])
+        },
+        methods: {
+            //触发mutations中的add函数
+            // add(){
+            //     this.$store.commit('add')
+            // },
+            // //触发mutations中的minus函数
+            // minus(){
+            //     this.$store.commit('minus')
+            // }
+            //把mutations中的add函数 放到本组件的methods中,这样我们就可以直接在组件中使用add()来调用mutations中的add方法
+            // ...Vuex.mapMutations(['add','minus'])
+            ...Vuex.mapMutations({
+                myadd:'add',
+                // myminus:'minus'
+                myminus:function(commit,e){
+                    console.log(e,this)
+                    commit('minus',e,)
+                }
+            })
+        },
+    })
+    let vm = new Vue({
+        el:'#app',
+        store,// 注入完成之后  每一个后代组件身上都会有一个$store属性
+        data:{
+           
+        }
+    });
+    /* 
+        mutations :commit('add')  commit({'type':'add'})
+                    mapMutations(['add'])  this.add
+                    mapMutations({
+                        aaa:'add',
+                        qqq:function(commit,传递的参数){
+                            commit('add')
+                        }
+                    })
+                mutations里面的函数必须是同步的
+                常量
+    */
+</script>
