@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .test{
+            width: 400px;
+            height: 1000px;
+            background: lightgreen;
+        }
+    </style>
+</head>
+<body>
+    <div class="test"></div>
+</body>
+</html>
+<script>
+    function debounce(fn,wait=1000){
+        let timer = null;
+        return function(){
+            clearTimeout(timer);
+            setTimeout(()=>{
+                fn.apply(this,arguments)
+            },wait)
+        }
+    }
+    let fn = function(){
+        console.log('哈哈哈')
+    }
+    let f = debounce(fn);
+    window.onscroll = f
+</script>
