@@ -22,7 +22,7 @@
         let timer = null;
         return function(){
             clearTimeout(timer);
-            setTimeout(()=>{
+            timer = setTimeout(()=>{
                 fn.apply(this,arguments)
             },wait)
         }
@@ -31,5 +31,18 @@
         console.log('哈哈哈')
     }
     let f = debounce(fn);
+    // let f= throttle(fn)
     window.onscroll = f
+
+    function throttle(fn,wait=1000){
+        let flag = true;
+        return function(){
+            if(!flag) return;
+            flag = false;
+            setTimeout(()=>{
+                flag = true;
+                fn.apply(this,arguments)
+            },wait)
+        }
+    }
 </script>
